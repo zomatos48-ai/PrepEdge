@@ -15,6 +15,7 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of(
+            "https://prep-edge-snowy.vercel.app",
             "http://localhost:5173",
             "http://localhost:5174",
             "http://localhost:5175"
