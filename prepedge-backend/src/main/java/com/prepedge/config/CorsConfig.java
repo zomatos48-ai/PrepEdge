@@ -16,7 +16,7 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of(
             "https://prep-edge-snowy.vercel.app",
-            "https://prepedge-production-e450.up.railway.app",
+            "https://prepedge-moa8.onrender.com",
             "http://localhost:5173",
             "http://localhost:5174",
             "http://localhost:5175"
