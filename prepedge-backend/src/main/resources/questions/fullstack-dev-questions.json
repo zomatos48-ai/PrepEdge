@@ -1,0 +1,535 @@
+[
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript Fundamentals",
+    "difficulty": "EASY",
+    "text": "What will the following code output?\n\nconsole.log(typeof null);",
+    "explanation": "This is a well-known JavaScript quirk. 'typeof null' returns 'object' due to a bug in the original JavaScript implementation that was never fixed for backward compatibility.",
+    "options": [
+      { "text": "object", "correct": true },
+      { "text": "null", "correct": false },
+      { "text": "undefined", "correct": false },
+      { "text": "number", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript Fundamentals",
+    "difficulty": "MEDIUM",
+    "text": "What is the output of the following code?\n\nconsole.log(1 + '2' + 3);\nconsole.log(1 + 2 + '3');",
+    "explanation": "JavaScript evaluates left to right. First line: 1+'2' becomes '12' (string concat), then '12'+3 becomes '123'. Second line: 1+2 becomes 3 (number), then 3+'3' becomes '33'.",
+    "options": [
+      { "text": "123 and 33", "correct": true },
+      { "text": "123 and 6", "correct": false },
+      { "text": "6 and 33", "correct": false },
+      { "text": "33 and 123", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript Fundamentals",
+    "difficulty": "MEDIUM",
+    "text": "What will be logged to the console?\n\nfor (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 0);\n}",
+    "explanation": "Because 'var' is function-scoped (not block-scoped), all three setTimeout callbacks share the same 'i', which is 3 by the time they execute after the loop completes.",
+    "options": [
+      { "text": "3, 3, 3", "correct": true },
+      { "text": "0, 1, 2", "correct": false },
+      { "text": "0, 0, 0", "correct": false },
+      { "text": "undefined, undefined, undefined", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript Fundamentals",
+    "difficulty": "MEDIUM",
+    "text": "What will be logged to the console?\n\nfor (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 0);\n}",
+    "explanation": "Unlike 'var', 'let' is block-scoped, so each iteration of the loop creates a new binding of 'i'. Each setTimeout callback closes over its own 'i' value.",
+    "options": [
+      { "text": "0, 1, 2", "correct": true },
+      { "text": "3, 3, 3", "correct": false },
+      { "text": "2, 2, 2", "correct": false },
+      { "text": "0, 0, 0", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript Fundamentals",
+    "difficulty": "HARD",
+    "text": "What is the output?\n\nconsole.log([] + []);\nconsole.log([] + {});\nconsole.log({} + []);",
+    "explanation": "Arrays and objects are converted to strings during '+' concatenation. []+[] becomes ''+'' = ''. []+{} becomes ''+'[object Object]' = '[object Object]'. {}+[] in a console.log context is treated as a value, becoming '[object Object]'+'' = '[object Object]'.",
+    "options": [
+      { "text": "'' (empty string), '[object Object]', '[object Object]'", "correct": true },
+      { "text": "0, NaN, NaN", "correct": false },
+      { "text": "undefined, undefined, undefined", "correct": false },
+      { "text": "Error, Error, Error", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript Fundamentals",
+    "difficulty": "EASY",
+    "text": "Which method is used to convert a JSON string into a JavaScript object?",
+    "explanation": "JSON.parse() converts a JSON-formatted string into a JavaScript object. JSON.stringify() does the reverse operation.",
+    "options": [
+      { "text": "JSON.parse()", "correct": true },
+      { "text": "JSON.stringify()", "correct": false },
+      { "text": "JSON.toObject()", "correct": false },
+      { "text": "Object.parse()", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript Fundamentals",
+    "difficulty": "MEDIUM",
+    "text": "What is the output of the following code?\n\nfunction outer() {\n  let count = 0;\n  return function() {\n    count++;\n    return count;\n  };\n}\nconst counter = outer();\nconsole.log(counter());\nconsole.log(counter());\nconsole.log(counter());",
+    "explanation": "This demonstrates a closure. The inner function retains access to 'count' from the outer function's scope even after outer() has returned, and the value persists across calls.",
+    "options": [
+      { "text": "1, 2, 3", "correct": true },
+      { "text": "1, 1, 1", "correct": false },
+      { "text": "0, 1, 2", "correct": false },
+      { "text": "undefined, undefined, undefined", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript Fundamentals",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between '==' and '===' in JavaScript?",
+    "explanation": "'==' performs type coercion before comparing values, while '===' compares both value and type without any coercion (strict equality).",
+    "options": [
+      { "text": "'==' compares values with type coercion, '===' compares value and type strictly", "correct": true },
+      { "text": "'==' is faster but does the same comparison as '==='", "correct": false },
+      { "text": "'===' is used only for strings, '==' for numbers", "correct": false },
+      { "text": "There is no functional difference between them", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript Fundamentals",
+    "difficulty": "HARD",
+    "text": "What is the output of the following code?\n\nasync function foo() {\n  console.log('A');\n  await Promise.resolve();\n  console.log('B');\n}\nconsole.log('C');\nfoo();\nconsole.log('D');",
+    "explanation": "foo() runs synchronously until the first 'await'. So: console.log('C') runs -> foo() is called -> 'A' logs synchronously -> await pauses foo, control returns to caller -> 'D' logs -> microtask queue runs -> 'B' logs.",
+    "options": [
+      { "text": "C, A, D, B", "correct": true },
+      { "text": "A, C, D, B", "correct": false },
+      { "text": "C, A, B, D", "correct": false },
+      { "text": "A, B, C, D", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Arrays and Objects",
+    "difficulty": "EASY",
+    "text": "What does Array.prototype.map() return?",
+    "explanation": "map() creates and returns a brand new array by applying the given function to every element of the original array, without modifying the original array.",
+    "options": [
+      { "text": "A new array with transformed elements", "correct": true },
+      { "text": "The original array, modified in place", "correct": false },
+      { "text": "A single value", "correct": false },
+      { "text": "A boolean", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Arrays and Objects",
+    "difficulty": "MEDIUM",
+    "text": "What is the output?\n\nconst arr = [1, 2, 3];\nconst result = arr.filter(n => n > 1).map(n => n * 2);\nconsole.log(result);",
+    "explanation": "filter(n => n > 1) keeps elements greater than 1, giving [2, 3]. Then map(n => n * 2) doubles each, giving [4, 6].",
+    "options": [
+      { "text": "[4, 6]", "correct": true },
+      { "text": "[2, 4, 6]", "correct": false },
+      { "text": "[2, 3]", "correct": false },
+      { "text": "[1, 4, 6]", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Arrays and Objects",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between Object.freeze() and const for an object?",
+    "explanation": "'const' only prevents reassignment of the variable itself, but the object's properties can still be modified. Object.freeze() makes the object's properties immutable, preventing any changes to existing properties.",
+    "options": [
+      { "text": "const prevents reassignment of the variable; Object.freeze() prevents modification of the object's properties", "correct": true },
+      { "text": "They do exactly the same thing", "correct": false },
+      { "text": "Object.freeze() prevents reassignment; const prevents property modification", "correct": false },
+      { "text": "Neither prevents any kind of mutation", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Arrays and Objects",
+    "difficulty": "HARD",
+    "text": "What is the output?\n\nconst obj = { a: 1, b: 2 };\nconst { a, ...rest } = obj;\nconsole.log(a, rest);",
+    "explanation": "Destructuring extracts 'a' as 1, and the rest operator '...rest' collects all remaining properties into a new object, giving { b: 2 }.",
+    "options": [
+      { "text": "1 { b: 2 }", "correct": true },
+      { "text": "1 { a: 1, b: 2 }", "correct": false },
+      { "text": "undefined { b: 2 }", "correct": false },
+      { "text": "1 [2]", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React Basics",
+    "difficulty": "EASY",
+    "text": "What is JSX in React?",
+    "explanation": "JSX is a syntax extension for JavaScript that allows writing HTML-like syntax directly within JavaScript code, which gets compiled into React.createElement() calls.",
+    "options": [
+      { "text": "A syntax extension that lets you write HTML-like code in JavaScript", "correct": true },
+      { "text": "A separate templating language unrelated to JavaScript", "correct": false },
+      { "text": "A CSS preprocessor", "correct": false },
+      { "text": "A database query language", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React Hooks",
+    "difficulty": "MEDIUM",
+    "text": "What will happen when this component renders?\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n  console.log('Render');\n  return <button onClick={() => setCount(count + 1)}>{count}</button>;\n}",
+    "explanation": "Every time setCount is called with a new value, React re-renders the component, so 'Render' logs to console on every click, along with the updated count being displayed.",
+    "options": [
+      { "text": "'Render' logs on initial mount and again on every button click", "correct": true },
+      { "text": "'Render' logs only once, ever, no matter how many times the button is clicked", "correct": false },
+      { "text": "The component never re-renders since useState caches the value", "correct": false },
+      { "text": "An error occurs because count is not initialized properly", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React Hooks",
+    "difficulty": "MEDIUM",
+    "text": "What is the purpose of the dependency array in useEffect?",
+    "explanation": "The dependency array controls when the effect re-runs. If a value in the array changes between renders, the effect runs again. An empty array means the effect runs only once after the initial render.",
+    "options": [
+      { "text": "It controls when the effect re-runs based on which values have changed", "correct": true },
+      { "text": "It lists the components that depend on this effect", "correct": false },
+      { "text": "It defines CSS dependencies for styling", "correct": false },
+      { "text": "It has no functional purpose, it's purely documentation", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React Hooks",
+    "difficulty": "HARD",
+    "text": "What is wrong with this code?\n\nfunction Timer() {\n  const [seconds, setSeconds] = useState(0);\n  useEffect(() => {\n    setInterval(() => setSeconds(seconds + 1), 1000);\n  }, []);\n  return <div>{seconds}</div>;\n}",
+    "explanation": "This has a stale closure bug: the interval callback always references the 'seconds' value from the initial render (0), so it keeps setting seconds to 1 repeatedly instead of incrementing. It also lacks cleanup (clearInterval), causing a memory leak on unmount. The fix is to use the functional update form: setSeconds(s => s + 1), and return a cleanup function.",
+    "options": [
+      { "text": "It has a stale closure bug and missing interval cleanup", "correct": true },
+      { "text": "useState cannot be used with numbers", "correct": false },
+      { "text": "useEffect cannot contain setInterval", "correct": false },
+      { "text": "There is no issue, the code works correctly", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React Hooks",
+    "difficulty": "MEDIUM",
+    "text": "What does useMemo primarily help with?",
+    "explanation": "useMemo memoizes the result of an expensive computation, recalculating it only when its dependencies change, which helps avoid unnecessary recalculations on every render.",
+    "options": [
+      { "text": "Memoizing expensive computed values between renders", "correct": true },
+      { "text": "Storing component state permanently", "correct": false },
+      { "text": "Making API calls", "correct": false },
+      { "text": "Replacing the need for useState entirely", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React Hooks",
+    "difficulty": "EASY",
+    "text": "What is the correct way to update state based on the previous state in React?",
+    "explanation": "Using the functional form, setCount(prev => prev + 1), guarantees you're working with the most current state value, especially important when multiple updates happen in quick succession (e.g. in a loop or async callback).",
+    "options": [
+      { "text": "setCount(prev => prev + 1)", "correct": true },
+      { "text": "setCount(count = count + 1)", "correct": false },
+      { "text": "count = count + 1", "correct": false },
+      { "text": "useState.update(count + 1)", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React Component Lifecycle",
+    "difficulty": "MEDIUM",
+    "text": "In a functional component, which hook is the equivalent of componentDidMount from class components?",
+    "explanation": "useEffect with an empty dependency array ([]) runs only once after the initial render, mimicking the behavior of componentDidMount.",
+    "options": [
+      { "text": "useEffect(() => {...}, [])", "correct": true },
+      { "text": "useState(() => {...})", "correct": false },
+      { "text": "useEffect(() => {...})", "correct": false },
+      { "text": "useCallback(() => {...}, [])", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React Props and State",
+    "difficulty": "EASY",
+    "text": "Can a child component directly modify a prop passed to it from a parent?",
+    "explanation": "Props are read-only in React. A child component should never directly mutate a prop; instead, it should call a function passed down from the parent (often via props) to request a state change.",
+    "options": [
+      { "text": "No, props are read-only and should never be mutated directly", "correct": true },
+      { "text": "Yes, props can be reassigned freely inside the child", "correct": false },
+      { "text": "Only numeric props can be modified", "correct": false },
+      { "text": "Only if the prop is an object", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React Keys",
+    "difficulty": "MEDIUM",
+    "text": "Why is using the array index as a 'key' prop in a list considered an anti-pattern when the list can be reordered?",
+    "explanation": "When list items are reordered, added, or removed, using the index as a key can cause React to misidentify which DOM elements correspond to which data, leading to incorrect rendering, lost component state, or unnecessary re-renders.",
+    "options": [
+      { "text": "It can cause React to misidentify items during reordering, leading to rendering bugs", "correct": true },
+      { "text": "React does not allow numeric keys at all", "correct": false },
+      { "text": "It causes a compile-time error", "correct": false },
+      { "text": "There is no actual issue with using index as key", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Node.js Basics",
+    "difficulty": "EASY",
+    "text": "What is Node.js primarily used for?",
+    "explanation": "Node.js is a JavaScript runtime built on Chrome's V8 engine that allows JavaScript to be executed outside the browser, commonly used to build server-side applications and APIs.",
+    "options": [
+      { "text": "Running JavaScript outside the browser, typically for server-side applications", "correct": true },
+      { "text": "Styling web pages", "correct": false },
+      { "text": "Compiling Java code", "correct": false },
+      { "text": "Managing databases exclusively", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Node.js Event Loop",
+    "difficulty": "HARD",
+    "text": "What is the output order?\n\nconsole.log('1');\nsetTimeout(() => console.log('2'), 0);\nPromise.resolve().then(() => console.log('3'));\nconsole.log('4');",
+    "explanation": "Synchronous code runs first: '1' and '4' log immediately. Then microtasks (Promises) run before macrotasks (setTimeout), so '3' logs next, followed by '2'.",
+    "options": [
+      { "text": "1, 4, 3, 2", "correct": true },
+      { "text": "1, 2, 3, 4", "correct": false },
+      { "text": "1, 4, 2, 3", "correct": false },
+      { "text": "1, 3, 4, 2", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Node.js Modules",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between 'require' (CommonJS) and 'import' (ES Modules) in Node.js?",
+    "explanation": "require() is synchronous and loads modules at runtime (CommonJS, traditional Node.js style), while import is part of ES Modules, supports static analysis, and can be asynchronous; Node.js needs explicit configuration (e.g. \"type\": \"module\" in package.json) to use ES Modules natively.",
+    "options": [
+      { "text": "require is CommonJS and synchronous; import is ES Modules and supports static analysis", "correct": true },
+      { "text": "They are completely identical with no differences", "correct": false },
+      { "text": "import only works in the browser, never in Node.js", "correct": false },
+      { "text": "require is newer than import", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "REST API Design",
+    "difficulty": "EASY",
+    "text": "Which HTTP method is conventionally used to update an existing resource entirely (replacing it)?",
+    "explanation": "PUT is conventionally used to replace an entire resource. PATCH is used for partial updates, POST for creating new resources, and DELETE for removing resources.",
+    "options": [
+      { "text": "PUT", "correct": true },
+      { "text": "GET", "correct": false },
+      { "text": "POST", "correct": false },
+      { "text": "DELETE", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "REST API Design",
+    "difficulty": "MEDIUM",
+    "text": "What is the key difference between PUT and PATCH HTTP methods?",
+    "explanation": "PUT typically replaces the entire resource with the provided payload, while PATCH applies a partial update, modifying only the specified fields.",
+    "options": [
+      { "text": "PUT replaces the entire resource; PATCH applies a partial update", "correct": true },
+      { "text": "PUT is for reading data; PATCH is for writing data", "correct": false },
+      { "text": "They are functionally identical in every REST API", "correct": false },
+      { "text": "PATCH is used only for deleting resources", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "REST API Design",
+    "difficulty": "MEDIUM",
+    "text": "What HTTP status code should be returned when a resource is successfully created via a POST request?",
+    "explanation": "201 Created is the standard status code indicating that a new resource was successfully created as a result of the request, typically along with a Location header pointing to the new resource.",
+    "options": [
+      { "text": "201 Created", "correct": true },
+      { "text": "200 OK", "correct": false },
+      { "text": "204 No Content", "correct": false },
+      { "text": "302 Found", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "REST API Design",
+    "difficulty": "EASY",
+    "text": "What does HTTP status code 404 indicate?",
+    "explanation": "404 Not Found indicates that the server could not find the requested resource. The client may have requested a URL that doesn't exist or has been removed.",
+    "options": [
+      { "text": "The requested resource was not found", "correct": true },
+      { "text": "The server encountered an internal error", "correct": false },
+      { "text": "The request was successful", "correct": false },
+      { "text": "The client is not authorized", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "REST API Design",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between HTTP status codes 401 and 403?",
+    "explanation": "401 Unauthorized means the client is not authenticated (no valid credentials provided), while 403 Forbidden means the client is authenticated but does not have permission to access the resource.",
+    "options": [
+      { "text": "401 means not authenticated; 403 means authenticated but not authorized", "correct": true },
+      { "text": "401 and 403 mean exactly the same thing", "correct": false },
+      { "text": "401 is for servers; 403 is for clients", "correct": false },
+      { "text": "403 means the resource doesn't exist", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Authentication",
+    "difficulty": "MEDIUM",
+    "text": "What is the main advantage of using JWT (JSON Web Tokens) over traditional session-based authentication?",
+    "explanation": "JWTs are stateless, meaning the server doesn't need to store session data — all necessary information is encoded in the token itself, which makes JWTs well-suited for distributed systems and horizontal scaling.",
+    "options": [
+      { "text": "JWTs are stateless, removing the need for server-side session storage", "correct": true },
+      { "text": "JWTs are always more secure than any other method", "correct": false },
+      { "text": "JWTs cannot expire, unlike sessions", "correct": false },
+      { "text": "JWTs eliminate the need for HTTPS", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Authentication",
+    "difficulty": "MEDIUM",
+    "text": "What are the three parts of a JWT, separated by dots?",
+    "explanation": "A JWT consists of three Base64Url-encoded parts: the Header (algorithm and token type), the Payload (claims/data), and the Signature (used to verify the token hasn't been tampered with).",
+    "options": [
+      { "text": "Header, Payload, Signature", "correct": true },
+      { "text": "Header, Body, Footer", "correct": false },
+      { "text": "Token, Key, Secret", "correct": false },
+      { "text": "Username, Password, Role", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "CSS and Styling",
+    "difficulty": "EASY",
+    "text": "Which CSS property is used to control the spacing between flex items in a flex container?",
+    "explanation": "The 'gap' property controls spacing between flex or grid items directly within the container, without needing margins on individual items.",
+    "options": [
+      { "text": "gap", "correct": true },
+      { "text": "spacing", "correct": false },
+      { "text": "flex-spacing", "correct": false },
+      { "text": "justify-gap", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "CSS and Styling",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between 'position: relative' and 'position: absolute' in CSS?",
+    "explanation": "'relative' positions an element relative to its own normal position, while 'absolute' positions an element relative to its nearest positioned (non-static) ancestor, removing it from the normal document flow.",
+    "options": [
+      { "text": "relative positions based on the element's normal position; absolute positions relative to the nearest positioned ancestor", "correct": true },
+      { "text": "They behave identically in all cases", "correct": false },
+      { "text": "absolute is always relative to the viewport only", "correct": false },
+      { "text": "relative removes the element from the document flow", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Database Integration",
+    "difficulty": "MEDIUM",
+    "text": "What is the main purpose of an ORM (Object-Relational Mapping) tool like Hibernate or Sequelize?",
+    "explanation": "An ORM allows developers to interact with a relational database using object-oriented code instead of writing raw SQL queries, mapping database tables to classes/objects automatically.",
+    "options": [
+      { "text": "To map database tables to objects, allowing database interaction via object-oriented code", "correct": true },
+      { "text": "To replace the need for a database entirely", "correct": false },
+      { "text": "To handle only frontend state management", "correct": false },
+      { "text": "To compress database storage size", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Database Integration",
+    "difficulty": "HARD",
+    "text": "What is the N+1 query problem commonly encountered when using an ORM?",
+    "explanation": "The N+1 problem occurs when fetching a list of N parent records triggers 1 query for the list, followed by N additional queries (one per record) to fetch related data, instead of using a single optimized join query — causing significant performance issues at scale.",
+    "options": [
+      { "text": "Fetching N records triggers 1 query for the list plus N additional queries for related data, instead of one efficient join", "correct": true },
+      { "text": "A bug that causes exactly one extra row to be inserted into a table", "correct": false },
+      { "text": "An error that occurs when a primary key is duplicated", "correct": false },
+      { "text": "A limitation where ORMs can only handle N+1 tables in a join", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Async JavaScript",
+    "difficulty": "MEDIUM",
+    "text": "What is the output?\n\nfunction delay() {\n  return new Promise(resolve => setTimeout(() => resolve('done'), 100));\n}\nasync function run() {\n  const result = await delay();\n  console.log(result);\n}\nrun();\nconsole.log('started');",
+    "explanation": "run() is called, executes synchronously until 'await delay()', which pauses execution and returns control to the caller. 'started' logs immediately. After ~100ms, the Promise resolves and 'done' logs.",
+    "options": [
+      { "text": "started, then done (after a delay)", "correct": true },
+      { "text": "done, then started", "correct": false },
+      { "text": "started and done log at the exact same time", "correct": false },
+      { "text": "Only 'started' logs, 'done' never logs", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Async JavaScript",
+    "difficulty": "MEDIUM",
+    "text": "What happens if a Promise rejection is not caught with .catch() or a try/catch block in an async function?",
+    "explanation": "An unhandled Promise rejection results in an 'UnhandledPromiseRejection' warning/error, and in Node.js this can crash the process in newer versions, depending on configuration. It will not be silently ignored.",
+    "options": [
+      { "text": "It results in an unhandled promise rejection warning/error", "correct": true },
+      { "text": "JavaScript automatically retries the Promise", "correct": false },
+      { "text": "The rejection is silently ignored with no consequence", "correct": false },
+      { "text": "The entire application restarts automatically", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "State Management",
+    "difficulty": "MEDIUM",
+    "text": "What problem does the Context API in React primarily solve?",
+    "explanation": "Context API solves 'prop drilling' — the need to pass props through many intermediate components that don't need the data themselves, just to get it to a deeply nested child.",
+    "options": [
+      { "text": "Prop drilling — passing props through many intermediate components unnecessarily", "correct": true },
+      { "text": "Compiling JSX into JavaScript", "correct": false },
+      { "text": "Connecting to a backend database directly", "correct": false },
+      { "text": "Styling components with CSS-in-JS", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Web Security",
+    "difficulty": "MEDIUM",
+    "text": "What does CORS (Cross-Origin Resource Sharing) primarily control?",
+    "explanation": "CORS is a browser security mechanism that controls whether a web page from one origin (domain) is allowed to make requests to a server on a different origin, preventing unauthorized cross-origin requests by default.",
+    "options": [
+      { "text": "Whether a web page can make requests to a server on a different origin", "correct": true },
+      { "text": "How fast a server responds to requests", "correct": false },
+      { "text": "The encryption algorithm used for HTTPS", "correct": false },
+      { "text": "How CSS styles are shared between pages", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Web Security",
+    "difficulty": "HARD",
+    "text": "What is the primary difference between XSS (Cross-Site Scripting) and CSRF (Cross-Site Request Forgery) attacks?",
+    "explanation": "XSS involves injecting malicious scripts into a trusted website that then execute in users' browsers (exploiting trust the user has in the site). CSRF tricks an authenticated user's browser into making unwanted requests to a site where they're already logged in (exploiting trust the site has in the user).",
+    "options": [
+      { "text": "XSS injects malicious scripts into a site; CSRF tricks an authenticated user into making unwanted requests", "correct": true },
+      { "text": "They are exactly the same attack with different names", "correct": false },
+      { "text": "XSS only affects servers; CSRF only affects databases", "correct": false },
+      { "text": "CSRF requires no authentication at all to function", "correct": false }
+    ]
+  }
+]

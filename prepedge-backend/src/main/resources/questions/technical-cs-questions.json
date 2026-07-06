@@ -1,0 +1,262 @@
+[
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "OOP Basics",
+    "difficulty": "EASY",
+    "text": "What are the four main pillars of Object-Oriented Programming?",
+    "explanation": "The four pillars of OOP are: Encapsulation (bundling data and methods), Inheritance (deriving new classes from existing ones), Polymorphism (same interface, different behavior), and Abstraction (hiding implementation details).",
+    "options": [
+      { "text": "Encapsulation, Inheritance, Polymorphism, Abstraction", "correct": true },
+      { "text": "Classes, Objects, Methods, Variables", "correct": false },
+      { "text": "Loops, Conditions, Functions, Arrays", "correct": false },
+      { "text": "Compilation, Linking, Loading, Execution", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "Inheritance",
+    "difficulty": "EASY",
+    "text": "What is method overriding in Java?",
+    "explanation": "Method overriding occurs when a subclass provides its own implementation of a method already defined in its parent class. The method must have the same name, return type, and parameters. @Override annotation is used to ensure correctness.",
+    "options": [
+      { "text": "A subclass provides its own implementation of a method defined in the parent class", "correct": true },
+      { "text": "Defining multiple methods with the same name but different parameters", "correct": false },
+      { "text": "Calling a parent class method from a child class", "correct": false },
+      { "text": "Creating a new method that doesn't exist in the parent class", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "Polymorphism",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between method overloading and method overriding?",
+    "explanation": "Overloading: same method name, different parameters, in the same class — resolved at compile time (static polymorphism). Overriding: same method name and parameters, in parent and child class — resolved at runtime (dynamic polymorphism).",
+    "options": [
+      { "text": "Overloading is compile-time polymorphism (same class, different params); overriding is runtime polymorphism (parent-child, same signature)", "correct": true },
+      { "text": "They are the same thing with different names", "correct": false },
+      { "text": "Overloading is only for constructors; overriding is for regular methods", "correct": false },
+      { "text": "Overriding changes the return type; overloading changes the method name", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "Encapsulation",
+    "difficulty": "EASY",
+    "text": "What is encapsulation and how is it achieved in Java?",
+    "explanation": "Encapsulation is bundling data (fields) and methods that operate on that data into a single unit (class), and restricting direct access to the data. In Java, it's achieved by declaring fields as private and providing public getter/setter methods.",
+    "options": [
+      { "text": "Bundling data and methods into a class with private fields and public getters/setters", "correct": true },
+      { "text": "Inheriting properties from a parent class", "correct": false },
+      { "text": "Having multiple methods with the same name", "correct": false },
+      { "text": "Creating abstract classes and interfaces", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "Abstraction",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between an abstract class and an interface in Java?",
+    "explanation": "Abstract class: can have abstract and concrete methods, instance variables, constructors; supports single inheritance. Interface: all methods are abstract by default (pre-Java 8), no instance variables; supports multiple inheritance. Use abstract class for 'is-a' with shared code; interface for 'can-do' capabilities.",
+    "options": [
+      { "text": "Abstract class can have concrete methods and state; interface defines a contract with no state (pre-Java 8)", "correct": true },
+      { "text": "They are identical — both can only have abstract methods", "correct": false },
+      { "text": "Interface supports single inheritance; abstract class supports multiple", "correct": false },
+      { "text": "Abstract classes cannot be instantiated; interfaces can", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "OOP Basics",
+    "difficulty": "MEDIUM",
+    "text": "What is the output of this Java code?\n\nclass Animal {\n  String speak() { return \"...\"; }\n}\nclass Dog extends Animal {\n  String speak() { return \"Woof\"; }\n}\nAnimal a = new Dog();\nSystem.out.println(a.speak());",
+    "explanation": "This demonstrates runtime polymorphism. Even though the reference type is Animal, the actual object is Dog. Java resolves method calls based on the actual object type at runtime, so Dog's speak() is called, returning 'Woof'.",
+    "options": [
+      { "text": "Woof", "correct": true },
+      { "text": "...", "correct": false },
+      { "text": "Compilation error", "correct": false },
+      { "text": "null", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management Systems",
+    "topic": "SQL Basics",
+    "difficulty": "EASY",
+    "text": "What is the difference between WHERE and HAVING clauses in SQL?",
+    "explanation": "WHERE filters rows before grouping — it works on individual rows and cannot use aggregate functions. HAVING filters groups after GROUP BY — it works on aggregated results and can use aggregate functions like COUNT, SUM, AVG.",
+    "options": [
+      { "text": "WHERE filters rows before grouping; HAVING filters groups after GROUP BY", "correct": true },
+      { "text": "They are interchangeable and do the same thing", "correct": false },
+      { "text": "WHERE is for SELECT; HAVING is for INSERT", "correct": false },
+      { "text": "HAVING filters individual rows; WHERE filters groups", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management Systems",
+    "topic": "SQL Basics",
+    "difficulty": "MEDIUM",
+    "text": "What will this SQL query return?\n\nSELECT department, COUNT(*) as emp_count\nFROM employees\nGROUP BY department\nHAVING COUNT(*) > 5\nORDER BY emp_count DESC;",
+    "explanation": "This query counts employees per department, keeps only departments with more than 5 employees, and sorts them by employee count in descending order. It returns department names and their employee counts for large departments.",
+    "options": [
+      { "text": "Departments with more than 5 employees, sorted by count descending", "correct": true },
+      { "text": "All departments sorted alphabetically", "correct": false },
+      { "text": "The 5 largest departments", "correct": false },
+      { "text": "Employees who belong to departments with more than 5 members", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management Systems",
+    "topic": "Normalization",
+    "difficulty": "MEDIUM",
+    "text": "What is the main goal of database normalization?",
+    "explanation": "Normalization organizes a database to reduce data redundancy and improve data integrity. It involves dividing large tables into smaller, related tables and defining relationships between them, following normal forms (1NF, 2NF, 3NF, etc.).",
+    "options": [
+      { "text": "Reduce data redundancy and improve data integrity", "correct": true },
+      { "text": "Make queries run faster by storing everything in one table", "correct": false },
+      { "text": "Encrypt sensitive data in the database", "correct": false },
+      { "text": "Increase storage space for better performance", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management Systems",
+    "topic": "Joins",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between INNER JOIN and LEFT JOIN?",
+    "explanation": "INNER JOIN returns only rows where there is a match in BOTH tables. LEFT JOIN returns all rows from the left table plus matching rows from the right table — unmatched right table columns show NULL.",
+    "options": [
+      { "text": "INNER JOIN returns only matched rows; LEFT JOIN returns all left rows plus matched right rows", "correct": true },
+      { "text": "They return the same results in all cases", "correct": false },
+      { "text": "LEFT JOIN returns only left table rows with no match", "correct": false },
+      { "text": "INNER JOIN is faster but LEFT JOIN is more accurate", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management Systems",
+    "topic": "Indexes",
+    "difficulty": "MEDIUM",
+    "text": "What is a database index and what is its tradeoff?",
+    "explanation": "An index is a data structure (typically a B-tree) that speeds up data retrieval on indexed columns. Tradeoff: indexes speed up SELECT queries but slow down INSERT/UPDATE/DELETE operations (because the index must also be updated), and consume additional storage space.",
+    "options": [
+      { "text": "Speeds up reads but slows down writes and uses extra storage", "correct": true },
+      { "text": "Speeds up all operations with no downside", "correct": false },
+      { "text": "Slows down reads but speeds up writes", "correct": false },
+      { "text": "Only affects storage size, not query performance", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management Systems",
+    "topic": "Transactions",
+    "difficulty": "HARD",
+    "text": "What do the ACID properties of a database transaction stand for?",
+    "explanation": "ACID: Atomicity (transaction is all-or-nothing), Consistency (transaction brings DB from one valid state to another), Isolation (concurrent transactions don't interfere with each other), Durability (committed transactions persist even after system failure).",
+    "options": [
+      { "text": "Atomicity, Consistency, Isolation, Durability", "correct": true },
+      { "text": "Availability, Consistency, Integrity, Durability", "correct": false },
+      { "text": "Atomicity, Concurrency, Integrity, Distribution", "correct": false },
+      { "text": "Access, Control, Isolation, Data", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "Processes",
+    "difficulty": "EASY",
+    "text": "What is the difference between a process and a thread?",
+    "explanation": "A process is an independent program in execution with its own memory space. A thread is a lightweight unit of execution within a process, sharing the process's memory and resources. Multiple threads in a process share code, data, and heap but each has its own stack and registers.",
+    "options": [
+      { "text": "Process has its own memory space; threads share memory within a process", "correct": true },
+      { "text": "They are the same thing with different names", "correct": false },
+      { "text": "Threads have their own memory; processes share memory", "correct": false },
+      { "text": "A process can only have one thread", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "Scheduling",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between preemptive and non-preemptive scheduling?",
+    "explanation": "Preemptive scheduling: OS can interrupt a running process and switch to another (e.g. Round Robin). Non-preemptive: once a process starts running, it runs until it voluntarily gives up CPU (finishes or blocks). Preemptive gives better response time but has overhead from context switching.",
+    "options": [
+      { "text": "Preemptive allows OS to interrupt processes; non-preemptive runs until completion or blocking", "correct": true },
+      { "text": "Preemptive is for single-core; non-preemptive is for multi-core", "correct": false },
+      { "text": "Non-preemptive is always more efficient", "correct": false },
+      { "text": "They are identical in modern operating systems", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "Deadlocks",
+    "difficulty": "HARD",
+    "text": "What are the four necessary conditions for a deadlock to occur?",
+    "explanation": "Coffman conditions for deadlock: (1) Mutual Exclusion — resource held by one process at a time, (2) Hold and Wait — process holding resources waits for more, (3) No Preemption — resources cannot be forcibly taken, (4) Circular Wait — circular chain of processes waiting for each other.",
+    "options": [
+      { "text": "Mutual Exclusion, Hold and Wait, No Preemption, Circular Wait", "correct": true },
+      { "text": "Starvation, Livelock, Race Condition, Priority Inversion", "correct": false },
+      { "text": "CPU Bound, I/O Bound, Memory Bound, Network Bound", "correct": false },
+      { "text": "Synchronization, Communication, Coordination, Termination", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "Memory Management",
+    "difficulty": "MEDIUM",
+    "text": "What is virtual memory and what problem does it solve?",
+    "explanation": "Virtual memory is a technique that gives each process the illusion of having more memory than physically available. It maps virtual addresses to physical RAM using page tables. Solves: allows running programs larger than RAM, provides memory isolation between processes, enables efficient memory sharing.",
+    "options": [
+      { "text": "Gives processes an illusion of more memory than physically available, enabling isolation and larger programs", "correct": true },
+      { "text": "Compresses data in RAM to fit more processes", "correct": false },
+      { "text": "A type of faster RAM used for caching", "correct": false },
+      { "text": "Allocates exactly as much RAM as each process requests", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "OSI Model",
+    "difficulty": "EASY",
+    "text": "How many layers does the OSI model have and what is the order from top to bottom?",
+    "explanation": "The OSI model has 7 layers (top to bottom): Application, Presentation, Session, Transport, Network, Data Link, Physical. Mnemonic: 'All People Seem To Need Data Processing'.",
+    "options": [
+      { "text": "7 layers: Application, Presentation, Session, Transport, Network, Data Link, Physical", "correct": true },
+      { "text": "4 layers: Application, Transport, Internet, Network Access", "correct": false },
+      { "text": "5 layers: Application, Session, Transport, Network, Physical", "correct": false },
+      { "text": "6 layers: Application, Transport, Network, Data Link, Physical, Hardware", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "TCP/IP",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between TCP and UDP?",
+    "explanation": "TCP (Transmission Control Protocol): connection-oriented, reliable, ordered delivery, error checking, flow control — used for HTTP, email, file transfer. UDP (User Datagram Protocol): connectionless, no reliability guarantee, faster, lower overhead — used for video streaming, DNS, gaming.",
+    "options": [
+      { "text": "TCP is reliable and connection-oriented; UDP is faster but unreliable and connectionless", "correct": true },
+      { "text": "UDP is more reliable than TCP", "correct": false },
+      { "text": "TCP is used for streaming; UDP is used for web browsing", "correct": false },
+      { "text": "They are identical protocols with different names", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "HTTP",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between HTTP and HTTPS?",
+    "explanation": "HTTP (HyperText Transfer Protocol) transfers data in plain text — vulnerable to interception. HTTPS adds TLS/SSL encryption on top of HTTP, encrypting data in transit so only the intended recipient can read it. HTTPS also verifies server identity via certificates.",
+    "options": [
+      { "text": "HTTPS adds TLS/SSL encryption and server identity verification to HTTP", "correct": true },
+      { "text": "HTTPS is just a faster version of HTTP", "correct": false },
+      { "text": "HTTP is encrypted; HTTPS is not", "correct": false },
+      { "text": "They are identical — browsers just display them differently", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "DNS",
+    "difficulty": "EASY",
+    "text": "What does DNS stand for and what does it do?",
+    "explanation": "DNS stands for Domain Name System. It translates human-readable domain names (like google.com) into IP addresses (like 142.250.80.46) that computers use to identify each other on the network. It's like a phone book for the internet.",
+    "options": [
+      { "text": "Domain Name System — translates domain names to IP addresses", "correct": true },
+      { "text": "Data Network Service — manages network data packets", "correct": false },
+      { "text": "Dynamic Node Selector — assigns nodes in a distributed system", "correct": false },
+      { "text": "Distributed Naming Server — stores website content", "correct": false }
+    ]
+  }
+]

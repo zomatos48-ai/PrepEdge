@@ -1,0 +1,392 @@
+[
+  {
+    "subject": "Full Stack Development",
+    "topic": "React",
+    "difficulty": "MEDIUM",
+    "text": "What is the purpose of React's useCallback hook?",
+    "explanation": "useCallback memoizes a function definition between renders. Without it, every render creates a new function reference, causing child components (that receive the function as a prop) to re-render unnecessarily. useCallback returns the cached function unless its dependencies change.",
+    "options": [
+      { "text": "Memoizes a function reference to prevent unnecessary child re-renders", "correct": true },
+      { "text": "Caches the return value of a function to avoid recalculation", "correct": false },
+      { "text": "Replaces useEffect for side effects with callback patterns", "correct": false },
+      { "text": "Provides a callback mechanism for async state updates", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React",
+    "difficulty": "HARD",
+    "text": "What is React's Reconciliation algorithm and how does it optimize re-renders?",
+    "explanation": "React's Reconciliation (diffing algorithm) compares the previous Virtual DOM tree with the new one and computes the minimal set of actual DOM changes. It uses the key prop to identify elements across renders and assumes components of different types produce different trees. React Fiber (v16+) makes reconciliation interruptible.",
+    "options": [
+      { "text": "Diffs previous vs new Virtual DOM, applies minimal real DOM changes using keys for element identity", "correct": true },
+      { "text": "Re-renders all components on every state change for accuracy", "correct": false },
+      { "text": "Batches all setState calls and applies once per second", "correct": false },
+      { "text": "Clones the entire DOM on each render and swaps it atomically", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between useMemo and React.memo?",
+    "explanation": "React.memo is a HOC that prevents a functional component from re-rendering if its props haven't changed (shallow comparison). useMemo is a hook that memoizes the result of an expensive computation inside a component. React.memo acts at component level; useMemo acts at value level.",
+    "options": [
+      { "text": "React.memo prevents component re-renders; useMemo memoizes computed values inside a component", "correct": true },
+      { "text": "They are identical; React.memo is just the class component version of useMemo", "correct": false },
+      { "text": "useMemo prevents re-renders; React.memo memoizes expensive calculations", "correct": false },
+      { "text": "React.memo is for lists; useMemo is for single values", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React",
+    "difficulty": "EASY",
+    "text": "What is the purpose of the key prop in React lists?",
+    "explanation": "The key prop helps React's reconciliation algorithm identify which list items have changed, been added, or removed between renders. Keys must be unique among siblings. Using array index as key can cause issues when list order changes — prefer stable unique IDs.",
+    "options": [
+      { "text": "Helps React identify which list items changed — prevents unnecessary DOM mutations", "correct": true },
+      { "text": "Encrypts list items for security in production builds", "correct": false },
+      { "text": "Defines the sort order for React to display list items", "correct": false },
+      { "text": "Links list items to their parent component for event bubbling", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React",
+    "difficulty": "HARD",
+    "text": "What is React Context API and when should you NOT use it?",
+    "explanation": "Context provides a way to pass data through the component tree without prop drilling. However, every consumer re-renders when context value changes. Don't use Context for high-frequency updates (use Zustand/Redux instead). Context is ideal for: theme, locale, current user, auth state — things that change rarely.",
+    "options": [
+      { "text": "Context avoids prop drilling but causes all consumers to re-render; avoid for high-frequency updates", "correct": true },
+      { "text": "Context is always preferred over Redux for all global state management", "correct": false },
+      { "text": "Context should not be used for authentication — use localStorage instead", "correct": false },
+      { "text": "Context is deprecated in React 18; use useReducer hooks instead", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Spring Boot",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between @Component, @Service, @Repository, and @Controller in Spring?",
+    "explanation": "All four are specializations of @Component (for auto-detection). @Service marks business logic layer. @Repository marks data access layer (adds exception translation). @Controller marks MVC controller (handles HTTP). They are semantically meaningful — enabling AOP, exception translation, and clarity on component roles.",
+    "options": [
+      { "text": "All extend @Component; @Repository adds exception translation; @Controller enables HTTP handling; @Service marks business logic", "correct": true },
+      { "text": "They are completely separate annotations with no inheritance relationship", "correct": false },
+      { "text": "@Service and @Repository are identical; @Controller is the only special one", "correct": false },
+      { "text": "@Component is deprecated; always use the specific stereotype annotations", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Spring Boot",
+    "difficulty": "HARD",
+    "text": "What is Spring Boot's auto-configuration mechanism and how can you exclude specific auto-configurations?",
+    "explanation": "Spring Boot uses @EnableAutoConfiguration (included in @SpringBootApplication) which reads META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports. It conditionally creates beans using @ConditionalOnClass, @ConditionalOnMissingBean, etc. Exclude with: @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class}).",
+    "options": [
+      { "text": "Reads AutoConfiguration.imports, uses @Conditional annotations; exclude via @SpringBootApplication(exclude=...)", "correct": true },
+      { "text": "Scans all JAR files and enables everything; disable in application.properties", "correct": false },
+      { "text": "Auto-configuration runs only in production; dev profile disables it", "correct": false },
+      { "text": "Auto-configuration cannot be excluded — use @Primary to override beans", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Spring Boot",
+    "difficulty": "MEDIUM",
+    "text": "What does @Transactional do in Spring and what is the default propagation behavior?",
+    "explanation": "@Transactional wraps the method in a database transaction. Default propagation is REQUIRED — if a transaction exists, join it; otherwise create a new one. Default isolation is READ_COMMITTED (database default). Spring uses AOP proxies, so @Transactional on private methods or self-invocations doesn't work.",
+    "options": [
+      { "text": "Wraps method in a DB transaction; default propagation REQUIRED (join existing or create new); fails on private methods", "correct": true },
+      { "text": "Always creates a new transaction regardless of existing ones", "correct": false },
+      { "text": "@Transactional only works on repository layer, not service layer", "correct": false },
+      { "text": "Makes the method run in a separate thread with its own transaction context", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "REST API",
+    "difficulty": "EASY",
+    "text": "What is the difference between PUT and PATCH HTTP methods?",
+    "explanation": "PUT replaces the entire resource with the provided representation (idempotent, full update). PATCH applies partial modifications to a resource (idempotent if designed correctly). Use PUT when sending the complete resource; use PATCH when sending only changed fields.",
+    "options": [
+      { "text": "PUT replaces the entire resource; PATCH applies partial updates to specific fields", "correct": true },
+      { "text": "PUT creates a new resource; PATCH updates an existing one", "correct": false },
+      { "text": "They are interchangeable; use either for updates", "correct": false },
+      { "text": "PUT is for binary data; PATCH is for JSON data", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "REST API",
+    "difficulty": "MEDIUM",
+    "text": "What does idempotency mean in REST APIs?",
+    "explanation": "An operation is idempotent if making the same request multiple times produces the same result as making it once. GET, PUT, DELETE, HEAD are idempotent. POST is NOT idempotent (each POST may create a new resource). PATCH can be idempotent if designed carefully.",
+    "options": [
+      { "text": "Multiple identical requests produce same result as one request; GET/PUT/DELETE are idempotent, POST is not", "correct": true },
+      { "text": "The API returns the same response for any request method", "correct": false },
+      { "text": "All requests are processed in exactly one millisecond regardless of load", "correct": false },
+      { "text": "The API cannot be called twice with the same parameters to prevent spam", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "REST API",
+    "difficulty": "HARD",
+    "text": "What is the Richardson Maturity Model for REST APIs?",
+    "explanation": "Level 0: Single URI, one HTTP method. Level 1: Multiple URIs (resources). Level 2: Multiple URIs + HTTP verbs correctly (GET for read, POST for create, etc.). Level 3: HATEOAS — responses include links to related actions. Most production APIs are Level 2; Level 3 (true REST) is rare.",
+    "options": [
+      { "text": "Level 0: single URI; Level 1: multiple URIs; Level 2: HTTP verbs; Level 3: HATEOAS with links", "correct": true },
+      { "text": "4 levels based on response time: milliseconds to seconds", "correct": false },
+      { "text": "Measures API security from Level 0 (no auth) to Level 3 (OAuth2 + HTTPS)", "correct": false },
+      { "text": "Classifies APIs by protocol: REST(0), GraphQL(1), gRPC(2), WebSocket(3)", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript",
+    "difficulty": "MEDIUM",
+    "text": "What is the event loop in JavaScript and how does it handle asynchronous operations?",
+    "explanation": "JavaScript is single-threaded. The event loop monitors the call stack and callback queue. When the call stack is empty, it picks tasks from the callback queue (macrotasks: setTimeout, I/O) or microtask queue (Promises, queueMicrotask — processed first, completely, before next macrotask).",
+    "options": [
+      { "text": "Monitors call stack; when empty, processes microtasks (Promises) first, then macrotasks (setTimeout)", "correct": true },
+      { "text": "Creates new threads for each async operation, rejoining main thread when done", "correct": false },
+      { "text": "Pauses execution until each async operation completes before proceeding", "correct": false },
+      { "text": "Runs all setTimeout callbacks immediately but defers their effects", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript",
+    "difficulty": "HARD",
+    "text": "What is the difference between var, let, and const in JavaScript regarding scope and hoisting?",
+    "explanation": "var: function-scoped, hoisted and initialized to undefined. let: block-scoped, hoisted but in Temporal Dead Zone (TDZ) — accessing before declaration throws ReferenceError. const: block-scoped like let, but must be initialized at declaration and cannot be reassigned (though object properties can be mutated).",
+    "options": [
+      { "text": "var: function-scope, hoisted to undefined; let/const: block-scope, TDZ (ReferenceError if accessed early)", "correct": true },
+      { "text": "var: global, let: function, const: block — all hoisted identically", "correct": false },
+      { "text": "const prevents all mutations including object property changes", "correct": false },
+      { "text": "let and const are identical except const must be uppercase", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript",
+    "difficulty": "MEDIUM",
+    "text": "What is closure in JavaScript?",
+    "explanation": "A closure is a function that retains access to its lexical scope (the variables from its containing scope) even after the outer function has finished executing. Closures enable data privacy (module pattern), memoization, and callback patterns with retained context.",
+    "options": [
+      { "text": "A function that retains access to its outer scope's variables even after the outer function returns", "correct": true },
+      { "text": "A way to close (terminate) a function execution early using break", "correct": false },
+      { "text": "A design pattern to encapsulate multiple classes into one module", "correct": false },
+      { "text": "The final step before garbage collection in JavaScript's memory model", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript",
+    "difficulty": "HARD",
+    "text": "What is the output of the following code?\n\nfor(var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 0);\n}\n",
+    "explanation": "Outputs: 3, 3, 3. Because var is function-scoped (not block-scoped), all three closures share the same variable i. By the time setTimeout callbacks execute (after the loop), i has reached 3. Fix: use let (block-scoped) or wrap in IIFE.",
+    "options": [
+      { "text": "3, 3, 3 — var is function-scoped; all callbacks share the same i after loop ends", "correct": true },
+      { "text": "0, 1, 2 — setTimeout captures i at time of call", "correct": false },
+      { "text": "0, 1, 2 printed immediately, then 3, 3, 3 after delay", "correct": false },
+      { "text": "SyntaxError — cannot use arrow functions inside for loops", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Databases",
+    "difficulty": "MEDIUM",
+    "text": "What is an N+1 query problem in ORMs like Hibernate and how do you fix it?",
+    "explanation": "N+1 problem: fetching N parent records generates N additional queries for their children. Example: loading 100 Orders → 100 separate queries for OrderItems. Fix: use JOIN FETCH (JPQL) or @EntityGraph or @BatchSize. This reduces N+1 queries to 1 (or a few) queries.",
+    "options": [
+      { "text": "N child queries for N parents; fix with JOIN FETCH, @EntityGraph, or batch fetching", "correct": true },
+      { "text": "A query that runs N+1 times due to a recursive loop in the application code", "correct": false },
+      { "text": "N+1 database connections opened simultaneously, fixed by connection pooling", "correct": false },
+      { "text": "An ORM bug that adds one extra record to every result set", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Databases",
+    "difficulty": "HARD",
+    "text": "What is database connection pooling and why is it essential in production?",
+    "explanation": "Connection pooling maintains a pool of pre-established DB connections. Creating a new TCP connection for each request is expensive (3-way handshake, authentication). HikariCP (Spring Boot default) reuses connections. Config: maximumPoolSize (default 10), connectionTimeout, idle timeout. Without pooling, each request creates/destroys a connection — catastrophic under load.",
+    "options": [
+      { "text": "Reuses pre-established connections to avoid costly new connection setup on each request", "correct": true },
+      { "text": "Replicates the database across multiple servers for load balancing", "correct": false },
+      { "text": "Batches all queries from a request into a single DB roundtrip", "correct": false },
+      { "text": "Caches query results to avoid redundant database hits", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Spring Security",
+    "difficulty": "MEDIUM",
+    "text": "What is CSRF (Cross-Site Request Forgery) and when can you safely disable CSRF protection in Spring Security?",
+    "explanation": "CSRF attacks trick authenticated users into submitting malicious requests via forged forms. Spring Security's CSRF protection (using tokens) prevents this. You can safely disable CSRF for stateless REST APIs using JWT tokens, because JWT (sent in Authorization header) — not cookies — carries auth state. Browsers don't automatically attach headers in forged requests.",
+    "options": [
+      { "text": "CSRF forges requests using session cookies; safe to disable for stateless JWT APIs (tokens in headers, not cookies)", "correct": true },
+      { "text": "CSRF should never be disabled regardless of authentication mechanism", "correct": false },
+      { "text": "CSRF is only a concern for GET requests; POST endpoints need no protection", "correct": false },
+      { "text": "CSRF protection is handled by HTTPS automatically", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Spring Security",
+    "difficulty": "HARD",
+    "text": "What is the Spring Security filter chain and in what order do filters execute?",
+    "explanation": "Spring Security implements a FilterChainProxy — a chain of servlet filters. Key filter order (by precedence): SecurityContextPersistenceFilter → CsrfFilter → LogoutFilter → JwtAuthFilter (custom) → UsernamePasswordAuthenticationFilter → ExceptionTranslationFilter → FilterSecurityInterceptor. Filters execute in defined order; JwtAuthFilter runs before standard auth filters.",
+    "options": [
+      { "text": "FilterChainProxy chains security filters in order; JwtAuthFilter typically placed before UsernamePasswordAuthenticationFilter", "correct": true },
+      { "text": "All security filters execute in parallel for performance", "correct": false },
+      { "text": "Spring Security has only one filter — SecurityFilter — that handles everything", "correct": false },
+      { "text": "Filters execute in reverse alphabetical order of class name", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React",
+    "difficulty": "MEDIUM",
+    "text": "What is prop drilling in React and what are the solutions?",
+    "explanation": "Prop drilling is passing props through many intermediate component levels just to reach a deeply nested component that needs the data. Solutions: (1) React Context API for low-frequency data, (2) State management (Redux, Zustand) for complex global state, (3) Component composition (passing components as props), (4) Custom hooks to abstract logic.",
+    "options": [
+      { "text": "Passing props through many levels unnecessarily; fix with Context, Redux/Zustand, or composition", "correct": true },
+      { "text": "Incorrect way of drilling holes in React component for performance", "correct": false },
+      { "text": "A performance optimization that pre-computes props before rendering", "correct": false },
+      { "text": "Drilling refers to accessing deep object properties via destructuring", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between Promise.all(), Promise.race(), and Promise.allSettled()?",
+    "explanation": "Promise.all(): resolves when ALL promises resolve; rejects if ANY reject (short-circuits). Promise.race(): resolves/rejects as soon as the FIRST promise settles. Promise.allSettled(): waits for ALL promises and returns results regardless of rejection — never rejects. Promise.any(): resolves with first success, rejects only if all reject.",
+    "options": [
+      { "text": "all: fails fast if any rejects; allSettled: waits for all regardless; race: returns first to settle", "correct": true },
+      { "text": "all: sequential execution; race: parallel; allSettled: retry on failure", "correct": false },
+      { "text": "They are identical; just aliases for each other in ES6+", "correct": false },
+      { "text": "all: returns array; race: returns boolean; allSettled: returns map", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Spring Boot",
+    "difficulty": "EASY",
+    "text": "What is the purpose of @RequestBody vs @RequestParam annotations in Spring MVC?",
+    "explanation": "@RequestBody deserializes the HTTP request body (JSON/XML) into a Java object using Jackson. Used for POST/PUT with JSON payloads. @RequestParam extracts individual query string parameters or form data (e.g., ?page=1&size=10). @PathVariable extracts values from URI path segments like /users/{id}.",
+    "options": [
+      { "text": "@RequestBody: deserializes JSON body to object; @RequestParam: reads query string parameters", "correct": true },
+      { "text": "@RequestBody: for GET requests only; @RequestParam: for POST requests only", "correct": false },
+      { "text": "They are interchangeable — use either for any HTTP parameter", "correct": false },
+      { "text": "@RequestBody reads headers; @RequestParam reads cookies", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "REST API",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between synchronous and asynchronous REST API calls?",
+    "explanation": "Synchronous: client waits (blocks) until server responds. Asynchronous: client sends request and continues executing; response handled via callbacks/promises/async-await. Most HTTP calls are sync by nature but client implementations (Axios, fetch) use async/await. Server-side: @Async in Spring or reactive WebFlux for non-blocking I/O.",
+    "options": [
+      { "text": "Sync: client blocks awaiting response; async: client continues, handles response via promise/callback", "correct": true },
+      { "text": "Sync APIs use GET; async APIs use POST for long-running operations", "correct": false },
+      { "text": "Synchronous APIs are REST; asynchronous APIs are GraphQL", "correct": false },
+      { "text": "Async APIs run on a different port from sync APIs", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Databases",
+    "difficulty": "EASY",
+    "text": "What is the difference between JPA and Hibernate?",
+    "explanation": "JPA (Jakarta Persistence API) is a specification/interface standard for ORM in Java — it defines annotations (@Entity, @Id, @ManyToOne) and the EntityManager API. Hibernate is an implementation of JPA. Spring Data JPA adds repositories on top. You code to the JPA API; Hibernate provides the implementation.",
+    "options": [
+      { "text": "JPA is the specification/interface; Hibernate is the most popular implementation of JPA", "correct": true },
+      { "text": "JPA is for MySQL; Hibernate is for PostgreSQL", "correct": false },
+      { "text": "Hibernate is the older standard; JPA replaced it completely in Java 11", "correct": false },
+      { "text": "JPA is faster; Hibernate is more feature-rich but slower", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React",
+    "difficulty": "EASY",
+    "text": "What is the difference between controlled and uncontrolled components in React?",
+    "explanation": "Controlled: form element's value is driven by React state (onChange updates state, value={state}). React is the 'single source of truth'. Uncontrolled: DOM manages its own state; React uses ref to read value when needed. Controlled is preferred for validation, conditional rendering, and real-time feedback.",
+    "options": [
+      { "text": "Controlled: React state drives the value; Uncontrolled: DOM manages value, read via ref", "correct": true },
+      { "text": "Controlled: user can type freely; Uncontrolled: input is read-only", "correct": false },
+      { "text": "Controlled components are for class components; uncontrolled for functional components", "correct": false },
+      { "text": "Controlled components use Axios; uncontrolled components use fetch API", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Spring Boot",
+    "difficulty": "HARD",
+    "text": "What is the difference between @OneToMany with FetchType.LAZY vs EAGER in Hibernate?",
+    "explanation": "EAGER: loads all related entities immediately when the parent is loaded (potential performance issue — loads data you may not need). LAZY: loads related entities only when accessed (better performance, but requires an open session/transaction). Default: @OneToMany is LAZY, @ManyToOne is EAGER. LAZY outside a transaction causes LazyInitializationException.",
+    "options": [
+      { "text": "EAGER loads immediately (potential over-fetching); LAZY loads on access (efficient but needs open transaction)", "correct": true },
+      { "text": "EAGER is for read-heavy apps; LAZY is for write-heavy apps", "correct": false },
+      { "text": "LAZY is deprecated in JPA 3.0; always use EAGER", "correct": false },
+      { "text": "They only differ in the number of database connections used", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "JavaScript",
+    "difficulty": "EASY",
+    "text": "What is the purpose of async/await in JavaScript?",
+    "explanation": "async/await is syntactic sugar over Promises. async declares a function that returns a Promise. await pauses execution inside an async function until the Promise resolves, making async code look synchronous. Errors are caught using try/catch instead of .catch(). It does NOT block the main thread — the event loop continues processing other tasks while awaiting.",
+    "options": [
+      { "text": "Syntactic sugar over Promises; makes async code look synchronous without blocking the event loop", "correct": true },
+      { "text": "Creates actual blocking calls that pause the entire JavaScript runtime", "correct": false },
+      { "text": "Runs code in a separate Web Worker thread for true parallelism", "correct": false },
+      { "text": "Only works with fetch API; Axios requires .then() chains", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "REST API",
+    "difficulty": "HARD",
+    "text": "What is JWT structure and how does token validation work without a database call?",
+    "explanation": "JWT has three Base64URL-encoded parts: Header (algorithm), Payload (claims: sub, exp, iat, roles), Signature (HMAC of header.payload using secret). Validation: decode header and payload, re-compute signature using same secret, compare. If signatures match and exp hasn't passed, token is valid — no DB lookup needed. This enables stateless horizontal scaling.",
+    "options": [
+      { "text": "Header.Payload.Signature; validation re-computes signature with secret and checks expiry — no DB query needed", "correct": true },
+      { "text": "JWT is validated by calling /auth/validate endpoint on each request", "correct": false },
+      { "text": "JWT stores user password hashed in payload for stateless validation", "correct": false },
+      { "text": "JWT requires Redis session store for signature verification", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "React",
+    "difficulty": "MEDIUM",
+    "text": "What is React Router's useNavigate hook and how does it differ from the Link component?",
+    "explanation": "useNavigate returns a navigate function for programmatic navigation (after form submit, API call, etc.). Link renders an <a> tag for declarative navigation triggered by user click. Both prevent full page reload in SPAs. navigate(-1) goes back, navigate('/path', {replace: true}) replaces history entry.",
+    "options": [
+      { "text": "useNavigate: programmatic navigation in code; Link: declarative navigation via user clicks", "correct": true },
+      { "text": "useNavigate is for external URLs; Link is for internal routes only", "correct": false },
+      { "text": "Link causes full page reload; useNavigate uses AJAX for transitions", "correct": false },
+      { "text": "useNavigate is deprecated in React Router v6; always use Link", "correct": false }
+    ]
+  },
+  {
+    "subject": "Full Stack Development",
+    "topic": "Spring Boot",
+    "difficulty": "MEDIUM",
+    "text": "What is Spring Boot Actuator and what endpoints does it expose?",
+    "explanation": "Spring Boot Actuator provides production-ready endpoints for monitoring. Key endpoints: /actuator/health (liveness check), /actuator/metrics (JVM metrics, HTTP metrics), /actuator/info (app info), /actuator/env (environment properties), /actuator/loggers (log levels). Secure them in production — expose only /health publicly.",
+    "options": [
+      { "text": "Production monitoring endpoints: /health, /metrics, /info, /env, /loggers — secure in production", "correct": true },
+      { "text": "Actuator automatically scales the application based on traffic metrics", "correct": false },
+      { "text": "Actuator is a testing framework for Spring Boot integration tests", "correct": false },
+      { "text": "Actuator handles all exception logging; replaces SLF4J", "correct": false }
+    ]
+  }
+]

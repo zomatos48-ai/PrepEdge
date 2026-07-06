@@ -1,0 +1,24 @@
+{
+  "companyName": "Wipro",
+  "companySlug": "wipro",
+  "title": "Wipro NLTH Mock Test 1",
+  "description": "Simulates the Wipro National Level Test for Hiring: Aptitude, Verbal, and Technical sections.",
+  "durationMinutes": 60,
+  "questions": [
+    "A shopkeeper bought an article for Rs. 450 and sold it for Rs. 540. What is his profit percentage?",
+    "What is the compound interest on Rs. 8000 at 10% per annum for 2 years, compounded annually?",
+    "A can complete a piece of work in 12 days and B can complete the same work in 18 days. If they work together, in how many days will the work be completed?",
+    "If A:B = 3:4 and B:C = 4:5, find A:B:C.",
+    "What is the smallest number that should be added to 1000 to make it exactly divisible by 13?",
+    "In how many ways can the letters of the word 'LEADER' be arranged?",
+    "What is the difference between a process and a thread?",
+    "What is virtual memory and what problem does it solve?",
+    "What are the four necessary conditions for a deadlock to occur?",
+    "What is the difference between TCP and UDP?",
+    "What is the difference between HTTP and HTTPS?",
+    "What does DNS stand for and what does it do?",
+    "What is the difference between INNER JOIN and LEFT JOIN?",
+    "What is the main goal of database normalization?",
+    "What is a database index and what is its tradeoff?"
+  ]
+}

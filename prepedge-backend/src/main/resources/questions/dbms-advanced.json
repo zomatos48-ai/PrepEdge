@@ -1,0 +1,132 @@
+[
+  {
+    "subject": "Database Management System",
+    "topic": "SQL",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between HAVING and WHERE clause in SQL?",
+    "explanation": "WHERE filters individual rows BEFORE grouping (cannot use aggregate functions). HAVING filters groups AFTER GROUP BY (can use aggregate functions like SUM, COUNT, AVG). Example: WHERE salary > 50000 filters rows; HAVING AVG(salary) > 50000 filters groups where average salary exceeds 50000.",
+    "options": [
+      { "text": "WHERE filters rows before grouping; HAVING filters groups after GROUP BY (can use aggregates)", "correct": true },
+      { "text": "They are identical; WHERE is just the older syntax", "correct": false },
+      { "text": "HAVING filters rows; WHERE filters columns", "correct": false },
+      { "text": "WHERE works on indexed columns; HAVING works on non-indexed columns", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management System",
+    "topic": "Normalization",
+    "difficulty": "HARD",
+    "text": "What is Boyce-Codd Normal Form (BCNF) and how does it differ from 3NF?",
+    "explanation": "3NF: for every non-trivial FD X→Y, X is a superkey OR Y is a prime attribute. BCNF: for every non-trivial FD X→Y, X must be a superkey (stricter). BCNF eliminates all redundancy based on FDs. A table in BCNF is always in 3NF, but 3NF doesn't guarantee BCNF. BCNF may not always preserve all dependencies.",
+    "options": [
+      { "text": "BCNF: every FD determinant must be a superkey (stricter than 3NF which allows prime attributes)", "correct": true },
+      { "text": "BCNF is weaker than 3NF — only applies to composite primary keys", "correct": false },
+      { "text": "BCNF and 3NF are identical for tables with a single-column primary key", "correct": false },
+      { "text": "BCNF eliminates multivalued dependencies while 3NF eliminates partial dependencies", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management System",
+    "topic": "Transactions",
+    "difficulty": "MEDIUM",
+    "text": "What does the ACID property 'Isolation' guarantee in concurrent transactions?",
+    "explanation": "Isolation ensures concurrent transactions execute as if they were serial (one after another). Without isolation: dirty read (read uncommitted data), non-repeatable read (different values on re-read), phantom read (new rows appear). SQL isolation levels: READ UNCOMMITTED < READ COMMITTED < REPEATABLE READ < SERIALIZABLE (strictest).",
+    "options": [
+      { "text": "Concurrent transactions appear serial; prevents dirty reads, non-repeatable reads, phantom reads", "correct": true },
+      { "text": "Each transaction runs in a separate isolated database instance", "correct": false },
+      { "text": "Data is isolated (encrypted) so other transactions cannot see it", "correct": false },
+      { "text": "Transactions are isolated to a single table preventing cross-table inconsistency", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management System",
+    "topic": "Indexing",
+    "difficulty": "MEDIUM",
+    "text": "What is a clustered vs non-clustered index in databases?",
+    "explanation": "Clustered index: physically orders table rows by the index key — only one per table (usually primary key). Non-clustered: a separate structure with pointers to actual rows — multiple allowed per table. Clustered is faster for range queries; non-clustered is faster for point lookups on non-PK columns. InnoDB stores data as a clustered index on primary key.",
+    "options": [
+      { "text": "Clustered: physically orders rows (1 per table, usually PK); Non-clustered: separate lookup structure (many per table)", "correct": true },
+      { "text": "Clustered uses more memory; non-clustered stores data on disk", "correct": false },
+      { "text": "Clustered indexes are for string columns; non-clustered for numeric columns", "correct": false },
+      { "text": "Non-clustered is always faster; clustered is only used for joins", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management System",
+    "topic": "SQL",
+    "difficulty": "HARD",
+    "text": "What is the difference between INNER JOIN, LEFT JOIN, and FULL OUTER JOIN?",
+    "explanation": "INNER JOIN: returns only rows with matching values in BOTH tables. LEFT JOIN: returns all rows from left table + matching rows from right (NULLs for non-matches). RIGHT JOIN: all rows from right + matching from left. FULL OUTER JOIN: all rows from BOTH tables (NULLs where no match). PostgreSQL supports all; MySQL lacks FULL OUTER JOIN (use UNION of LEFT and RIGHT).",
+    "options": [
+      { "text": "INNER: matching rows only; LEFT: all left + matching right; FULL OUTER: all rows both sides (NULLs for no match)", "correct": true },
+      { "text": "INNER: all rows; LEFT: only left table rows; FULL OUTER: filtered rows", "correct": false },
+      { "text": "They are the same — just different naming conventions in different databases", "correct": false },
+      { "text": "INNER JOIN is fastest; FULL OUTER JOIN is only used for backup purposes", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management System",
+    "topic": "Normalization",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between 1NF, 2NF, and 3NF?",
+    "explanation": "1NF: atomic values only (no repeating groups/arrays). 2NF: in 1NF + no partial dependency (every non-key attribute fully dependent on the whole primary key — relevant for composite PKs). 3NF: in 2NF + no transitive dependency (non-key attributes must depend only on the PK, not on other non-key attributes).",
+    "options": [
+      { "text": "1NF: atomic values; 2NF: no partial dependencies; 3NF: no transitive dependencies", "correct": true },
+      { "text": "1NF: single column PK; 2NF: composite PK; 3NF: no PK required", "correct": false },
+      { "text": "They differ only in the number of indexes required per table", "correct": false },
+      { "text": "3NF is stricter than BCNF and harder to achieve in practice", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management System",
+    "topic": "SQL",
+    "difficulty": "EASY",
+    "text": "What does the GROUP BY clause do in SQL?",
+    "explanation": "GROUP BY groups rows with the same values in specified columns into summary rows. Used with aggregate functions (COUNT, SUM, AVG, MAX, MIN) to compute statistics per group. Example: SELECT department, AVG(salary) FROM employees GROUP BY department — gives average salary per department.",
+    "options": [
+      { "text": "Groups rows with same column values for use with aggregate functions", "correct": true },
+      { "text": "Sorts the result set in ascending order", "correct": false },
+      { "text": "Partitions a table into separate physical storage groups", "correct": false },
+      { "text": "Creates a new group of permissions for database users", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management System",
+    "topic": "Transactions",
+    "difficulty": "HARD",
+    "text": "What is a deadlock in databases and how can it be prevented?",
+    "explanation": "Deadlock: two transactions each hold a lock the other needs — both wait forever. Prevention strategies: (1) Lock ordering: always acquire locks in same order, (2) Timeout with rollback, (3) Deadlock detection (databases like PostgreSQL detect and kill one transaction), (4) Two-phase locking (2PL). PostgreSQL automatically detects deadlocks.",
+    "options": [
+      { "text": "Two transactions mutually wait for each other's locks; prevented by lock ordering, timeouts, or deadlock detection", "correct": true },
+      { "text": "A deadlock occurs when a transaction writes the same row twice", "correct": false },
+      { "text": "Deadlocks only happen in MongoDB, not in SQL databases", "correct": false },
+      { "text": "Deadlocks are prevented by using BEGIN TRANSACTION with a timeout parameter", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management System",
+    "topic": "SQL",
+    "difficulty": "MEDIUM",
+    "text": "What are window functions in SQL? Give an example.",
+    "explanation": "Window functions compute values across rows related to the current row without collapsing them into groups. Syntax: FUNCTION() OVER (PARTITION BY col ORDER BY col). Examples: ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary DESC) — ranks employees within each department by salary. Unlike GROUP BY, all rows are kept in the result.",
+    "options": [
+      { "text": "Compute across related rows without collapsing; e.g., ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary)", "correct": true },
+      { "text": "Functions that operate on a specific time window for time-series data only", "correct": false },
+      { "text": "Stored procedures that execute in a separate transaction window", "correct": false },
+      { "text": "Functions visible only within a specific schema (like a namespace window)", "correct": false }
+    ]
+  },
+  {
+    "subject": "Database Management System",
+    "topic": "Indexing",
+    "difficulty": "HARD",
+    "text": "When should you NOT create an index on a table?",
+    "explanation": "Avoid indexes when: (1) Table is small (full scan is faster than index overhead), (2) Column has low cardinality (few distinct values, e.g., boolean — index is useless, optimizer prefers full scan), (3) Column is frequently updated (index maintenance overhead), (4) Table has heavy write operations (each write must update all indexes). Over-indexing slows writes and uses disk space.",
+    "options": [
+      { "text": "Small tables, low-cardinality columns, heavily updated columns — index overhead outweighs benefit", "correct": true },
+      { "text": "Never create indexes on primary keys — they're automatically created", "correct": false },
+      { "text": "Avoid indexes on columns used in WHERE clauses for better query performance", "correct": false },
+      { "text": "Don't index FOREIGN KEY columns — joins are optimized without them", "correct": false }
+    ]
+  }
+]

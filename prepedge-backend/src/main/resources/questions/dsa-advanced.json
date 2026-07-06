@@ -1,0 +1,613 @@
+[
+  {
+    "subject": "DSA",
+    "topic": "Arrays",
+    "difficulty": "MEDIUM",
+    "text": "What is the time complexity of the Dutch National Flag algorithm for partitioning an array into three groups?",
+    "explanation": "The Dutch National Flag algorithm (3-way partition) uses a single pass with three pointers (low, mid, high). Each element is visited at most once, giving O(n) time complexity and O(1) space complexity.",
+    "options": [
+      { "text": "O(n) time, O(1) space", "correct": true },
+      { "text": "O(n log n) time, O(1) space", "correct": false },
+      { "text": "O(n²) time, O(1) space", "correct": false },
+      { "text": "O(n) time, O(n) space", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Arrays",
+    "difficulty": "HARD",
+    "text": "Find the maximum sum of a contiguous subarray. Which algorithm gives O(n) solution?",
+    "explanation": "Kadane's Algorithm solves maximum subarray sum in O(n) time. It maintains a running sum and resets it to 0 whenever it becomes negative, keeping track of the maximum seen so far.",
+    "options": [
+      { "text": "Kadane's Algorithm", "correct": true },
+      { "text": "Divide and Conquer", "correct": false },
+      { "text": "Sliding Window", "correct": false },
+      { "text": "Two Pointer", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Arrays",
+    "difficulty": "MEDIUM",
+    "text": "Given an array of integers, rotate it to the right by k positions. What is the most space-efficient approach?",
+    "explanation": "The reversal algorithm achieves O(n) time with O(1) space: (1) reverse the entire array, (2) reverse first k elements, (3) reverse the remaining n-k elements. This uses constant extra space.",
+    "options": [
+      { "text": "Reverse the whole array, then reverse first k and last n-k parts", "correct": true },
+      { "text": "Use an extra array of size n", "correct": false },
+      { "text": "Rotate one element at a time k times — O(nk)", "correct": false },
+      { "text": "Use a circular buffer of size k", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Arrays",
+    "difficulty": "HARD",
+    "text": "What is the time complexity of finding the median of two sorted arrays of sizes m and n?",
+    "explanation": "Using binary search on the smaller array, we can find the median of two sorted arrays in O(log(min(m,n))) time. This is the optimal solution using the concept of partitioning both arrays.",
+    "options": [
+      { "text": "O(log(min(m,n)))", "correct": true },
+      { "text": "O(log(m+n))", "correct": false },
+      { "text": "O(m+n)", "correct": false },
+      { "text": "O(m*n)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Arrays",
+    "difficulty": "EASY",
+    "text": "Which data structure would you use to find the k-th largest element in an array most efficiently?",
+    "explanation": "A min-heap of size k gives O(n log k) time. We insert each element; if heap size exceeds k, we remove the minimum. The root of the heap is the k-th largest. Alternatively, QuickSelect gives O(n) average time.",
+    "options": [
+      { "text": "Min-heap of size k — O(n log k)", "correct": true },
+      { "text": "Max-heap of size n — O(n log n)", "correct": false },
+      { "text": "Sorted array — O(n log n) then O(1)", "correct": false },
+      { "text": "Stack — O(n)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Linked Lists",
+    "difficulty": "MEDIUM",
+    "text": "How do you find the middle element of a linked list in a single pass?",
+    "explanation": "Use the slow/fast pointer technique: slow pointer moves one step at a time, fast pointer moves two steps. When fast reaches the end, slow is at the middle. Time: O(n), Space: O(1).",
+    "options": [
+      { "text": "Slow pointer moves 1 step, fast pointer moves 2 steps; slow stops at middle", "correct": true },
+      { "text": "Count total nodes, then traverse to n/2 position", "correct": false },
+      { "text": "Copy to array and return middle index", "correct": false },
+      { "text": "Use a stack to store all nodes", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Linked Lists",
+    "difficulty": "HARD",
+    "text": "What is the time complexity of reversing a doubly linked list?",
+    "explanation": "To reverse a doubly linked list, traverse from head to tail, swapping each node's prev and next pointers. This requires visiting each node once — O(n) time and O(1) space.",
+    "options": [
+      { "text": "O(n) time, O(1) space", "correct": true },
+      { "text": "O(n²) time, O(1) space", "correct": false },
+      { "text": "O(n) time, O(n) space", "correct": false },
+      { "text": "O(log n) time, O(1) space", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Linked Lists",
+    "difficulty": "MEDIUM",
+    "text": "How do you remove the N-th node from the end of a linked list in a single traversal?",
+    "explanation": "Use two pointers: advance the first pointer n steps ahead. Then move both pointers simultaneously until the first reaches the end. The second pointer will be at the (n+1)-th node from end — remove its next node. Time: O(n), Space: O(1).",
+    "options": [
+      { "text": "Two pointers: advance first by n, then move both until first reaches end", "correct": true },
+      { "text": "First count total length L, then delete node at position L-n+1", "correct": false },
+      { "text": "Use a stack to store all nodes, pop n times", "correct": false },
+      { "text": "Recursively traverse and count from end", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Stacks",
+    "difficulty": "EASY",
+    "text": "What is the time complexity of push and pop operations in a stack implemented with an array?",
+    "explanation": "Both push and pop operations in a stack backed by an array operate on the top element only, requiring no iteration. Both are O(1) amortized time. Resizing is amortized O(1) with dynamic arrays.",
+    "options": [
+      { "text": "O(1) for both push and pop", "correct": true },
+      { "text": "O(n) for push, O(1) for pop", "correct": false },
+      { "text": "O(1) for push, O(n) for pop", "correct": false },
+      { "text": "O(n) for both", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Stacks",
+    "difficulty": "MEDIUM",
+    "text": "How would you implement a stack that supports getMin() in O(1) time alongside push and pop?",
+    "explanation": "Use a second 'min stack' that tracks the current minimum at each level. When pushing x, also push min(x, minStack.top()) to the min stack. When popping, pop from both stacks. getMin() simply peeks the min stack top.",
+    "options": [
+      { "text": "Use an auxiliary min stack that stores the current minimum at each level", "correct": true },
+      { "text": "Sort the stack on every push — O(n log n)", "correct": false },
+      { "text": "Traverse the stack on every getMin call — O(n)", "correct": false },
+      { "text": "Store min as a separate variable (doesn't work after pop)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Stacks",
+    "difficulty": "HARD",
+    "text": "What is the time complexity of evaluating a postfix (Reverse Polish Notation) expression using a stack?",
+    "explanation": "Evaluating a postfix expression requires one pass through all n tokens. For each number, push to stack (O(1)). For each operator, pop two operands, compute, push result (O(1)). Total: O(n) time, O(n) space for stack.",
+    "options": [
+      { "text": "O(n) time, O(n) space", "correct": true },
+      { "text": "O(n log n) time, O(n) space", "correct": false },
+      { "text": "O(n²) time, O(1) space", "correct": false },
+      { "text": "O(n) time, O(1) space", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Queues",
+    "difficulty": "EASY",
+    "text": "What is a circular queue and what problem does it solve?",
+    "explanation": "A circular queue connects the last position back to the first. It solves the False Overflow problem in linear queues where front pointer advances leaving unusable space at the beginning. It efficiently uses all allocated memory.",
+    "options": [
+      { "text": "Connects last position to first, solving False Overflow by reusing space", "correct": true },
+      { "text": "A queue implemented using a circular doubly linked list only", "correct": false },
+      { "text": "A priority queue where all elements have circular priority", "correct": false },
+      { "text": "A queue that allows elements to be inserted in the middle", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Queues",
+    "difficulty": "MEDIUM",
+    "text": "How can you implement a queue using two stacks? What is the amortized time complexity of each operation?",
+    "explanation": "Stack1 for enqueue, Stack2 for dequeue. When dequeuing, if Stack2 is empty, pour all elements from Stack1 to Stack2. Enqueue: O(1). Dequeue: O(1) amortized (each element crosses the boundary at most once).",
+    "options": [
+      { "text": "Enqueue on Stack1, dequeue from Stack2 (refill lazily); O(1) amortized dequeue", "correct": true },
+      { "text": "Use Stack1 for everything; O(n) for each dequeue", "correct": false },
+      { "text": "Keep sorting both stacks; O(n log n) each operation", "correct": false },
+      { "text": "Both stacks simultaneously; O(n) enqueue, O(1) dequeue", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Trees",
+    "difficulty": "EASY",
+    "text": "What is the height of a complete binary tree with n nodes?",
+    "explanation": "In a complete binary tree, levels are filled from left to right. The height is floor(log₂n). For example, 7 nodes give height 2 (levels 0, 1, 2). This is because each level doubles the number of nodes.",
+    "options": [
+      { "text": "floor(log₂n)", "correct": true },
+      { "text": "ceil(log₂n)", "correct": false },
+      { "text": "n - 1", "correct": false },
+      { "text": "n / 2", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Trees",
+    "difficulty": "MEDIUM",
+    "text": "What traversal order visits nodes in ascending order for a Binary Search Tree?",
+    "explanation": "In-order traversal (Left → Root → Right) of a BST visits nodes in ascending sorted order. This property makes in-order traversal fundamental to BST operations like printing sorted elements or finding the k-th smallest.",
+    "options": [
+      { "text": "In-order (Left → Root → Right)", "correct": true },
+      { "text": "Pre-order (Root → Left → Right)", "correct": false },
+      { "text": "Post-order (Left → Right → Root)", "correct": false },
+      { "text": "Level-order (BFS)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Trees",
+    "difficulty": "HARD",
+    "text": "What is the worst-case time complexity of searching in an unbalanced BST?",
+    "explanation": "In a degenerate (skewed) BST where all nodes are on one side (like a linked list), the height becomes n. Searching requires traversing the entire height, giving O(n) worst-case time complexity — this is why balanced BSTs (AVL, Red-Black) are preferred.",
+    "options": [
+      { "text": "O(n) — occurs in degenerate (skewed) BST", "correct": true },
+      { "text": "O(log n) always", "correct": false },
+      { "text": "O(n log n)", "correct": false },
+      { "text": "O(n²) in worst case", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Trees",
+    "difficulty": "MEDIUM",
+    "text": "What does a balanced BST (AVL tree) guarantee about search operations?",
+    "explanation": "An AVL tree maintains the balance factor (|height(left) - height(right)| ≤ 1) for every node. This ensures the tree height stays at O(log n), guaranteeing O(log n) time for search, insert, and delete operations.",
+    "options": [
+      { "text": "O(log n) search time by maintaining height balance at every node", "correct": true },
+      { "text": "O(1) search time using hash-based lookup", "correct": false },
+      { "text": "O(n) search but O(log n) insert", "correct": false },
+      { "text": "O(log n) only for balanced inputs, degrades otherwise", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Graphs",
+    "difficulty": "EASY",
+    "text": "What is the time complexity of Breadth-First Search (BFS) on a graph with V vertices and E edges?",
+    "explanation": "BFS uses a queue and visits each vertex once and each edge once. Time complexity is O(V + E) — V for vertex processing and E for edge traversal. Space complexity is O(V) for the queue and visited array.",
+    "options": [
+      { "text": "O(V + E)", "correct": true },
+      { "text": "O(V * E)", "correct": false },
+      { "text": "O(V²)", "correct": false },
+      { "text": "O(E log V)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Graphs",
+    "difficulty": "MEDIUM",
+    "text": "Which algorithm is used to detect a cycle in a directed graph?",
+    "explanation": "DFS with a recursion stack (coloring: WHITE/GRAY/BLACK) detects cycles in directed graphs. A back edge (to a GRAY/currently-being-processed node) indicates a cycle. Kahn's algorithm (topological sort using BFS) also detects cycles — if topological order has fewer than V nodes, a cycle exists.",
+    "options": [
+      { "text": "DFS with recursion stack tracking (or Kahn's topological sort)", "correct": true },
+      { "text": "BFS alone without additional tracking", "correct": false },
+      { "text": "Union-Find (works for undirected graphs only)", "correct": false },
+      { "text": "Dijkstra's shortest path algorithm", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Graphs",
+    "difficulty": "HARD",
+    "text": "What is the time complexity of Dijkstra's shortest path algorithm using a min-heap (priority queue)?",
+    "explanation": "With a binary min-heap: each vertex is extracted once O(V log V) and each edge may trigger a decrease-key operation O(E log V). Total: O((V + E) log V). With a Fibonacci heap, it improves to O(V log V + E).",
+    "options": [
+      { "text": "O((V + E) log V)", "correct": true },
+      { "text": "O(V²)", "correct": false },
+      { "text": "O(E log E)", "correct": false },
+      { "text": "O(V * E)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Graphs",
+    "difficulty": "MEDIUM",
+    "text": "What is a topological sort and when can it be applied?",
+    "explanation": "Topological sort orders vertices of a Directed Acyclic Graph (DAG) such that for every directed edge u→v, u comes before v. It can only be applied to DAGs (no cycles). Applications: task scheduling, build dependencies, course prerequisites.",
+    "options": [
+      { "text": "Linear ordering of DAG vertices where every directed edge goes from earlier to later in order", "correct": true },
+      { "text": "Sorting graph edges by weight in ascending order", "correct": false },
+      { "text": "Finding connected components in an undirected graph", "correct": false },
+      { "text": "Organizing vertices by their in-degree, applicable to all graphs", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Dynamic Programming",
+    "difficulty": "EASY",
+    "text": "What is the difference between memoization and tabulation in Dynamic Programming?",
+    "explanation": "Memoization (top-down): recursive approach that stores results of subproblems as you compute them. Tabulation (bottom-up): iterative approach that builds a table from smallest subproblems to the final answer. Both have the same time and space complexity; tabulation avoids recursion overhead.",
+    "options": [
+      { "text": "Memoization is top-down recursive with caching; tabulation is bottom-up iterative", "correct": true },
+      { "text": "Memoization is faster; tabulation is more memory-efficient", "correct": false },
+      { "text": "Tabulation uses recursion; memoization uses iteration", "correct": false },
+      { "text": "They are the same approach with different names", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Dynamic Programming",
+    "difficulty": "MEDIUM",
+    "text": "What is the time and space complexity of solving the 0/1 Knapsack problem using Dynamic Programming?",
+    "explanation": "The DP table has dimensions (n+1) × (W+1) where n = items and W = capacity. Filling each cell is O(1), so time is O(n*W). Space is O(n*W) for the table, reducible to O(W) using 1D DP.",
+    "options": [
+      { "text": "O(n*W) time, O(n*W) space (reducible to O(W))", "correct": true },
+      { "text": "O(n²) time, O(n) space", "correct": false },
+      { "text": "O(2^n) time, O(n) space", "correct": false },
+      { "text": "O(n log W) time, O(W) space", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Dynamic Programming",
+    "difficulty": "HARD",
+    "text": "What is the time complexity of finding the Longest Common Subsequence (LCS) of two strings of lengths m and n?",
+    "explanation": "The DP approach fills an (m+1)×(n+1) table. Each cell is filled in O(1). Total: O(m*n) time and O(m*n) space (reducible to O(min(m,n)) with space optimization). This is optimal for general LCS computation.",
+    "options": [
+      { "text": "O(m*n) time, O(m*n) space", "correct": true },
+      { "text": "O(m+n) time, O(1) space", "correct": false },
+      { "text": "O(m² * n²) time, O(m*n) space", "correct": false },
+      { "text": "O(m*n log(m*n)) time", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Dynamic Programming",
+    "difficulty": "MEDIUM",
+    "text": "In the coin change problem, you have coins of denominations [1, 5, 10, 25] and need minimum coins for amount n. What DP state transition applies?",
+    "explanation": "dp[i] = minimum coins to make amount i. Transition: dp[i] = min(dp[i], dp[i - coin] + 1) for each coin ≤ i. Base case: dp[0] = 0. This gives O(n * number_of_coins) time.",
+    "options": [
+      { "text": "dp[i] = min(dp[i - coin] + 1) for each coin ≤ i", "correct": true },
+      { "text": "dp[i] = dp[i-1] + 1 for each step", "correct": false },
+      { "text": "dp[i] = dp[i/2] + 1 if i is even", "correct": false },
+      { "text": "dp[i] = max(dp[i - coin] + 1) for greedy selection", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Sorting",
+    "difficulty": "EASY",
+    "text": "Which sorting algorithm has the best average-case performance for large datasets?",
+    "explanation": "QuickSort has O(n log n) average-case time complexity and O(log n) space due to recursion. It's often faster in practice than Merge Sort due to better cache performance. However, worst-case is O(n²) for sorted inputs without randomization.",
+    "options": [
+      { "text": "QuickSort — O(n log n) average, O(log n) space, great cache performance", "correct": true },
+      { "text": "BubbleSort — simple and O(n) in best case", "correct": false },
+      { "text": "SelectionSort — always O(n²) regardless of input", "correct": false },
+      { "text": "InsertionSort — O(n²) average but optimal for small arrays", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Sorting",
+    "difficulty": "MEDIUM",
+    "text": "What is the time complexity of Merge Sort and why is it preferred for linked lists?",
+    "explanation": "Merge Sort is O(n log n) in all cases (best, average, worst) and is stable. For linked lists, merging is O(1) space (no array copy needed, just pointer manipulation), making it ideal. For arrays, it requires O(n) extra space.",
+    "options": [
+      { "text": "O(n log n) always; merging linked lists needs only pointer changes (no extra array)", "correct": true },
+      { "text": "O(n²) worst case; preferred because it's in-place", "correct": false },
+      { "text": "O(n log n) average; needs O(n²) extra space", "correct": false },
+      { "text": "O(n) for sorted inputs; O(n log n) otherwise", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Sorting",
+    "difficulty": "HARD",
+    "text": "Why can Radix Sort achieve O(n) time complexity when comparison-based sorts have an O(n log n) lower bound?",
+    "explanation": "Comparison-based sorts have a theoretical lower bound of O(n log n) because they must distinguish n! permutations using comparisons. Radix Sort is non-comparison based — it uses digit-by-digit distribution (counting sort as subroutine). For d digits and base b: O(d*(n+b)). With fixed-width integers, d and b are constants, giving O(n).",
+    "options": [
+      { "text": "Radix Sort is non-comparison based; it distributes by digits using O(n) counting sort per digit", "correct": true },
+      { "text": "Radix Sort uses a special CPU instruction unavailable to other sorts", "correct": false },
+      { "text": "Radix Sort only works on small numbers making the comparison lower bound inapplicable", "correct": false },
+      { "text": "Radix Sort uses parallelism to bypass the O(n log n) bound", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Searching",
+    "difficulty": "EASY",
+    "text": "What is the prerequisite for applying Binary Search?",
+    "explanation": "Binary Search requires the array to be sorted. It works by repeatedly halving the search space: compare the target with the middle element, then search left or right half. Time: O(log n), Space: O(1) iterative / O(log n) recursive.",
+    "options": [
+      { "text": "The array must be sorted", "correct": true },
+      { "text": "The array must contain only integers", "correct": false },
+      { "text": "The array must have no duplicates", "correct": false },
+      { "text": "The array must have a power-of-2 size", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Searching",
+    "difficulty": "MEDIUM",
+    "text": "How do you search for an element in a row-wise and column-wise sorted matrix (staircase search)?",
+    "explanation": "Start from the top-right corner. If current element equals target, return found. If target < current, move left. If target > current, move down. Each step eliminates a row or column. Time: O(m+n) for an m×n matrix.",
+    "options": [
+      { "text": "Start top-right: move left if target < current, move down if target > current — O(m+n)", "correct": true },
+      { "text": "Binary search each row independently — O(m log n)", "correct": false },
+      { "text": "Linear scan entire matrix — O(m*n)", "correct": false },
+      { "text": "Start top-left: move right or down — O(m+n) but O(m*n) worst case", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Hashing",
+    "difficulty": "EASY",
+    "text": "What is the average time complexity of insertion, deletion, and search in a Hash Table?",
+    "explanation": "Hash tables use a hash function to map keys to array indices. With a good hash function and load factor, collisions are rare, giving O(1) average time for all operations. Worst case (all keys collide) is O(n).",
+    "options": [
+      { "text": "O(1) average for insert, delete, and search", "correct": true },
+      { "text": "O(log n) for all operations", "correct": false },
+      { "text": "O(n) always due to collision resolution", "correct": false },
+      { "text": "O(1) search, O(n) insert and delete", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Hashing",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between open addressing and chaining in hash collision resolution?",
+    "explanation": "Chaining: each bucket holds a linked list of colliding elements. Open Addressing: on collision, probe for the next empty slot (linear, quadratic, or double hashing). Chaining handles high load factors better; open addressing has better cache performance.",
+    "options": [
+      { "text": "Chaining uses linked lists per bucket; open addressing finds next empty slot in the array", "correct": true },
+      { "text": "Chaining stores extra elements in overflow table; open addressing uses secondary hash", "correct": false },
+      { "text": "Open addressing allocates extra memory; chaining uses fixed-size buckets", "correct": false },
+      { "text": "They are the same technique with different naming conventions", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Trees",
+    "difficulty": "HARD",
+    "text": "What is the time complexity of building a Segment Tree from an array of n elements?",
+    "explanation": "Building a segment tree from n elements takes O(n) time. The tree has 2n-1 nodes. Each node stores aggregate information about a range. After building in O(n), range queries and point updates both take O(log n).",
+    "options": [
+      { "text": "O(n) to build, O(log n) for queries and updates", "correct": true },
+      { "text": "O(n log n) to build, O(1) for queries", "correct": false },
+      { "text": "O(n²) to build, O(log n) for queries", "correct": false },
+      { "text": "O(n) to build, O(n) for queries", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Graphs",
+    "difficulty": "HARD",
+    "text": "What does Bellman-Ford algorithm handle that Dijkstra's cannot?",
+    "explanation": "Bellman-Ford handles graphs with negative weight edges and can detect negative weight cycles. Dijkstra's algorithm assumes non-negative weights (greedy selection fails with negatives). Bellman-Ford runs in O(V*E) vs Dijkstra's O((V+E)log V).",
+    "options": [
+      { "text": "Negative weight edges and detection of negative weight cycles", "correct": true },
+      { "text": "Disconnected graphs with multiple components", "correct": false },
+      { "text": "Undirected graphs only (Dijkstra works for directed)", "correct": false },
+      { "text": "Graphs with more edges than vertices", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Dynamic Programming",
+    "difficulty": "HARD",
+    "text": "What is the time complexity of the Floyd-Warshall algorithm for finding all-pairs shortest paths?",
+    "explanation": "Floyd-Warshall uses three nested loops over V vertices: O(V³) time and O(V²) space for the distance matrix. It works on graphs with negative edges (not negative cycles) and handles all-pairs shortest paths more efficiently than running Bellman-Ford from every vertex O(V²*E).",
+    "options": [
+      { "text": "O(V³) time, O(V²) space", "correct": true },
+      { "text": "O(V² * E) time, O(V) space", "correct": false },
+      { "text": "O(V² log V) time, O(V²) space", "correct": false },
+      { "text": "O(V + E) time, O(V) space", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Trees",
+    "difficulty": "MEDIUM",
+    "text": "What is the main advantage of a Trie (Prefix Tree) over a Hash Map for storing strings?",
+    "explanation": "A Trie supports prefix-based operations natively: prefix search, autocomplete, and checking all words with a given prefix in O(L) time where L is prefix length. A HashMap requires O(n*L) to check all n words for a prefix match. Tries also naturally sort strings alphabetically.",
+    "options": [
+      { "text": "O(L) prefix search and autocomplete without scanning all keys", "correct": true },
+      { "text": "O(1) exact match lookup (faster than HashMap)", "correct": false },
+      { "text": "Less memory usage than HashMap for large datasets", "correct": false },
+      { "text": "Faster insertion O(1) vs HashMap O(L)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Sorting",
+    "difficulty": "MEDIUM",
+    "text": "What is the best-case time complexity of insertion sort and when does it occur?",
+    "explanation": "Insertion Sort's best case is O(n) — when the input array is already sorted. Each element only needs to be compared with its predecessor (no shifts needed). This makes Insertion Sort ideal for nearly-sorted data and small arrays (used internally by many standard libraries for small subarrays in hybrid sorts).",
+    "options": [
+      { "text": "O(n) when the array is already sorted", "correct": true },
+      { "text": "O(n log n) when elements are in reverse order", "correct": false },
+      { "text": "O(1) when all elements are equal", "correct": false },
+      { "text": "O(n²) regardless of input order", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Arrays",
+    "difficulty": "MEDIUM",
+    "text": "What is the sliding window technique and what type of problems does it solve?",
+    "explanation": "The sliding window technique maintains a window of elements and slides it across the array/string. It converts O(n²) brute force to O(n) by reusing computation from the previous window. Useful for: maximum sum subarray of size k, longest substring without repeating characters, minimum window substring.",
+    "options": [
+      { "text": "Maintains a window that slides to avoid recomputation — converts O(n²) to O(n)", "correct": true },
+      { "text": "Creates multiple windows and compares them — O(n * window_size)", "correct": false },
+      { "text": "Binary search within a sliding boundary — O(n log n)", "correct": false },
+      { "text": "Divide array into fixed-size segments and process independently", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Stacks",
+    "difficulty": "HARD",
+    "text": "How do you find the largest rectangle in a histogram in O(n) time?",
+    "explanation": "Use a stack to track indices of bars in increasing height order. When a shorter bar is encountered, pop bars from the stack and calculate area using the current bar as the right boundary. The stack ensures each bar is pushed and popped exactly once — O(n) total.",
+    "options": [
+      { "text": "Monotonic stack: pop when shorter bar found, compute area with popped bar as height — O(n)", "correct": true },
+      { "text": "For each bar, expand left and right to find maximum width — O(n²)", "correct": false },
+      { "text": "Sort bars by height, compute area iteratively — O(n log n)", "correct": false },
+      { "text": "Divide and conquer: find min bar, compute both sides — O(n log n)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Graphs",
+    "difficulty": "MEDIUM",
+    "text": "What is Kruskal's algorithm and what is its time complexity?",
+    "explanation": "Kruskal's algorithm finds the Minimum Spanning Tree (MST) by sorting all edges by weight and adding each edge if it doesn't form a cycle (using Union-Find). Time: O(E log E) for sorting + O(E α(V)) for Union-Find operations ≈ O(E log E) overall.",
+    "options": [
+      { "text": "Sort edges by weight, add edge if no cycle (Union-Find) — O(E log E)", "correct": true },
+      { "text": "Expand MST from source using minimum edge — O(V log V + E)", "correct": false },
+      { "text": "BFS from each vertex, merge trees — O(V * E)", "correct": false },
+      { "text": "DFS with backtracking — O(V! / E!)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Dynamic Programming",
+    "difficulty": "MEDIUM",
+    "text": "What recurrence relation defines the Fibonacci sequence in DP?",
+    "explanation": "F(n) = F(n-1) + F(n-2) with base cases F(0)=0, F(1)=1. Naive recursion is O(2^n). Memoization or tabulation makes it O(n) time. Space can be further reduced to O(1) by only tracking the previous two values.",
+    "options": [
+      { "text": "F(n) = F(n-1) + F(n-2); DP makes it O(n) time, O(1) space possible", "correct": true },
+      { "text": "F(n) = 2 * F(n-1); simple doubling sequence", "correct": false },
+      { "text": "F(n) = F(n-1) * F(n-2); multiplicative sequence", "correct": false },
+      { "text": "F(n) = F(n/2) + F(n/2); divide by half each time", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Trees",
+    "difficulty": "EASY",
+    "text": "What is a heap data structure and what property does it maintain?",
+    "explanation": "A heap is a complete binary tree satisfying the heap property. Max-heap: parent ≥ children (root is maximum). Min-heap: parent ≤ children (root is minimum). Heaps are implemented as arrays using index arithmetic: parent at i/2, children at 2i and 2i+1.",
+    "options": [
+      { "text": "Complete binary tree where parent's value is always ≥ (max-heap) or ≤ (min-heap) children", "correct": true },
+      { "text": "Binary tree where left subtree values > right subtree values", "correct": false },
+      { "text": "Balanced BST with guaranteed O(log n) operations", "correct": false },
+      { "text": "Graph data structure with weighted edges", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Searching",
+    "difficulty": "HARD",
+    "text": "How do you find an element in a rotated sorted array in O(log n) time?",
+    "explanation": "Modified binary search: find mid. If arr[mid] == target, return. Check which half is sorted: if arr[left] ≤ arr[mid], left half is sorted — check if target in range [arr[left], arr[mid]], else search right. Otherwise right half is sorted — check if target in range [arr[mid], arr[right]], else search left. O(log n).",
+    "options": [
+      { "text": "Modified binary search: determine which half is sorted, narrow search accordingly — O(log n)", "correct": true },
+      { "text": "Find rotation point first (O(log n)), then binary search — O(2 log n)", "correct": false },
+      { "text": "Linear scan since binary search doesn't apply — O(n)", "correct": false },
+      { "text": "Sort the array first, then binary search — O(n log n)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Queues",
+    "difficulty": "HARD",
+    "text": "What is a deque (double-ended queue) and what is the time complexity of its operations?",
+    "explanation": "A deque allows insertion and deletion from both front and back in O(1). It can function as both a stack and a queue. Applications: sliding window maximum (monotonic deque), palindrome checking, undo operations. Implemented using a doubly linked list or circular array.",
+    "options": [
+      { "text": "Double-ended queue with O(1) insert/delete from both ends; used in sliding window problems", "correct": true },
+      { "text": "Priority queue with O(log n) operations from each end", "correct": false },
+      { "text": "Queue with random access O(1) like an array", "correct": false },
+      { "text": "Circular queue with O(n) insert at front and O(1) at back", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Hashing",
+    "difficulty": "HARD",
+    "text": "What is the load factor of a hash table and how does it affect performance?",
+    "explanation": "Load factor = (number of entries) / (number of buckets). As load factor increases, collision probability increases, degrading performance from O(1) toward O(n). Most implementations resize (rehash) when load factor exceeds a threshold (typically 0.75 in Java's HashMap), maintaining amortized O(1) performance.",
+    "options": [
+      { "text": "Entries/buckets ratio; high load factor increases collisions; rehash at ~0.75 to maintain O(1)", "correct": true },
+      { "text": "Maximum entries per bucket; fixed at 8 in all implementations", "correct": false },
+      { "text": "The hash function's collision rate; minimized by prime-size tables", "correct": false },
+      { "text": "Memory usage divided by CPU cycles; lower is better for performance", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Dynamic Programming",
+    "difficulty": "HARD",
+    "text": "In the Longest Increasing Subsequence (LIS) problem, what is the optimal time complexity?",
+    "explanation": "Naive DP gives O(n²). The optimal O(n log n) solution uses patience sorting / binary search: maintain a 'tails' array where tails[i] is the smallest tail element of all LIS of length i+1. For each number, binary search for its position in tails.",
+    "options": [
+      { "text": "O(n log n) using binary search on a maintained tails array (patience sorting)", "correct": true },
+      { "text": "O(n²) is optimal using standard DP", "correct": false },
+      { "text": "O(n) using a greedy single-pass approach", "correct": false },
+      { "text": "O(n² log n) using sorted list with DP", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Graphs",
+    "difficulty": "MEDIUM",
+    "text": "What is Union-Find (Disjoint Set Union) and what is its primary use?",
+    "explanation": "Union-Find tracks connected components. It supports two operations: Find (which component is an element in) and Union (merge two components). With path compression and union by rank, both operations are nearly O(1) — amortized O(α(n)) where α is the inverse Ackermann function.",
+    "options": [
+      { "text": "Tracks connected components; Find and Union both O(α(n)) ≈ O(1) with optimizations", "correct": true },
+      { "text": "Finds shortest path between two vertices — O(V log V)", "correct": false },
+      { "text": "Detects cycles in directed graphs using DFS coloring", "correct": false },
+      { "text": "Finds strongly connected components — O(V + E)", "correct": false }
+    ]
+  }
+]

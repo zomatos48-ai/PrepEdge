@@ -1,0 +1,392 @@
+[
+  {
+    "subject": "DSA",
+    "topic": "Arrays",
+    "difficulty": "EASY",
+    "text": "What is the time complexity of accessing an element in an array by index?",
+    "explanation": "Arrays store elements in contiguous memory locations, so any element can be accessed directly using its index in O(1) constant time.",
+    "options": [
+      { "text": "O(1)", "correct": true },
+      { "text": "O(n)", "correct": false },
+      { "text": "O(log n)", "correct": false },
+      { "text": "O(n²)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Arrays",
+    "difficulty": "MEDIUM",
+    "text": "What is the output of this code?\n\nint[] arr = {5, 3, 8, 1, 9, 2};\nArrays.sort(arr);\nSystem.out.println(arr[0] + \" \" + arr[arr.length-1]);",
+    "explanation": "Arrays.sort() sorts in ascending order. After sorting: {1, 2, 3, 5, 8, 9}. arr[0] = 1, arr[arr.length-1] = arr[5] = 9.",
+    "options": [
+      { "text": "1 9", "correct": true },
+      { "text": "5 2", "correct": false },
+      { "text": "9 1", "correct": false },
+      { "text": "1 8", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Arrays",
+    "difficulty": "HARD",
+    "text": "Given an array of n integers, what is the most efficient way to find if any two numbers sum to a target value?",
+    "explanation": "Using a HashSet, iterate through the array. For each element x, check if (target - x) exists in the set. If yes, pair found. Otherwise add x to set. This gives O(n) time and O(n) space, better than the O(n²) brute force approach.",
+    "options": [
+      { "text": "Use a HashSet — O(n) time, O(n) space", "correct": true },
+      { "text": "Sort and use two pointers — O(n log n) time, O(1) space", "correct": false },
+      { "text": "Nested loops — O(n²) time, O(1) space", "correct": false },
+      { "text": "Binary search for each element — O(n log n) time", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Linked Lists",
+    "difficulty": "EASY",
+    "text": "What is the time complexity of inserting a node at the beginning of a singly linked list?",
+    "explanation": "Inserting at the beginning only requires updating the head pointer and the new node's next pointer — no traversal needed, so it's O(1).",
+    "options": [
+      { "text": "O(1)", "correct": true },
+      { "text": "O(n)", "correct": false },
+      { "text": "O(log n)", "correct": false },
+      { "text": "O(n²)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Linked Lists",
+    "difficulty": "MEDIUM",
+    "text": "How do you detect a cycle in a linked list efficiently?",
+    "explanation": "Floyd's cycle detection algorithm (tortoise and hare) uses two pointers — slow moves one step at a time, fast moves two. If they meet, a cycle exists. Time: O(n), Space: O(1).",
+    "options": [
+      { "text": "Floyd's cycle detection with two pointers — O(n) time, O(1) space", "correct": true },
+      { "text": "Store all visited nodes in a HashSet — O(n) time, O(n) space", "correct": false },
+      { "text": "Reverse the list and check if head changes — O(n) time", "correct": false },
+      { "text": "Sort the list and check for duplicates — O(n log n) time", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Linked Lists",
+    "difficulty": "HARD",
+    "text": "What is the time complexity of reversing a singly linked list iteratively?",
+    "explanation": "To reverse iteratively, traverse the list once while reversing each node's next pointer. This requires visiting every node exactly once — O(n) time and O(1) space (only three pointers needed).",
+    "options": [
+      { "text": "O(n) time, O(1) space", "correct": true },
+      { "text": "O(n) time, O(n) space", "correct": false },
+      { "text": "O(n²) time, O(1) space", "correct": false },
+      { "text": "O(log n) time, O(1) space", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Stacks",
+    "difficulty": "EASY",
+    "text": "Which data structure follows the LIFO (Last In, First Out) principle?",
+    "explanation": "A stack follows LIFO — the last element pushed onto the stack is the first one to be popped off. Think of a stack of plates.",
+    "options": [
+      { "text": "Stack", "correct": true },
+      { "text": "Queue", "correct": false },
+      { "text": "Array", "correct": false },
+      { "text": "Linked List", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Stacks",
+    "difficulty": "MEDIUM",
+    "text": "What is the output of these stack operations?\n\npush(1), push(2), push(3), pop(), push(4), pop(), pop()",
+    "explanation": "After push(1,2,3): stack = [1,2,3]. pop() removes 3. push(4): stack = [1,2,4]. pop() removes 4. pop() removes 2. Final pops returned: 3, 4, 2.",
+    "options": [
+      { "text": "3, 4, 2", "correct": true },
+      { "text": "1, 2, 3", "correct": false },
+      { "text": "3, 2, 4", "correct": false },
+      { "text": "4, 3, 2", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Queues",
+    "difficulty": "EASY",
+    "text": "Which data structure follows the FIFO (First In, First Out) principle?",
+    "explanation": "A queue follows FIFO — the first element enqueued is the first one to be dequeued. Think of a line at a ticket counter.",
+    "options": [
+      { "text": "Queue", "correct": true },
+      { "text": "Stack", "correct": false },
+      { "text": "Tree", "correct": false },
+      { "text": "Graph", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Trees",
+    "difficulty": "EASY",
+    "text": "What is the maximum number of nodes in a binary tree of height h?",
+    "explanation": "A binary tree of height h has at most 2^(h+1) - 1 nodes (when every level is completely filled). For h=0 (just root): 1 node. For h=1: 3 nodes. For h=2: 7 nodes.",
+    "options": [
+      { "text": "2^(h+1) - 1", "correct": true },
+      { "text": "2^h", "correct": false },
+      { "text": "h²", "correct": false },
+      { "text": "2h + 1", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Trees",
+    "difficulty": "MEDIUM",
+    "text": "What traversal of a Binary Search Tree gives elements in sorted order?",
+    "explanation": "In-order traversal (Left → Root → Right) of a BST visits nodes in ascending sorted order, because all left subtree values are less than root and all right subtree values are greater.",
+    "options": [
+      { "text": "In-order (Left, Root, Right)", "correct": true },
+      { "text": "Pre-order (Root, Left, Right)", "correct": false },
+      { "text": "Post-order (Left, Right, Root)", "correct": false },
+      { "text": "Level-order (BFS)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Trees",
+    "difficulty": "HARD",
+    "text": "What is the average time complexity for search, insert, and delete in a balanced Binary Search Tree?",
+    "explanation": "In a balanced BST (like AVL or Red-Black tree), the height is always O(log n). Since all operations (search, insert, delete) depend on the height, they all run in O(log n) average time.",
+    "options": [
+      { "text": "O(log n)", "correct": true },
+      { "text": "O(n)", "correct": false },
+      { "text": "O(1)", "correct": false },
+      { "text": "O(n log n)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Sorting",
+    "difficulty": "EASY",
+    "text": "Which sorting algorithm has the best average-case time complexity?",
+    "explanation": "Merge Sort and Heap Sort both guarantee O(n log n) in all cases. Quick Sort averages O(n log n) but can degrade to O(n²). For practical purposes, Quick Sort is often fastest in practice but Merge Sort has the best guaranteed complexity.",
+    "options": [
+      { "text": "Merge Sort — O(n log n)", "correct": true },
+      { "text": "Bubble Sort — O(n²)", "correct": false },
+      { "text": "Insertion Sort — O(n²)", "correct": false },
+      { "text": "Selection Sort — O(n²)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Sorting",
+    "difficulty": "MEDIUM",
+    "text": "What is the worst-case time complexity of Quick Sort and when does it occur?",
+    "explanation": "Quick Sort's worst case is O(n²), which occurs when the pivot is always the smallest or largest element (already sorted or reverse-sorted array with naive pivot selection). This creates n partitions of size n-1, 1; n-2, 1; etc.",
+    "options": [
+      { "text": "O(n²) — when pivot is always the smallest or largest element", "correct": true },
+      { "text": "O(n log n) — Quick Sort never degrades", "correct": false },
+      { "text": "O(n²) — always, regardless of input", "correct": false },
+      { "text": "O(n) — when array is already sorted", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Searching",
+    "difficulty": "EASY",
+    "text": "What is the time complexity of Binary Search?",
+    "explanation": "Binary Search halves the search space with each comparison. Starting with n elements, after k comparisons there are n/2^k elements left. When n/2^k = 1, k = log₂(n). So time complexity is O(log n).",
+    "options": [
+      { "text": "O(log n)", "correct": true },
+      { "text": "O(n)", "correct": false },
+      { "text": "O(n log n)", "correct": false },
+      { "text": "O(1)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Searching",
+    "difficulty": "MEDIUM",
+    "text": "What is a prerequisite for applying Binary Search on an array?",
+    "explanation": "Binary Search requires the array to be sorted. It works by comparing the target with the middle element and eliminating half the remaining elements each time — this only works correctly on sorted data.",
+    "options": [
+      { "text": "The array must be sorted", "correct": true },
+      { "text": "The array must contain only integers", "correct": false },
+      { "text": "The array must have an even number of elements", "correct": false },
+      { "text": "The array must be stored in contiguous memory", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Hashing",
+    "difficulty": "EASY",
+    "text": "What is the average time complexity for insert, search, and delete operations in a Hash Table?",
+    "explanation": "A well-implemented hash table with a good hash function achieves O(1) average time for insert, search, and delete. Collisions can degrade performance, but with proper handling (chaining or open addressing), the average remains O(1).",
+    "options": [
+      { "text": "O(1) average", "correct": true },
+      { "text": "O(log n) average", "correct": false },
+      { "text": "O(n) average", "correct": false },
+      { "text": "O(n²) average", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Hashing",
+    "difficulty": "MEDIUM",
+    "text": "What is a collision in a hash table and how is chaining used to resolve it?",
+    "explanation": "A collision occurs when two different keys hash to the same index. In chaining, each bucket holds a linked list of all key-value pairs that hash to that index. On collision, the new pair is appended to the list at that bucket.",
+    "options": [
+      { "text": "Two keys hash to the same index; chaining stores multiple entries as a linked list at that bucket", "correct": true },
+      { "text": "Two keys have the same value; chaining duplicates the entry", "correct": false },
+      { "text": "The hash table is full; chaining creates a new table", "correct": false },
+      { "text": "A key is not found; chaining searches nearby buckets", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Graphs",
+    "difficulty": "EASY",
+    "text": "What is the difference between BFS and DFS graph traversal?",
+    "explanation": "BFS (Breadth-First Search) explores all neighbors at the current depth before moving deeper, using a Queue. DFS (Depth-First Search) explores as far as possible along each branch before backtracking, using a Stack (or recursion).",
+    "options": [
+      { "text": "BFS uses a Queue and explores level by level; DFS uses a Stack and explores depth-first", "correct": true },
+      { "text": "BFS uses a Stack; DFS uses a Queue", "correct": false },
+      { "text": "BFS and DFS are identical in behavior", "correct": false },
+      { "text": "BFS only works on trees; DFS only works on graphs", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Graphs",
+    "difficulty": "MEDIUM",
+    "text": "What is the time complexity of BFS and DFS on a graph with V vertices and E edges?",
+    "explanation": "Both BFS and DFS visit each vertex once and each edge once (or twice for undirected graphs). So both run in O(V + E) time. The space complexity is O(V) for the visited set and queue/stack.",
+    "options": [
+      { "text": "O(V + E)", "correct": true },
+      { "text": "O(V * E)", "correct": false },
+      { "text": "O(V²)", "correct": false },
+      { "text": "O(E log V)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Dynamic Programming",
+    "difficulty": "MEDIUM",
+    "text": "What is the key characteristic that makes a problem suitable for Dynamic Programming?",
+    "explanation": "A problem is suitable for DP if it has: (1) Optimal substructure — optimal solution can be built from optimal solutions to subproblems, and (2) Overlapping subproblems — the same subproblems are solved multiple times. DP stores results to avoid recomputation.",
+    "options": [
+      { "text": "Optimal substructure and overlapping subproblems", "correct": true },
+      { "text": "The input must be sorted", "correct": false },
+      { "text": "The problem must have exactly one correct answer", "correct": false },
+      { "text": "The problem must involve only integers", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Dynamic Programming",
+    "difficulty": "HARD",
+    "text": "What is the time and space complexity of computing Fibonacci(n) using dynamic programming (bottom-up)?",
+    "explanation": "Bottom-up DP fills a table from F(0) to F(n), computing each value once. Time: O(n) since we compute n values. Space: O(n) for the table, or O(1) if we only keep the last two values.",
+    "options": [
+      { "text": "O(n) time, O(1) space (with space optimization)", "correct": true },
+      { "text": "O(2^n) time, O(n) space", "correct": false },
+      { "text": "O(n²) time, O(n) space", "correct": false },
+      { "text": "O(n log n) time, O(log n) space", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Recursion",
+    "difficulty": "EASY",
+    "text": "What is the base case in recursion and why is it necessary?",
+    "explanation": "The base case is the condition that stops the recursive calls. Without it, the function would call itself infinitely, causing a stack overflow. The base case provides a direct answer for the simplest input.",
+    "options": [
+      { "text": "The condition that stops recursive calls, preventing infinite recursion and stack overflow", "correct": true },
+      { "text": "The first call to the recursive function", "correct": false },
+      { "text": "The return value of the last recursive call", "correct": false },
+      { "text": "A loop that replaces recursion for efficiency", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Heaps",
+    "difficulty": "MEDIUM",
+    "text": "What is the time complexity of extracting the minimum element from a Min-Heap?",
+    "explanation": "Extracting the minimum from a Min-Heap takes O(log n). The minimum is always at the root (O(1) to access). After removal, the last element is moved to root and heapified down, which takes O(log n) since tree height is log n.",
+    "options": [
+      { "text": "O(log n)", "correct": true },
+      { "text": "O(1)", "correct": false },
+      { "text": "O(n)", "correct": false },
+      { "text": "O(n log n)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Heaps",
+    "difficulty": "EASY",
+    "text": "In a Max-Heap, what is always true about the root node?",
+    "explanation": "In a Max-Heap, every parent node is greater than or equal to its children. This means the root always contains the maximum value in the entire heap.",
+    "options": [
+      { "text": "The root contains the maximum value", "correct": true },
+      { "text": "The root contains the minimum value", "correct": false },
+      { "text": "The root contains the median value", "correct": false },
+      { "text": "The root can contain any value", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Complexity Analysis",
+    "difficulty": "EASY",
+    "text": "What does O(1) time complexity mean?",
+    "explanation": "O(1) means constant time — the operation takes the same amount of time regardless of the input size. Examples: array index access, hash table lookup, push/pop on a stack.",
+    "options": [
+      { "text": "The operation takes constant time regardless of input size", "correct": true },
+      { "text": "The operation takes 1 millisecond", "correct": false },
+      { "text": "The operation runs once", "correct": false },
+      { "text": "The operation has no loops", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Complexity Analysis",
+    "difficulty": "MEDIUM",
+    "text": "What is the time complexity of this code?\n\nfor (int i = 0; i < n; i++) {\n  for (int j = i; j < n; j++) {\n    System.out.println(i + j);\n  }\n}",
+    "explanation": "The outer loop runs n times. The inner loop runs n-i times for each i. Total operations = n + (n-1) + (n-2) + ... + 1 = n(n+1)/2 = O(n²). Even though the inner loop doesn't always start at 0, it's still quadratic.",
+    "options": [
+      { "text": "O(n²)", "correct": true },
+      { "text": "O(n)", "correct": false },
+      { "text": "O(n log n)", "correct": false },
+      { "text": "O(2^n)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Complexity Analysis",
+    "difficulty": "HARD",
+    "text": "What is the time complexity of this code?\n\nfor (int i = 1; i < n; i = i * 2) {\n  System.out.println(i);\n}",
+    "explanation": "The loop variable i doubles each iteration: 1, 2, 4, 8, ..., until i >= n. The number of iterations k satisfies 2^k = n, so k = log₂(n). Time complexity is O(log n).",
+    "options": [
+      { "text": "O(log n)", "correct": true },
+      { "text": "O(n)", "correct": false },
+      { "text": "O(n²)", "correct": false },
+      { "text": "O(n/2)", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Tries",
+    "difficulty": "MEDIUM",
+    "text": "What is a Trie data structure primarily used for?",
+    "explanation": "A Trie (prefix tree) is used for efficient string searching and prefix matching. Each node represents a character, and paths from root to leaf represent words. Lookup time is O(L) where L is the word length, independent of dictionary size.",
+    "options": [
+      { "text": "Efficient string prefix searching and autocomplete", "correct": true },
+      { "text": "Sorting integers efficiently", "correct": false },
+      { "text": "Finding shortest paths in graphs", "correct": false },
+      { "text": "Storing key-value pairs with O(1) lookup", "correct": false }
+    ]
+  },
+  {
+    "subject": "DSA",
+    "topic": "Greedy Algorithms",
+    "difficulty": "MEDIUM",
+    "text": "What is the key idea behind a Greedy algorithm?",
+    "explanation": "A greedy algorithm makes the locally optimal choice at each step, hoping to find a global optimum. It never reconsiders previous choices. It works for problems with the greedy choice property, but doesn't always give the optimal solution.",
+    "options": [
+      { "text": "Make the locally optimal choice at each step without reconsidering", "correct": true },
+      { "text": "Try all possible combinations and pick the best", "correct": false },
+      { "text": "Break problem into subproblems and store results", "correct": false },
+      { "text": "Use recursion to explore all paths simultaneously", "correct": false }
+    ]
+  }
+]

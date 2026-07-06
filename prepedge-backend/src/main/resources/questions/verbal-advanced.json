@@ -1,0 +1,158 @@
+[
+  {
+    "subject": "Verbal Ability",
+    "topic": "Reading Comprehension",
+    "difficulty": "MEDIUM",
+    "text": "Choose the word most SIMILAR in meaning to 'UBIQUITOUS':",
+    "explanation": "'Ubiquitous' means present, appearing, or found everywhere. 'Omnipresent' is the closest synonym — also meaning present everywhere at the same time. 'Rare' is the antonym. 'Unique' means one of a kind. 'Occasional' means now and then.",
+    "options": [
+      { "text": "Omnipresent", "correct": true },
+      { "text": "Rare", "correct": false },
+      { "text": "Unique", "correct": false },
+      { "text": "Occasional", "correct": false }
+    ]
+  },
+  {
+    "subject": "Verbal Ability",
+    "topic": "Vocabulary",
+    "difficulty": "MEDIUM",
+    "text": "Choose the word most OPPOSITE in meaning to 'LOQUACIOUS':",
+    "explanation": "'Loquacious' means talking a great deal; talkative. Its antonym is 'taciturn' — reserved or uncommunicative in speech; saying little. 'Garrulous' and 'verbose' are synonyms of loquacious.",
+    "options": [
+      { "text": "Taciturn", "correct": true },
+      { "text": "Garrulous", "correct": false },
+      { "text": "Verbose", "correct": false },
+      { "text": "Eloquent", "correct": false }
+    ]
+  },
+  {
+    "subject": "Verbal Ability",
+    "topic": "Grammar",
+    "difficulty": "EASY",
+    "text": "Choose the correct sentence:",
+    "explanation": "The correct sentence uses the past perfect tense 'had finished' to indicate an action (finishing work) that was completed before another past action (leaving). The other options have grammatical errors: 'had finished... leave' mixes tenses incorrectly, 'finished... has left' mixes simple past with present perfect incorrectly, 'will finish... left' illogically puts future before past.",
+    "options": [
+      { "text": "She had finished her work before she left the office.", "correct": true },
+      { "text": "She had finished her work before she leave the office.", "correct": false },
+      { "text": "She finished her work before she has left the office.", "correct": false },
+      { "text": "She will finish her work before she left the office.", "correct": false }
+    ]
+  },
+  {
+    "subject": "Verbal Ability",
+    "topic": "Vocabulary",
+    "difficulty": "HARD",
+    "text": "Select the word that correctly completes: 'The scientist's ___ discovery changed our understanding of the universe.'",
+    "explanation": "'Seminal' means strongly influencing later developments; original and important. 'Seminal discovery' means a groundbreaking, foundational discovery that spawned further research. 'Trivial' means unimportant. 'Pedestrian' means dull, ordinary. 'Redundant' means unnecessary.",
+    "options": [
+      { "text": "seminal", "correct": true },
+      { "text": "trivial", "correct": false },
+      { "text": "pedestrian", "correct": false },
+      { "text": "redundant", "correct": false }
+    ]
+  },
+  {
+    "subject": "Verbal Ability",
+    "topic": "Sentence Correction",
+    "difficulty": "MEDIUM",
+    "text": "Identify the error in: 'Neither of the students have submitted their assignment on time.'",
+    "explanation": "'Neither' is singular when used as a pronoun. The correct verb is 'has' not 'have'. Correct: 'Neither of the students has submitted his/her assignment on time.' Also, 'their' (plural) is technically inconsistent with singular 'neither,' though acceptable in informal usage — the primary error is 'have'.",
+    "options": [
+      { "text": "'have' should be 'has' — 'Neither' takes singular verb", "correct": true },
+      { "text": "No error; the sentence is grammatically correct", "correct": false },
+      { "text": "'their' should be 'its' — referring to singular student", "correct": false },
+      { "text": "'of the students' should be removed for correctness", "correct": false }
+    ]
+  },
+  {
+    "subject": "Verbal Ability",
+    "topic": "Reading Comprehension",
+    "difficulty": "HARD",
+    "text": "Read the passage and answer: 'Artificial intelligence, once confined to science fiction, has permeated every sector of modern industry. Critics argue that automation threatens livelihoods, while proponents maintain it creates more jobs than it eliminates.' The author's tone can best be described as:",
+    "explanation": "The author presents both sides — critics' concerns and proponents' views — without taking a position. This balanced presentation of opposing viewpoints indicates an objective, neutral tone. The author is neither enthusiastic (optimistic) nor alarmed (pessimistic), and is not argumentative.",
+    "options": [
+      { "text": "Objective and balanced", "correct": true },
+      { "text": "Enthusiastic and optimistic", "correct": false },
+      { "text": "Pessimistic and alarmed", "correct": false },
+      { "text": "Argumentative and biased", "correct": false }
+    ]
+  },
+  {
+    "subject": "Verbal Ability",
+    "topic": "Sentence Completion",
+    "difficulty": "MEDIUM",
+    "text": "Choose the best word: 'The professor's lecture was so ___ that even the most attentive students struggled to stay awake.'",
+    "explanation": "'Soporific' means causing or tending to cause sleep — perfectly describing a lecture that makes attentive students sleepy. 'Stimulating' and 'riveting' are antonyms (engaging). 'Succinct' means brief and clear — the opposite problem.",
+    "options": [
+      { "text": "soporific", "correct": true },
+      { "text": "stimulating", "correct": false },
+      { "text": "riveting", "correct": false },
+      { "text": "succinct", "correct": false }
+    ]
+  },
+  {
+    "subject": "Verbal Ability",
+    "topic": "Grammar",
+    "difficulty": "MEDIUM",
+    "text": "Which sentence uses the subjunctive mood correctly?",
+    "explanation": "The subjunctive mood is used for hypothetical, wishful, or contrary-to-fact situations. 'If I were you' is correct subjunctive (not 'was'). 'Were' is used even for first and third person singular in subjunctive. 'If I was you' is incorrect. The subjunctive 'were' signals a hypothetical condition.",
+    "options": [
+      { "text": "If I were you, I would reconsider the decision.", "correct": true },
+      { "text": "If I was you, I would reconsider the decision.", "correct": false },
+      { "text": "If I am you, I will reconsider the decision.", "correct": false },
+      { "text": "If I be you, I would reconsider the decision.", "correct": false }
+    ]
+  },
+  {
+    "subject": "Verbal Ability",
+    "topic": "Vocabulary",
+    "difficulty": "EASY",
+    "text": "Choose the word most similar to 'EPHEMERAL':",
+    "explanation": "'Ephemeral' means lasting for a very short time; transitory. 'Transient' is the closest synonym — lasting only for a short time; passing. 'Permanent' and 'enduring' are antonyms. 'Frequent' means occurring often — unrelated to duration.",
+    "options": [
+      { "text": "Transient", "correct": true },
+      { "text": "Permanent", "correct": false },
+      { "text": "Enduring", "correct": false },
+      { "text": "Frequent", "correct": false }
+    ]
+  },
+  {
+    "subject": "Verbal Ability",
+    "topic": "Reading Comprehension",
+    "difficulty": "MEDIUM",
+    "text": "Choose the correct meaning of the idiom: 'To burn the midnight oil':",
+    "explanation": "'To burn the midnight oil' is an idiom meaning to work late into the night, especially studying or working hard. It originates from the era before electricity when people burned oil lamps while working late at night. It has nothing to do with fuel, profits, or destruction.",
+    "options": [
+      { "text": "To work or study late into the night", "correct": true },
+      { "text": "To waste valuable resources carelessly", "correct": false },
+      { "text": "To earn enormous profits from oil trading", "correct": false },
+      { "text": "To destroy something valuable in anger", "correct": false }
+    ]
+  },
+  {
+    "subject": "Verbal Ability",
+    "topic": "Sentence Correction",
+    "difficulty": "HARD",
+    "text": "Select the correctly punctuated sentence:",
+    "explanation": "When a subordinate clause introduces the main clause (fronted subordinate clause), it must be followed by a comma. 'Although he studied hard, he failed the exam.' — the comma after 'hard' is mandatory when the 'although' clause comes first. Without the comma, the sentence is incorrectly punctuated.",
+    "options": [
+      { "text": "Although he studied hard, he failed the exam.", "correct": true },
+      { "text": "Although he studied hard he failed the exam.", "correct": false },
+      { "text": "Although, he studied hard he failed the exam.", "correct": false },
+      { "text": "Although he studied hard; he failed the exam.", "correct": false }
+    ]
+  },
+  {
+    "subject": "Verbal Ability",
+    "topic": "Vocabulary",
+    "difficulty": "HARD",
+    "text": "Choose the word most OPPOSITE to 'MAGNANIMOUS':",
+    "explanation": "'Magnanimous' means very generous, kind, and forgiving, especially toward rivals or enemies. Its antonym is 'petty' — meaning small-minded, ungenerous, or giving undue importance to trivial matters. 'Generous' and 'benevolent' are synonyms. 'Noble' is related but not the best antonym.",
+    "options": [
+      { "text": "Petty", "correct": true },
+      { "text": "Generous", "correct": false },
+      { "text": "Benevolent", "correct": false },
+      { "text": "Noble", "correct": false }
+    ]
+  }
+]

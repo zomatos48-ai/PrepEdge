@@ -1,0 +1,158 @@
+[
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "Design Patterns",
+    "difficulty": "MEDIUM",
+    "text": "What is the Singleton design pattern and how do you make it thread-safe in Java?",
+    "explanation": "Singleton ensures only one instance of a class exists. Thread-safe approaches: (1) Synchronized getInstance() — works but slow, (2) Double-checked locking with volatile — efficient, (3) Bill Pugh Singleton (static inner holder class) — best approach, uses JVM class loading guarantee, (4) Enum singleton — Josh Bloch's recommended approach, handles serialization and reflection.",
+    "options": [
+      { "text": "Ensures one instance; best made thread-safe with Bill Pugh holder class or Enum singleton", "correct": true },
+      { "text": "Singleton is inherently thread-safe without any synchronization", "correct": false },
+      { "text": "Use synchronized on the class constructor to ensure single instance", "correct": false },
+      { "text": "Singleton pattern is deprecated; use dependency injection frameworks instead", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "Design Patterns",
+    "difficulty": "MEDIUM",
+    "text": "What is the Factory design pattern?",
+    "explanation": "Factory Pattern defines an interface for creating objects but lets subclasses decide which class to instantiate. The Factory Method decouples object creation from usage. Example: ShapeFactory.create('circle') returns a Circle instance. Benefits: open/closed principle (add new products without modifying factory interface).",
+    "options": [
+      { "text": "Provides an interface for creating objects; lets subclasses decide which class to instantiate", "correct": true },
+      { "text": "Creates exactly one object per application lifecycle", "correct": false },
+      { "text": "Wraps objects in layers to add behavior at runtime", "correct": false },
+      { "text": "Converts incompatible interfaces to work together", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "Design Patterns",
+    "difficulty": "HARD",
+    "text": "What is the Observer design pattern and where is it used in Java?",
+    "explanation": "Observer pattern: when one object (Subject) changes state, all registered observers are notified automatically. Java implementations: java.util.Observable/Observer (deprecated), PropertyChangeListener, event listeners (ActionListener), ReactiveX (RxJava). Used in event-driven systems, MVC (View observes Model), pub-sub messaging.",
+    "options": [
+      { "text": "Subject notifies all registered observers when state changes; used in event listeners and pub-sub systems", "correct": true },
+      { "text": "Observes method calls and logs them for debugging", "correct": false },
+      { "text": "Creates new objects by copying (cloning) existing ones", "correct": false },
+      { "text": "Manages object lifecycle ensuring resources are released when observed", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "Design Patterns",
+    "difficulty": "MEDIUM",
+    "text": "What is the Builder design pattern and when should you use it?",
+    "explanation": "Builder pattern constructs complex objects step by step. Use it when: (1) object has many optional parameters (avoids telescoping constructors), (2) different representations of an object are needed, (3) construction requires multiple steps. Example: StringBuilder, AlertDialog.Builder, Lombok's @Builder.",
+    "options": [
+      { "text": "Constructs complex objects step-by-step; ideal for objects with many optional parameters", "correct": true },
+      { "text": "Builds database queries dynamically using method chaining", "correct": false },
+      { "text": "Creates objects by copying an existing instance", "correct": false },
+      { "text": "Provides a unified interface to a set of interfaces in a subsystem", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "SOLID Principles",
+    "difficulty": "MEDIUM",
+    "text": "What is the Single Responsibility Principle (SRP) in SOLID?",
+    "explanation": "SRP: A class should have only one reason to change — it should have only one responsibility. Example violation: a class that both saves data to DB AND sends email notifications. Split into two classes. Benefits: easier to test, change, and understand each class independently.",
+    "options": [
+      { "text": "A class should have one and only one responsibility (one reason to change)", "correct": true },
+      { "text": "A method should do only one thing (single line of code)", "correct": false },
+      { "text": "A class should have a single public method exposed to clients", "correct": false },
+      { "text": "An application should be deployed as a single unit (monolith)", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "SOLID Principles",
+    "difficulty": "HARD",
+    "text": "What is the Open/Closed Principle and how do interfaces help enforce it?",
+    "explanation": "Open/Closed: software entities should be open for extension but closed for modification. Add new behavior by adding new code (new classes implementing an interface), not by modifying existing tested code. Interfaces enable this: define a PaymentProcessor interface; add new payment methods (GPay, Crypto) as new implementations without changing existing code.",
+    "options": [
+      { "text": "Open for extension (new implementations), closed for modification; interfaces enable adding behavior without changing existing code", "correct": true },
+      { "text": "Classes should always have open (public) and closed (private) sections", "correct": false },
+      { "text": "Code should be open-source and closed to proprietary modifications", "correct": false },
+      { "text": "Methods should be open to any parameter type but closed to return type changes", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "SOLID Principles",
+    "difficulty": "MEDIUM",
+    "text": "What is the Dependency Inversion Principle?",
+    "explanation": "DIP: High-level modules should not depend on low-level modules; both should depend on abstractions. Example: instead of UserService depending on MySQLDatabase (concrete), it should depend on DatabaseInterface. This enables swapping implementations (MySQL→PostgreSQL) without changing UserService. Spring's DI implements this automatically.",
+    "options": [
+      { "text": "High-level and low-level modules should both depend on abstractions (interfaces), not concretions", "correct": true },
+      { "text": "Dependencies should be inverted so that low-level modules control high-level modules", "correct": false },
+      { "text": "All method parameters should be passed in reverse order for clarity", "correct": false },
+      { "text": "Circular dependencies should be inverted to avoid stack overflow", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "Inheritance",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between abstract class and interface in Java?",
+    "explanation": "Abstract class: can have abstract + concrete methods, constructors, instance variables, any access modifier. Supports single inheritance. Interface: all methods implicitly public, can have default/static methods (Java 8+), only constants. Supports multiple implementation. Use abstract class for 'is-a' with shared state; use interface for 'can-do' contracts.",
+    "options": [
+      { "text": "Abstract class: shared state + single inheritance; Interface: multiple implementation, no state (Java 8+ allows default methods)", "correct": true },
+      { "text": "They are identical; abstract class is just an older syntax for interface", "correct": false },
+      { "text": "Interface is faster at runtime; abstract class is used only for legacy code", "correct": false },
+      { "text": "Abstract class can only have private methods; interface only has public methods", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "Polymorphism",
+    "difficulty": "HARD",
+    "text": "What is dynamic dispatch (late binding) in Java and how does it relate to polymorphism?",
+    "explanation": "Dynamic dispatch: the JVM determines which method implementation to call at runtime based on the actual object type, not the reference type. This is how runtime polymorphism works. Example: Animal a = new Dog(); a.sound() calls Dog.sound(), not Animal.sound(). Achieved via virtual method table (vtable). Final and static methods are resolved at compile time (early binding).",
+    "options": [
+      { "text": "JVM resolves method calls at runtime based on actual object type — enables runtime polymorphism via vtable", "correct": true },
+      { "text": "Dispatch is determined at compile time based on declared type — static binding", "correct": false },
+      { "text": "Dynamic dispatch is disabled for methods marked @Override", "correct": false },
+      { "text": "Dynamic dispatch only applies to constructors, not regular methods", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "OOP Basics",
+    "difficulty": "EASY",
+    "text": "What is the difference between composition and inheritance? When should you prefer composition?",
+    "explanation": "'Favor composition over inheritance' (GoF). Inheritance: 'is-a' relationship, tight coupling, hard to change at runtime. Composition: 'has-a' relationship, more flexible, can change behavior at runtime by swapping components. Example: Instead of Car extends Engine (wrong), use Car has-a Engine (composition). Composition avoids fragile base class problem.",
+    "options": [
+      { "text": "Composition ('has-a') is more flexible than inheritance ('is-a'); prefer composition to avoid tight coupling", "correct": true },
+      { "text": "Inheritance is always faster at runtime; use composition only for UI components", "correct": false },
+      { "text": "Composition is the same as multiple inheritance in Java", "correct": false },
+      { "text": "Inheritance should always be preferred for code reuse", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "OOP Basics",
+    "difficulty": "MEDIUM",
+    "text": "What is the diamond problem in multiple inheritance and how does Java handle it?",
+    "explanation": "Diamond problem: if class D inherits from B and C, and both B and C inherit from A, which version of A's method does D get? Java avoids this by not supporting multiple class inheritance. With interfaces (Java 8+), if two interfaces have the same default method, the implementing class MUST override it to resolve ambiguity.",
+    "options": [
+      { "text": "Ambiguous method resolution in multiple inheritance; Java prevents it for classes (allows interfaces with mandatory override)", "correct": true },
+      { "text": "A diamond-shaped inheritance tree is required for all Java programs", "correct": false },
+      { "text": "Java resolves it automatically by always choosing the leftmost parent", "correct": false },
+      { "text": "Diamond problem only occurs in Python; Java doesn't have this issue at all", "correct": false }
+    ]
+  },
+  {
+    "subject": "Object Oriented Programming",
+    "topic": "Design Patterns",
+    "difficulty": "HARD",
+    "text": "What is the Decorator design pattern and how does it differ from inheritance?",
+    "explanation": "Decorator wraps an object and adds new behavior dynamically at runtime without modifying the original class. Unlike inheritance (compile-time, static), decorators are chained at runtime. Example: Java I/O streams (BufferedInputStream wraps FileInputStream). More flexible — multiple decorators can be combined in any order.",
+    "options": [
+      { "text": "Wraps an object to add behavior at runtime; more flexible than inheritance (static, compile-time)", "correct": true },
+      { "text": "A subclass that overrides all methods of its parent — same as inheritance", "correct": false },
+      { "text": "A pattern to remove behavior from objects dynamically", "correct": false },
+      { "text": "Only applicable to UI components to add visual styles", "correct": false }
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+# ── Secrets ───────────────────────────────────────────────
+.env
+*.env.local
+
+# ── Java / Maven ──────────────────────────────────────────
+prepedge-backend/target/
+prepedge-backend/.mvn/wrapper/maven-wrapper.jar
+*.class
+*.jar
+*.war
+hs_err_pid*
+
+# ── Node / React ──────────────────────────────────────────
+prepedge-frontend/node_modules/
+prepedge-frontend/dist/
+prepedge-frontend/.vite/
+
+# ── IDE ───────────────────────────────────────────────────
+.idea/
+*.iml
+.vscode/
+*.suo
+*.user
+
+# ── OS ────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Logs ──────────────────────────────────────────────────
+*.log
+logs/

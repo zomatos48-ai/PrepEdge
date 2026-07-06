@@ -1,0 +1,132 @@
+[
+  {
+    "subject": "Operating Systems",
+    "topic": "Process Management",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between a process and a thread?",
+    "explanation": "Process: an independent program with its own memory space (code, heap, stack, data segment). Threads are lightweight execution units within a process — they share code, heap, and data segments but have their own stack and registers. Thread creation is faster and context switching cheaper than processes. IPC between threads is easy (shared memory); IPC between processes requires pipes, sockets, or shared memory mechanisms.",
+    "options": [
+      { "text": "Process: independent memory space; Thread: shares process memory, own stack/registers — lighter and faster to create", "correct": true },
+      { "text": "They are identical; thread is just the Windows term for Linux processes", "correct": false },
+      { "text": "A process can only have one thread at a time", "correct": false },
+      { "text": "Threads are processes that communicate via network sockets", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "Memory Management",
+    "difficulty": "HARD",
+    "text": "What is virtual memory and what problem does it solve?",
+    "explanation": "Virtual memory allows processes to use more memory than physically available by using disk as an extension of RAM. Each process gets its own virtual address space; the OS (with MMU) maps virtual to physical addresses. Benefits: process isolation, ability to run more processes than fit in RAM, simplified memory management. Downside: page faults when accessing data on disk — very slow (disk latency vs RAM latency).",
+    "options": [
+      { "text": "Extends RAM using disk; each process gets isolated virtual address space; enables running more processes than fit in RAM", "correct": true },
+      { "text": "Virtual memory is RAM that's shared between all processes simultaneously", "correct": false },
+      { "text": "A GPU-based memory pool for graphics-intensive applications", "correct": false },
+      { "text": "Memory that's virtualized by hypervisors in cloud environments only", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "CPU Scheduling",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between preemptive and non-preemptive CPU scheduling?",
+    "explanation": "Non-preemptive: once a process starts, it runs until it blocks (I/O wait) or terminates. Simple but poor responsiveness (long process starves others). Examples: FCFS, SJF (non-preemptive). Preemptive: OS can interrupt a running process and switch to another (based on priority or time slice). Better responsiveness. Examples: Round Robin, SRTF, Priority (preemptive).",
+    "options": [
+      { "text": "Non-preemptive: process runs to completion/block; Preemptive: OS can interrupt and context-switch", "correct": true },
+      { "text": "Preemptive: CPU is shared equally; Non-preemptive: higher priority gets more CPU time", "correct": false },
+      { "text": "Non-preemptive scheduling only works on single-core CPUs", "correct": false },
+      { "text": "Preemptive scheduling is only used in real-time operating systems", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "Synchronization",
+    "difficulty": "HARD",
+    "text": "What is a semaphore and how does it differ from a mutex?",
+    "explanation": "Mutex (mutual exclusion): binary lock, owned by one thread at a time — only the owner can release it. Used for protecting critical sections. Semaphore: counter that can be > 1; can be released by any thread. Binary semaphore ≈ mutex but without ownership. Counting semaphore: allows N concurrent accesses (e.g., limit to 5 DB connections). Mutex for ownership; semaphore for signaling.",
+    "options": [
+      { "text": "Mutex: binary with ownership (only owner releases); Semaphore: counter, any thread can release, allows N concurrent access", "correct": true },
+      { "text": "They are identical; mutex is just the POSIX term for Windows semaphore", "correct": false },
+      { "text": "Semaphore is faster than mutex because it doesn't check ownership", "correct": false },
+      { "text": "Mutex allows multiple threads; semaphore allows only one thread at a time", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "Memory Management",
+    "difficulty": "MEDIUM",
+    "text": "What is a page fault and when does it occur?",
+    "explanation": "A page fault occurs when a process accesses a memory page that's not currently in physical RAM (it's in the swap/disk). The OS handles it: (1) find the page on disk, (2) load it into a free frame in RAM, (3) update page table, (4) restart the faulting instruction. Page faults are expensive (disk I/O). Too many page faults = thrashing.",
+    "options": [
+      { "text": "Occurs when process accesses a page not in RAM; OS loads it from disk — expensive operation", "correct": true },
+      { "text": "Occurs when a program accesses an invalid memory address (segmentation fault)", "correct": false },
+      { "text": "A hardware error when RAM modules fail", "correct": false },
+      { "text": "Triggered when page size exceeds available free memory", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "File Systems",
+    "difficulty": "MEDIUM",
+    "text": "What is an inode in Linux file systems?",
+    "explanation": "An inode (index node) is a data structure on Linux file systems that stores metadata about a file: file type, permissions, owner, timestamps, size, and pointers to data blocks. The inode does NOT store the filename — that's stored in the directory entry. Each file has exactly one inode identified by an inode number.",
+    "options": [
+      { "text": "Data structure storing file metadata (permissions, size, timestamps, data block pointers) — NOT the filename", "correct": true },
+      { "text": "The actual data content of a file stored on disk", "correct": false },
+      { "text": "A unique filename identifier used by the kernel", "correct": false },
+      { "text": "An in-memory cache of recently accessed files for performance", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "Process Management",
+    "difficulty": "MEDIUM",
+    "text": "What is a context switch and what does the OS save/restore during one?",
+    "explanation": "A context switch is when the CPU switches from executing one process/thread to another. The OS saves the current process's context: CPU registers (PC, SP, general-purpose registers), process state, memory management info (page table pointer). Then loads the saved context of the next process. Context switches have overhead — cache and TLB are flushed.",
+    "options": [
+      { "text": "CPU switches processes; saves/restores CPU registers, PC, SP, process state — cache/TLB may flush", "correct": true },
+      { "text": "Switches between different databases contexts during transactions", "correct": false },
+      { "text": "Changes the current user's session in multi-user operating systems", "correct": false },
+      { "text": "Swaps the screen context when switching between applications", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "CPU Scheduling",
+    "difficulty": "HARD",
+    "text": "Why can starvation occur in Priority Scheduling and how is it resolved?",
+    "explanation": "In priority scheduling, low-priority processes may never execute if high-priority processes keep arriving. Solution: Aging — gradually increase the priority of waiting processes over time. After waiting long enough, even a low-priority process gets a high enough priority to execute. This prevents indefinite starvation.",
+    "options": [
+      { "text": "Low-priority processes wait forever; solved by Aging (incrementally raising priority of waiting processes)", "correct": true },
+      { "text": "Starvation doesn't occur in Priority Scheduling — high priority always finishes first", "correct": false },
+      { "text": "Resolved by running all low-priority processes first before any high-priority ones", "correct": false },
+      { "text": "Priority scheduling is non-preemptive so starvation is impossible", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "Memory Management",
+    "difficulty": "HARD",
+    "text": "What is the difference between paging and segmentation in memory management?",
+    "explanation": "Paging: divides memory into fixed-size pages (physical) and frames; eliminates external fragmentation but has internal fragmentation. Transparent to programmer. Segmentation: divides into variable-size segments (code, stack, heap, data) matching logical program structure. Has external fragmentation. Modern systems use both (segmented paging) — x86 processors support both.",
+    "options": [
+      { "text": "Paging: fixed-size pages (no external fragmentation); Segmentation: variable-size logical segments (programmer-visible, has external fragmentation)", "correct": true },
+      { "text": "They are the same technique; paging is the Linux term, segmentation is Windows", "correct": false },
+      { "text": "Paging is for RAM management; segmentation is for disk management", "correct": false },
+      { "text": "Segmentation is faster; paging is more secure — used in different OS types", "correct": false }
+    ]
+  },
+  {
+    "subject": "Operating Systems",
+    "topic": "Synchronization",
+    "difficulty": "MEDIUM",
+    "text": "What is deadlock in operating systems and what are the four necessary conditions for it to occur?",
+    "explanation": "Deadlock: set of processes each waiting for a resource held by another. Four necessary conditions (Coffman Conditions): (1) Mutual Exclusion — resource held in non-sharable mode, (2) Hold and Wait — holds a resource while waiting for another, (3) No Preemption — resources can't be forcibly taken, (4) Circular Wait — circular chain of processes each waiting for next. All four must hold simultaneously.",
+    "options": [
+      { "text": "Four conditions: Mutual Exclusion, Hold & Wait, No Preemption, Circular Wait — all must hold simultaneously", "correct": true },
+      { "text": "Deadlock requires only Circular Wait and Mutual Exclusion", "correct": false },
+      { "text": "Deadlock can occur with just two conditions: Hold & Wait and No Preemption", "correct": false },
+      { "text": "Deadlock has only one condition: multiple processes accessing the same resource", "correct": false }
+    ]
+  }
+]

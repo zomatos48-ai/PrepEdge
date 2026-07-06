@@ -1,0 +1,24 @@
+{
+  "companyName": "Infosys",
+  "companySlug": "infosys",
+  "title": "Infosys InfyTQ Mock Test 1",
+  "description": "Simulates the Infosys InfyTQ certification pattern: Reasoning, Mathematical Thinking, and Programming concepts.",
+  "durationMinutes": 60,
+  "questions": [
+    "What is the time complexity of accessing an element in an array by index?",
+    "What traversal of a Binary Search Tree gives elements in sorted order?",
+    "What is the time complexity of Binary Search?",
+    "What is the average time complexity for insert, search, and delete operations in a Hash Table?",
+    "What are the four main pillars of Object-Oriented Programming?",
+    "What is method overriding in Java?",
+    "What is encapsulation and how is it achieved in Java?",
+    "What is the difference between an abstract class and an interface in Java?",
+    "What is the difference between WHERE and HAVING clauses in SQL?",
+    "What do the ACID properties of a database transaction stand for?",
+    "What does DNS stand for and what does it do?",
+    "What does Array.prototype.map() return?",
+    "Which HTTP method is conventionally used to update an existing resource entirely (replacing it)?",
+    "What HTTP status code should be returned when a resource is successfully created via a POST request?",
+    "What is the main advantage of using JWT (JSON Web Tokens) over traditional session-based authentication?"
+  ]
+}

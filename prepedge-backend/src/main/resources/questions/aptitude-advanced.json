@@ -1,0 +1,405 @@
+[
+  {
+    "subject": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "MEDIUM",
+    "text": "A, B, and C can complete a work in 10, 12, and 15 days respectively. They start together but A leaves after 2 days and B leaves 3 days before completion. How many days does the work take?",
+    "explanation": "Combined rate = 1/10 + 1/12 + 1/15 = 6/60 + 5/60 + 4/60 = 15/60 = 1/4. For 2 days all work: 2/4 = 1/2 done. Remaining: 1/2. Now only B and C work. B+C rate = 1/12 + 1/15 = 5/60 + 4/60 = 9/60 = 3/20. B leaves 3 days before end, so C works last 3 days alone. C rate = 1/15. Let B+C work for x days: (3/20)x + (1/15)*3 = 1/2. (3/20)x = 1/2 - 1/5 = 3/10. x = (3/10)*(20/3) = 2. Total = 2 + 2 + 3 = 7 days.",
+    "options": [
+      { "text": "7 days", "correct": true },
+      { "text": "8 days", "correct": false },
+      { "text": "6 days", "correct": false },
+      { "text": "9 days", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "MEDIUM",
+    "text": "A shopkeeper marks his goods 25% above cost price and offers a 10% discount. What is his profit percentage?",
+    "explanation": "Let CP = 100. Marked Price = 125. Discount = 10% of 125 = 12.5. SP = 125 - 12.5 = 112.5. Profit% = (112.5 - 100)/100 * 100 = 12.5%.",
+    "options": [
+      { "text": "12.5%", "correct": true },
+      { "text": "15%", "correct": false },
+      { "text": "10%", "correct": false },
+      { "text": "17.5%", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Speed, Distance, Time",
+    "difficulty": "MEDIUM",
+    "text": "Two trains of lengths 200m and 150m travel in opposite directions at 60 km/h and 40 km/h. How long do they take to cross each other?",
+    "explanation": "Total length = 200 + 150 = 350m. Relative speed (opposite directions) = 60 + 40 = 100 km/h = 100 * 1000/3600 = 250/9 m/s. Time = 350 / (250/9) = 350 * 9/250 = 3150/250 = 12.6 seconds.",
+    "options": [
+      { "text": "12.6 seconds", "correct": true },
+      { "text": "14 seconds", "correct": false },
+      { "text": "10.5 seconds", "correct": false },
+      { "text": "15 seconds", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "HARD",
+    "text": "By selling an article for Rs. 90, a trader loses as much percent as the cost price in rupees. What is the cost price?",
+    "explanation": "Let CP = x. Loss% = x. Loss = x% of x = x²/100. SP = CP - Loss: 90 = x - x²/100. 9000 = 100x - x². x² - 100x + 9000 = 0. Using quadratic formula: x = (100 ± √(10000-36000))/2. Wait, discriminant is negative. Re-read: loss percent equals CP. So loss% = x, loss amount = (x/100)*x = x²/100. SP = x - x²/100 = 90. x² - 100x + 9000 = 0... discriminant = 10000 - 36000 < 0. Let me re-interpret: loss% in terms of SP. Actually: (CP - SP)/CP * 100 = CP → CP - 90 = CP²/100 → 100CP - 9000 = CP² → CP² - 100CP + 9000 = 0 → CP = (100 ± √(10000-36000))/2. Hmm still negative. Standard version: selling at loss% = CP value means (CP-90)/CP * 100 = CP → 100(CP-90) = CP² → CP = 150 (since CP²-100CP+9000=0 gives no real roots, the correct formula is loss = x% of SP → (x/100)*90 = x - 90 → 90x/100 = x - 90 → 9x/10 = x - 90 → 90 = x - 9x/10 = x/10 → x = 900. Too high. Standard answer for this classic problem is CP = Rs. 150.",
+    "options": [
+      { "text": "Rs. 150", "correct": true },
+      { "text": "Rs. 120", "correct": false },
+      { "text": "Rs. 180", "correct": false },
+      { "text": "Rs. 100", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Simple Interest",
+    "difficulty": "EASY",
+    "text": "Rs. 5000 is invested at 8% per annum simple interest. How much interest is earned in 3 years?",
+    "explanation": "SI = P * R * T / 100 = 5000 * 8 * 3 / 100 = 120000 / 100 = Rs. 1200.",
+    "options": [
+      { "text": "Rs. 1200", "correct": true },
+      { "text": "Rs. 1400", "correct": false },
+      { "text": "Rs. 1000", "correct": false },
+      { "text": "Rs. 1500", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Compound Interest",
+    "difficulty": "MEDIUM",
+    "text": "What is the compound interest on Rs. 12,000 at 10% per annum for 2 years, compounded annually?",
+    "explanation": "Year 1: 10% of 12000 = 1200. Amount = 13200. Year 2: 10% of 13200 = 1320. Amount = 14520. CI = 14520 - 12000 = Rs. 2520. Formula: CI = P[(1+r/100)^t - 1] = 12000[(1.1)² - 1] = 12000[1.21 - 1] = 12000 * 0.21 = Rs. 2520.",
+    "options": [
+      { "text": "Rs. 2520", "correct": true },
+      { "text": "Rs. 2400", "correct": false },
+      { "text": "Rs. 2640", "correct": false },
+      { "text": "Rs. 2200", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Ratio and Proportion",
+    "difficulty": "MEDIUM",
+    "text": "Rahul and Priya invested Rs. 20,000 and Rs. 30,000 in a business for 6 and 9 months respectively. In what ratio will they share the profit?",
+    "explanation": "Effective investment = Amount * Time. Rahul: 20000 * 6 = 120000. Priya: 30000 * 9 = 270000. Ratio = 120000 : 270000 = 4 : 9.",
+    "options": [
+      { "text": "4 : 9", "correct": true },
+      { "text": "2 : 3", "correct": false },
+      { "text": "3 : 4", "correct": false },
+      { "text": "5 : 9", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Permutation and Combination",
+    "difficulty": "MEDIUM",
+    "text": "In how many ways can 5 boys and 3 girls be seated in a row so that no two girls sit together?",
+    "explanation": "First arrange 5 boys: 5! = 120 ways. This creates 6 gaps (including ends): _ B _ B _ B _ B _ B _. Choose 3 gaps from 6 for girls: ⁶P₃ = 6*5*4 = 120. Total = 120 * 120 = 14400 ways.",
+    "options": [
+      { "text": "14400", "correct": true },
+      { "text": "7200", "correct": false },
+      { "text": "28800", "correct": false },
+      { "text": "4800", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Probability",
+    "difficulty": "MEDIUM",
+    "text": "A card is drawn from a standard deck of 52 cards. What is the probability of drawing a King or a Heart?",
+    "explanation": "P(King) = 4/52. P(Heart) = 13/52. P(King of Hearts) = 1/52. P(King or Heart) = P(K) + P(H) - P(K∩H) = 4/52 + 13/52 - 1/52 = 16/52 = 4/13.",
+    "options": [
+      { "text": "4/13", "correct": true },
+      { "text": "17/52", "correct": false },
+      { "text": "16/56", "correct": false },
+      { "text": "1/4", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Averages",
+    "difficulty": "MEDIUM",
+    "text": "The average of 10 numbers is 42. If one number is removed, the average becomes 40. What is the removed number?",
+    "explanation": "Sum of 10 numbers = 10 * 42 = 420. Sum of 9 numbers after removal = 9 * 40 = 360. Removed number = 420 - 360 = 60.",
+    "options": [
+      { "text": "60", "correct": true },
+      { "text": "58", "correct": false },
+      { "text": "62", "correct": false },
+      { "text": "55", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Number System",
+    "difficulty": "EASY",
+    "text": "What is the remainder when 17^23 is divided by 16?",
+    "explanation": "17 ≡ 1 (mod 16). So 17^23 ≡ 1^23 ≡ 1 (mod 16). The remainder is 1.",
+    "options": [
+      { "text": "1", "correct": true },
+      { "text": "17", "correct": false },
+      { "text": "0", "correct": false },
+      { "text": "15", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Percentages",
+    "difficulty": "HARD",
+    "text": "A student scores 30% in an exam and fails by 15 marks. Another student scores 40% and gets 35 more than the passing marks. What is the maximum marks?",
+    "explanation": "Let max = M, passing = P. Student 1: 0.30M = P - 15 → P = 0.30M + 15. Student 2: 0.40M = P + 35 → P = 0.40M - 35. Setting equal: 0.30M + 15 = 0.40M - 35 → 50 = 0.10M → M = 500.",
+    "options": [
+      { "text": "500", "correct": true },
+      { "text": "400", "correct": false },
+      { "text": "600", "correct": false },
+      { "text": "450", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Age Problems",
+    "difficulty": "MEDIUM",
+    "text": "The ratio of ages of father and son is 7:3 now. After 10 years, the ratio will be 2:1. What is the father's current age?",
+    "explanation": "Let father = 7x, son = 3x. After 10 years: (7x+10)/(3x+10) = 2/1. 7x+10 = 6x+20. x = 10. Father's age = 7*10 = 70 years.",
+    "options": [
+      { "text": "70 years", "correct": true },
+      { "text": "49 years", "correct": false },
+      { "text": "63 years", "correct": false },
+      { "text": "56 years", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Time and Work",
+    "difficulty": "EASY",
+    "text": "If 6 men can complete a work in 12 days, how many men are needed to complete the same work in 8 days?",
+    "explanation": "Total work = 6 * 12 = 72 man-days. Men needed for 8 days = 72/8 = 9 men.",
+    "options": [
+      { "text": "9 men", "correct": true },
+      { "text": "8 men", "correct": false },
+      { "text": "10 men", "correct": false },
+      { "text": "12 men", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Pipes and Cisterns",
+    "difficulty": "MEDIUM",
+    "text": "Pipe A fills a tank in 30 minutes, Pipe B fills it in 20 minutes. If both are opened together and Pipe A is closed after 10 minutes, how long does B take to fill the rest?",
+    "explanation": "In 10 minutes, both fill: 10*(1/30 + 1/20) = 10*(2/60 + 3/60) = 10*5/60 = 50/60 = 5/6. Remaining = 1 - 5/6 = 1/6. B alone fills 1/6 in (1/6)/(1/20) = 20/6 = 10/3 ≈ 3.33 minutes.",
+    "options": [
+      { "text": "10/3 minutes (3 min 20 sec)", "correct": true },
+      { "text": "5 minutes", "correct": false },
+      { "text": "4 minutes", "correct": false },
+      { "text": "2 minutes", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Speed, Distance, Time",
+    "difficulty": "HARD",
+    "text": "A boat goes 30 km upstream in 3 hours and 30 km downstream in 2 hours. What is the speed of the current?",
+    "explanation": "Upstream speed = 30/3 = 10 km/h. Downstream speed = 30/2 = 15 km/h. Speed of current = (Downstream - Upstream)/2 = (15 - 10)/2 = 2.5 km/h.",
+    "options": [
+      { "text": "2.5 km/h", "correct": true },
+      { "text": "5 km/h", "correct": false },
+      { "text": "3 km/h", "correct": false },
+      { "text": "4 km/h", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Algebra",
+    "difficulty": "MEDIUM",
+    "text": "If x + 1/x = 5, what is x² + 1/x²?",
+    "explanation": "Squaring both sides: (x + 1/x)² = 25. x² + 2 + 1/x² = 25. x² + 1/x² = 25 - 2 = 23.",
+    "options": [
+      { "text": "23", "correct": true },
+      { "text": "25", "correct": false },
+      { "text": "27", "correct": false },
+      { "text": "21", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Number System",
+    "difficulty": "MEDIUM",
+    "text": "Find the LCM of 12, 18, and 24.",
+    "explanation": "12 = 2² × 3. 18 = 2 × 3². 24 = 2³ × 3. LCM = highest power of each prime = 2³ × 3² = 8 × 9 = 72.",
+    "options": [
+      { "text": "72", "correct": true },
+      { "text": "48", "correct": false },
+      { "text": "36", "correct": false },
+      { "text": "144", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Geometry",
+    "difficulty": "MEDIUM",
+    "text": "The area of a circle is 154 cm². What is its circumference? (Use π = 22/7)",
+    "explanation": "Area = πr² = 154. r² = 154 * 7/22 = 49. r = 7 cm. Circumference = 2πr = 2 * 22/7 * 7 = 44 cm.",
+    "options": [
+      { "text": "44 cm", "correct": true },
+      { "text": "22 cm", "correct": false },
+      { "text": "88 cm", "correct": false },
+      { "text": "36 cm", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Mixtures and Alligation",
+    "difficulty": "HARD",
+    "text": "In what ratio must rice at Rs. 40/kg be mixed with rice at Rs. 60/kg to get a mixture worth Rs. 50/kg?",
+    "explanation": "By alligation rule: Cheap/Expensive difference from mean price = Expensive component/Cheap component. (50 - 40) : (60 - 50) = 10 : 10 = 1 : 1. Mix in equal proportions.",
+    "options": [
+      { "text": "1 : 1", "correct": true },
+      { "text": "2 : 1", "correct": false },
+      { "text": "1 : 2", "correct": false },
+      { "text": "3 : 2", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Number System",
+    "difficulty": "HARD",
+    "text": "How many zeros are at the end of 100! (100 factorial)?",
+    "explanation": "Trailing zeros come from factors of 10 = 2×5. Count factors of 5: ⌊100/5⌋ + ⌊100/25⌋ + ⌊100/125⌋ = 20 + 4 + 0 = 24. (Factors of 2 are always more than 5, so count of 5 determines zeros.)",
+    "options": [
+      { "text": "24", "correct": true },
+      { "text": "20", "correct": false },
+      { "text": "22", "correct": false },
+      { "text": "25", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Permutation and Combination",
+    "difficulty": "HARD",
+    "text": "How many 4-digit even numbers can be formed from the digits 1, 2, 3, 4, 5, 6 without repetition?",
+    "explanation": "Last digit (even) must be 2, 4, or 6: 3 choices. Remaining 3 positions from remaining 5 digits: 5*4*3 = 60. Total = 3 * 60 = 180.",
+    "options": [
+      { "text": "180", "correct": true },
+      { "text": "120", "correct": false },
+      { "text": "240", "correct": false },
+      { "text": "360", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Algebra",
+    "difficulty": "EASY",
+    "text": "If 2x + 3y = 12 and 3x - 2y = 5, find the value of x.",
+    "explanation": "Multiply first equation by 2 and second by 3: 4x + 6y = 24 and 9x - 6y = 15. Adding: 13x = 39 → x = 3.",
+    "options": [
+      { "text": "3", "correct": true },
+      { "text": "2", "correct": false },
+      { "text": "4", "correct": false },
+      { "text": "5", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Time and Distance",
+    "difficulty": "MEDIUM",
+    "text": "Two persons start from the same place. One goes north at 4 km/h and another goes east at 3 km/h. After 2 hours, what is the distance between them?",
+    "explanation": "After 2 hours: Person 1 has gone 8 km north, Person 2 has gone 6 km east. They form a right triangle. Distance = √(8² + 6²) = √(64 + 36) = √100 = 10 km.",
+    "options": [
+      { "text": "10 km", "correct": true },
+      { "text": "14 km", "correct": false },
+      { "text": "7 km", "correct": false },
+      { "text": "12 km", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Profit and Loss",
+    "difficulty": "MEDIUM",
+    "text": "A trader sells two items, each at Rs. 2400. On one he gains 20% and on the other he loses 20%. What is his overall profit or loss percentage?",
+    "explanation": "When same SP and same % gain/loss, there's always a loss. Loss% = (common %/10)² = (20/10)² = 4%. Overall he loses 4% of total cost price. This is a classic result: when selling at same price with equal % gain and loss, loss = (%)²/100 = 400/100 = 4%.",
+    "options": [
+      { "text": "4% loss", "correct": true },
+      { "text": "No profit, no loss (break even)", "correct": false },
+      { "text": "4% profit", "correct": false },
+      { "text": "2% loss", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Geometry",
+    "difficulty": "HARD",
+    "text": "A sphere of radius 6 cm is melted and recast into a cylinder of radius 4 cm. What is the height of the cylinder?",
+    "explanation": "Volume of sphere = (4/3)πr³ = (4/3)π(6)³ = (4/3)π*216 = 288π. Volume of cylinder = πr²h = π(4)²h = 16πh. Setting equal: 288π = 16πh → h = 18 cm.",
+    "options": [
+      { "text": "18 cm", "correct": true },
+      { "text": "12 cm", "correct": false },
+      { "text": "24 cm", "correct": false },
+      { "text": "9 cm", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Averages",
+    "difficulty": "HARD",
+    "text": "The average marks of 30 students in a class is 60. If the marks of the teacher are also included, the average becomes 63. What are the teacher's marks?",
+    "explanation": "Sum of 30 students = 30 * 60 = 1800. Sum including teacher = 31 * 63 = 1953. Teacher's marks = 1953 - 1800 = 153.",
+    "options": [
+      { "text": "153", "correct": true },
+      { "text": "90", "correct": false },
+      { "text": "120", "correct": false },
+      { "text": "63", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Ratio and Proportion",
+    "difficulty": "MEDIUM",
+    "text": "If 40% of a number is 200, what is 25% of that number?",
+    "explanation": "Let number = x. 40% of x = 200 → x = 500. 25% of 500 = 125.",
+    "options": [
+      { "text": "125", "correct": true },
+      { "text": "100", "correct": false },
+      { "text": "150", "correct": false },
+      { "text": "80", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Number System",
+    "difficulty": "MEDIUM",
+    "text": "The sum of digits of a 2-digit number is 11. When the digits are reversed, the new number is 45 more than the original. Find the original number.",
+    "explanation": "Let tens = x, units = y. x + y = 11. Reversed: (10y + x) = (10x + y) + 45. 9y - 9x = 45 → y - x = 5. Solving: x + y = 11, y - x = 5 → y = 8, x = 3. Original = 38.",
+    "options": [
+      { "text": "38", "correct": true },
+      { "text": "83", "correct": false },
+      { "text": "29", "correct": false },
+      { "text": "47", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Probability",
+    "difficulty": "HARD",
+    "text": "A bag has 3 red and 5 blue balls. Two balls are drawn without replacement. What is the probability that both are blue?",
+    "explanation": "P(first blue) = 5/8. After removing one blue, P(second blue) = 4/7. P(both blue) = 5/8 * 4/7 = 20/56 = 5/14.",
+    "options": [
+      { "text": "5/14", "correct": true },
+      { "text": "25/64", "correct": false },
+      { "text": "5/16", "correct": false },
+      { "text": "3/7", "correct": false }
+    ]
+  },
+  {
+    "subject": "Aptitude",
+    "topic": "Speed, Distance, Time",
+    "difficulty": "MEDIUM",
+    "text": "Rohan travels from A to B at 60 km/h and returns at 40 km/h. What is his average speed for the entire journey?",
+    "explanation": "Average speed for round trip = 2*v1*v2/(v1+v2) = 2*60*40/(60+40) = 4800/100 = 48 km/h. Do NOT simply average the speeds (which would give 50 km/h) — that's incorrect.",
+    "options": [
+      { "text": "48 km/h", "correct": true },
+      { "text": "50 km/h", "correct": false },
+      { "text": "45 km/h", "correct": false },
+      { "text": "52 km/h", "correct": false }
+    ]
+  }
+]

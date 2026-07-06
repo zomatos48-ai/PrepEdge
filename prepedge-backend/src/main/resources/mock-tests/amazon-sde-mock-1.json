@@ -1,0 +1,24 @@
+{
+  "companyName": "Amazon",
+  "companySlug": "amazon",
+  "title": "Amazon SDE Mock Test 1",
+  "description": "Simulates Amazon SDE online assessment: Data Structures, Algorithms, and problem-solving questions.",
+  "durationMinutes": 70,
+  "questions": [
+    "What is the time complexity of accessing an element in an array by index?",
+    "What is the time complexity of inserting a node at the beginning of a singly linked list?",
+    "How do you detect a cycle in a linked list efficiently?",
+    "What is the time complexity of reversing a singly linked list iteratively?",
+    "What traversal of a Binary Search Tree gives elements in sorted order?",
+    "What is the average time complexity for search, insert, and delete in a balanced Binary Search Tree?",
+    "What is the time complexity of Binary Search?",
+    "What is the average time complexity for insert, search, and delete operations in a Hash Table?",
+    "What is a collision in a hash table and how is chaining used to resolve it?",
+    "What is the difference between BFS and DFS graph traversal?",
+    "What is the time complexity of BFS and DFS on a graph with V vertices and E edges?",
+    "What is the key characteristic that makes a problem suitable for Dynamic Programming?",
+    "What is the time and space complexity of computing Fibonacci(n) using dynamic programming (bottom-up)?",
+    "What is the time complexity of extracting the minimum element from a Min-Heap?",
+    "What is the key idea behind a Greedy algorithm?"
+  ]
+}

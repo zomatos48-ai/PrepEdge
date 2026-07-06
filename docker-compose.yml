@@ -1,0 +1,54 @@
+services:
+
+  # ── PostgreSQL ──────────────────────────────────────────────
+  db:
+    image: postgres:17-alpine
+    container_name: prepedge_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: prepedge
+      POSTGRES_USER: prepedge_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"          # remove in production
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U prepedge_user -d prepedge"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Spring Boot Backend ────────────────────────────────────
+  backend:
+    build:
+      context: ./prepedge-backend
+      dockerfile: Dockerfile
+    container_name: prepedge_backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/prepedge
+      SPRING_DATASOURCE_USERNAME: prepedge_user
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      SPRING_PROFILES_ACTIVE: prod
+    ports:
+      - "8080:8080"          # optional: remove once frontend proxies via Nginx
+
+  # ── React Frontend (Nginx) ────────────────────────────────
+  frontend:
+    build:
+      context: ./prepedge-frontend
+      dockerfile: Dockerfile
+    container_name: prepedge_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+
+volumes:
+  postgres_data:

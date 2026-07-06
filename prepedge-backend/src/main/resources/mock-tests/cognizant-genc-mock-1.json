@@ -1,0 +1,24 @@
+{
+  "companyName": "Cognizant",
+  "companySlug": "cognizant",
+  "title": "Cognizant GenC Mock Test 1",
+  "description": "Simulates the Cognizant GenC (Generic Competency) exam pattern with Reasoning, Verbal, and Quantitative sections — the standard format for Cognizant campus placements.",
+  "durationMinutes": 60,
+  "questions": [
+    "Find the missing term: 3, 7, 15, 31, 63, ?",
+    "If A:B = 3:4 and B:C = 4:5, find A:B:C.",
+    "In a class, 40% of students play cricket, 30% play football, and 20% play both. What percentage play neither?",
+    "A shopkeeper bought an article for Rs. 450 and sold it for Rs. 540. What is his profit percentage?",
+    "The average of five consecutive odd numbers is 35. What is the largest number?",
+    "A can complete a piece of work in 12 days and B can complete the same work in 18 days. If they work together, in how many days will the work be completed?",
+    "Pointing to a photograph, a man said, 'She is the daughter of the only son of my grandfather.' How is the woman in the photograph related to the man?",
+    "In a row of students, Rahul is 15th from the left and 20th from the right. How many students are in the row?",
+    "What comes next in the series: 2, 6, 12, 20, 30, ?",
+    "All roses are flowers. Some flowers fade quickly. Which conclusion follows?",
+    "What is the time complexity of accessing an element in an array by index?",
+    "What are the four main pillars of Object-Oriented Programming?",
+    "What does Array.prototype.map() return?",
+    "typeof null",
+    "Which HTTP method is conventionally used to update an existing resource entirely (replacing it)?"
+  ]
+}

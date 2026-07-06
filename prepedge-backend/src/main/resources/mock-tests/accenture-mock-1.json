@@ -1,0 +1,24 @@
+{
+  "companyName": "Accenture",
+  "companySlug": "accenture",
+  "title": "Accenture Mock Test 1",
+  "description": "Simulates the Accenture campus recruitment test: Cognitive Assessment (verbal, reasoning, numerical) and Technical Assessment (CS fundamentals and coding concepts).",
+  "durationMinutes": 55,
+  "questions": [
+    "What is the compound interest on Rs. 8000 at 10% per annum for 2 years, compounded annually?",
+    "A bag contains 4 red, 5 blue, and 3 green balls. What is the probability of picking a red ball?",
+    "What is the smallest number that should be added to 1000 to make it exactly divisible by 13?",
+    "In how many ways can the letters of the word 'LEADER' be arranged?",
+    "A train 150 metres long is running at a speed of 60 km/h. How long will it take to cross a pole?",
+    "What comes next in the series: 2, 6, 12, 20, 30, ?",
+    "If APPLE is coded as 12234, how is PLEA coded?",
+    "In a row of students, Rahul is 15th from the left and 20th from the right. How many students are in the row?",
+    "What is the time complexity of accessing an element in an array by index?",
+    "What is method overriding in Java?",
+    "What are the four main pillars of Object-Oriented Programming?",
+    "What is the difference between method overloading and method overriding?",
+    "What HTTP status code should be returned when a resource is successfully created via a POST request?",
+    "What is the main advantage of using JWT (JSON Web Tokens) over traditional session-based authentication?",
+    "What does Array.prototype.map() return?"
+  ]
+}

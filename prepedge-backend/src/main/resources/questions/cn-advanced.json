@@ -1,0 +1,132 @@
+[
+  {
+    "subject": "Computer Networks",
+    "topic": "TCP/IP",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between TCP and UDP?",
+    "explanation": "TCP (Transmission Control Protocol): connection-oriented, reliable (acknowledgments, retransmission), ordered delivery, flow control, congestion control. Slower but guaranteed. Used for: HTTP, FTP, SSH, email. UDP (User Datagram Protocol): connectionless, unreliable (no ACK), unordered, lightweight, fast. Used for: video streaming, DNS, VoIP, gaming where speed > reliability.",
+    "options": [
+      { "text": "TCP: reliable, ordered, connection-oriented (HTTP/FTP); UDP: fast, connectionless, unreliable (streaming/DNS)", "correct": true },
+      { "text": "TCP is for UDP and UDP is for TCP — they are inverses of each other", "correct": false },
+      { "text": "UDP provides reliable delivery; TCP provides faster but unreliable delivery", "correct": false },
+      { "text": "TCP is for internal networks; UDP is only for internet traffic", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "Network Layer",
+    "difficulty": "HARD",
+    "text": "What is the difference between IPv4 and IPv6?",
+    "explanation": "IPv4: 32-bit address (~4.3 billion addresses), uses dotted-decimal (192.168.1.1), has NAT to extend address space, has broadcast. IPv6: 128-bit address (3.4×10^38 addresses), colon-hexadecimal (2001:db8::1), no NAT needed, no broadcast (uses multicast/anycast), built-in IPSec, auto-configuration (SLAAC). IPv6 adoption is growing due to IPv4 exhaustion.",
+    "options": [
+      { "text": "IPv4: 32-bit (~4B addresses), dotted-decimal, needs NAT; IPv6: 128-bit (unlimited), no NAT, built-in IPSec", "correct": true },
+      { "text": "IPv6 is faster than IPv4 because it uses hexadecimal routing tables", "correct": false },
+      { "text": "IPv4 is only for private networks; IPv6 is only for internet routing", "correct": false },
+      { "text": "IPv6 requires more bandwidth due to larger address headers", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "Application Layer",
+    "difficulty": "MEDIUM",
+    "text": "What is DNS and how does DNS resolution work?",
+    "explanation": "DNS (Domain Name System) translates domain names to IP addresses. Resolution steps: (1) Browser cache → (2) OS/resolver cache → (3) Recursive resolver (ISP) → (4) Root DNS server (knows TLD servers) → (5) TLD server (.com, .in) → (6) Authoritative nameserver → returns IP. Response is cached at each level with TTL (Time To Live).",
+    "options": [
+      { "text": "Translates domain to IP; resolution: local cache → recursive resolver → root → TLD → authoritative nameserver", "correct": true },
+      { "text": "DNS is a firewall protocol that blocks malicious domain names", "correct": false },
+      { "text": "DNS converts IP addresses to MAC addresses for local network delivery", "correct": false },
+      { "text": "DNS resolution involves only the user's computer and the destination server", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "TCP/IP",
+    "difficulty": "HARD",
+    "text": "What is the TCP three-way handshake and why is it needed?",
+    "explanation": "Three-way handshake establishes a TCP connection: (1) Client sends SYN (synchronize sequence number), (2) Server responds SYN-ACK (acknowledges client's SYN, sends its own SYN), (3) Client sends ACK (acknowledges server's SYN). This ensures both sides are ready to send/receive, sequence numbers are synchronized, and the connection is full-duplex. Time = 1.5 RTT before data flows.",
+    "options": [
+      { "text": "SYN → SYN-ACK → ACK; synchronizes sequence numbers and verifies both sides can send/receive", "correct": true },
+      { "text": "Two-way handshake: HELLO → HELLO-ACK (three-way is for UDP)", "correct": false },
+      { "text": "Handshake encrypts the connection using public key exchange", "correct": false },
+      { "text": "Three-way handshake is obsolete in TCP/IP version 2 — uses one-way connection", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "Network Layer",
+    "difficulty": "MEDIUM",
+    "text": "What is NAT (Network Address Translation) and why was it introduced?",
+    "explanation": "NAT translates private IP addresses (192.168.x.x, 10.x.x.x) to a public IP for internet communication. Introduced because IPv4 has only ~4.3 billion addresses — far fewer than needed. A router with NAT allows many devices on a private network to share one public IP. Disadvantage: breaks end-to-end connectivity, complicates some protocols (VoIP, FTP).",
+    "options": [
+      { "text": "Translates private IPs to public IP to conserve IPv4 address space; allows many devices to share one public IP", "correct": true },
+      { "text": "Translates IPv4 addresses to IPv6 for dual-stack networks", "correct": false },
+      { "text": "Encrypts all network traffic between private and public networks", "correct": false },
+      { "text": "Assigns dynamic IP addresses to devices on the network (that's DHCP)", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "Transport Layer",
+    "difficulty": "MEDIUM",
+    "text": "What is the difference between a port number and an IP address?",
+    "explanation": "IP address identifies a host/device on the network (layer 3). Port number identifies a specific service/process on that host (layer 4). Together IP:Port forms a socket. Well-known ports: HTTP=80, HTTPS=443, SSH=22, FTP=21, DNS=53, SMTP=25. Port range: 0-1023 well-known, 1024-49151 registered, 49152-65535 dynamic/ephemeral.",
+    "options": [
+      { "text": "IP: identifies the host; Port: identifies the specific service/process on that host — together form a socket", "correct": true },
+      { "text": "IP is the physical address; Port is the virtual address in cloud computing", "correct": false },
+      { "text": "Port numbers are encrypted IPs used inside VPNs", "correct": false },
+      { "text": "IP identifies the application; Port identifies the network interface", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "Application Layer",
+    "difficulty": "EASY",
+    "text": "What is the difference between HTTP and HTTPS?",
+    "explanation": "HTTP (HyperText Transfer Protocol): plaintext, port 80, no encryption — data visible to anyone intercepting. HTTPS (HTTP Secure): HTTP over TLS/SSL, port 443, encrypted — data is encrypted between client and server. HTTPS uses certificates (CA-signed) for authentication. Modern browsers mark HTTP sites as 'Not Secure'. Required for any site handling passwords or payment data.",
+    "options": [
+      { "text": "HTTPS = HTTP + TLS encryption on port 443; HTTP is plaintext on port 80 — interceptable", "correct": true },
+      { "text": "HTTPS is HTTP version 2.0; no security difference", "correct": false },
+      { "text": "HTTPS only works for financial websites; HTTP is standard for all other sites", "correct": false },
+      { "text": "HTTP is faster than HTTPS; HTTPS adds significant latency to every request", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "Network Layer",
+    "difficulty": "HARD",
+    "text": "What is BGP (Border Gateway Protocol) and what role does it play in the internet?",
+    "explanation": "BGP is the routing protocol of the internet — it's how different Autonomous Systems (AS, large networks like ISPs) exchange routing information. BGP is a path-vector protocol; it selects routes based on policies (not just shortest path). It's responsible for determining how packets travel across the global internet. Misconfigurations can cause major internet outages (BGP hijacking).",
+    "options": [
+      { "text": "Internet's routing protocol between Autonomous Systems (ISPs); determines global packet routes using path-vector algorithm", "correct": true },
+      { "text": "A protocol for assigning IP addresses dynamically (like DHCP for ISPs)", "correct": false },
+      { "text": "BGP encrypts inter-ISP traffic for government compliance", "correct": false },
+      { "text": "A load balancing protocol used inside data centers (internal routing)", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "Application Layer",
+    "difficulty": "MEDIUM",
+    "text": "What is WebSocket and how does it differ from HTTP?",
+    "explanation": "WebSocket provides full-duplex, persistent communication over a single TCP connection. HTTP is half-duplex request-response (client always initiates). WebSocket starts with an HTTP upgrade handshake, then switches to WS protocol. Ideal for: real-time chat, live dashboards, collaborative editing, multiplayer games. Much lower latency than HTTP polling.",
+    "options": [
+      { "text": "Full-duplex persistent TCP connection; unlike HTTP where client must initiate every request; ideal for real-time apps", "correct": true },
+      { "text": "An encrypted version of HTTP for web sockets (like HTTPS for sockets)", "correct": false },
+      { "text": "A protocol for file transfer using web browsers", "correct": false },
+      { "text": "WebSocket is HTTP/2's server-push feature with different naming", "correct": false }
+    ]
+  },
+  {
+    "subject": "Computer Networks",
+    "topic": "Network Security",
+    "difficulty": "HARD",
+    "text": "What is a DDoS attack and what are common mitigation strategies?",
+    "explanation": "DDoS (Distributed Denial of Service): thousands of compromised machines (botnet) flood a target with traffic, exhausting resources (bandwidth, connections). Mitigation: (1) Rate limiting — limit requests per IP, (2) CDN/Anycast — distribute traffic geographically, (3) Web Application Firewall (WAF), (4) IP reputation blacklisting, (5) Challenge-response (CAPTCHA), (6) Traffic scrubbing services (Cloudflare, AWS Shield).",
+    "options": [
+      { "text": "Botnet floods target with traffic; mitigated by rate limiting, WAF, CDN/Anycast, traffic scrubbing (Cloudflare)", "correct": true },
+      { "text": "A database attack that drops all records via injection", "correct": false },
+      { "text": "Eavesdropping on network traffic between client and server", "correct": false },
+      { "text": "Redirecting DNS requests to a malicious server (DNS poisoning)", "correct": false }
+    ]
+  }
+]
