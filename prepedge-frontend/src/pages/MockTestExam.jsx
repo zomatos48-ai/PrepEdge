@@ -16,7 +16,11 @@ export default function MockTestExam() {
 
   useEffect(() => {
     if (!attemptData) { navigate('/app/mock-tests'); return }
-    const expires = new Date(attemptData.expiresAt).getTime()
+    // Backend sends LocalDateTime (UTC) without timezone info.
+    // Appending 'Z' forces the browser to parse it as UTC, not IST.
+    const rawExpiry = attemptData.expiresAt
+    const expiryStr = rawExpiry.endsWith('Z') ? rawExpiry : rawExpiry + 'Z'
+    const expires = new Date(expiryStr).getTime()
     const tick = () => {
       const remaining = Math.max(0, Math.floor((expires - Date.now()) / 1000))
       setTimeLeft(remaining)
