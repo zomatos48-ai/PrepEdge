@@ -16,5 +16,6 @@ public class MockTestStartResponse {
     private int totalQuestions;
     private LocalDateTime startedAt;
     private LocalDateTime expiresAt;   // startedAt + durationMinutes, for frontend timer
+    private long remainingSeconds;   // computed server-side; timezone-safe for frontend timer
     private List<QuestionResponse> questions;
 }

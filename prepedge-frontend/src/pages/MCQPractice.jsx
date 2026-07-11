@@ -155,18 +155,8 @@ function ConfigScreen({ onStart }) {
               <label style={{ fontSize: '12px', fontWeight: '600', color: 'var(--text-secondary)', letterSpacing: '0.05em' }}>
                 NUMBER OF QUESTIONS
               </label>
-              {loading ? (
-                <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Checking...</span>
-              ) : availableCount !== null && (
-                <span style={{
-                  fontSize: '11px', fontWeight: '600',
-                  color: availableCount === 0 ? 'var(--red)' : 'var(--green)',
-                  background: availableCount === 0 ? 'var(--red-bg)' : 'var(--green-bg)',
-                  border: `1px solid ${availableCount === 0 ? '#ef444430' : '#10b98130'}`,
-                  borderRadius: '5px', padding: '2px 8px',
-                }}>
-                  {availableCount} available
-                </span>
+              {loading && (
+                <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Loading...</span>
               )}
             </div>
             <div style={{ position: 'relative' }}>

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -78,14 +79,33 @@ public class MockTestService {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Mock test not found: " + mockTestId));
 
-        // Check if user already has an in-progress attempt for this mock test
-        mockTestAttemptRepository.findByUserIdAndMockTestIdAndStatus(
-                user.getId(), mockTestId, MockTestStatus.IN_PROGRESS)
-                .ifPresent(existing -> {
-                    throw new IllegalStateException(
-                            "You already have an in-progress attempt for this test. " +
-                            "Submit or wait for it to expire before starting again.");
-                });
+        // If user already has an in-progress attempt, resume it instead of creating a new one
+        var existingOpt = mockTestAttemptRepository.findByUserIdAndMockTestIdAndStatus(
+                user.getId(), mockTestId, MockTestStatus.IN_PROGRESS);
+
+        if (existingOpt.isPresent()) {
+            MockTestAttempt existing = existingOpt.get();
+            List<MockTestQuestion> mqList =
+                    mockTestQuestionRepository
+                            .findByMockTestIdOrderByQuestionOrderAsc(mockTestId);
+            List<QuestionResponse> questions = mqList.stream()
+                    .map(mq -> toQuestionResponse(mq.getQuestion()))
+                    .collect(Collectors.toList());
+            LocalDateTime expiresAt = existing.getStartedAt()
+                    .plusMinutes(mockTest.getDurationMinutes());
+            long remainingSeconds = Math.max(0, ChronoUnit.SECONDS.between(LocalDateTime.now(), expiresAt));
+            return new MockTestStartResponse(
+                    existing.getId(),
+                    mockTest.getId(),
+                    mockTest.getTitle(),
+                    mockTest.getCompany().getName(),
+                    mockTest.getDurationMinutes(),
+                    mockTest.getTotalQuestions(),
+                    existing.getStartedAt(),
+                    expiresAt,
+                    remainingSeconds,
+                    questions);
+        }
 
         MockTestAttempt attempt = MockTestAttempt.builder()
                 .user(user)
@@ -114,6 +134,7 @@ public class MockTestService {
 
         LocalDateTime expiresAt = attempt.getStartedAt()
                 .plusMinutes(mockTest.getDurationMinutes());
+        long remainingSeconds = Math.max(0, ChronoUnit.SECONDS.between(LocalDateTime.now(), expiresAt));
 
         return new MockTestStartResponse(
                 attempt.getId(),
@@ -124,6 +145,7 @@ public class MockTestService {
                 mockTest.getTotalQuestions(),
                 attempt.getStartedAt(),
                 expiresAt,
+                remainingSeconds,
                 questions);
     }
 
