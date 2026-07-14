@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext'
 import { login as loginApi } from '../api/authApi'
 
 export default function Login() {
+  const [tab, setTab] = useState('student')   // 'student' | 'recruiter'
   const [form, setForm] = useState({ email: '', password: '' })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -36,6 +37,11 @@ export default function Login() {
     padding: '11px 14px', fontSize: '14px', color: 'var(--text-primary)',
     outline: 'none', transition: 'border-color 0.15s, box-shadow 0.15s',
   }
+
+  const onFocus = e => { e.target.style.borderColor = '#059669'; e.target.style.boxShadow = '0 0 0 3px var(--accent-glow)' }
+  const onBlur  = e => { e.target.style.borderColor = 'var(--border-hover)'; e.target.style.boxShadow = 'none' }
+
+  const isRecruiter = tab === 'recruiter'
 
   return (
     <div style={{
@@ -75,11 +81,35 @@ export default function Login() {
           borderRadius: '16px', padding: '32px',
           boxShadow: '0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.06)',
         }}>
+
+          {/* ── Tab Switcher ── */}
+          <div style={{
+            display: 'flex', gap: '0', marginBottom: '28px',
+            background: 'var(--bg-primary)', borderRadius: '10px',
+            padding: '4px', border: '1px solid var(--border)',
+          }}>
+            {['student', 'recruiter'].map(t => (
+              <button
+                key={t}
+                onClick={() => { setTab(t); setError('') }}
+                style={{
+                  flex: 1, padding: '8px', fontSize: '13px', fontWeight: '600',
+                  border: 'none', borderRadius: '7px', cursor: 'pointer',
+                  background: tab === t ? '#059669' : 'transparent',
+                  color: tab === t ? '#fff' : 'var(--text-muted)',
+                  transition: 'all 0.2s',
+                }}
+              >
+                {t === 'student' ? 'Student' : 'Recruiter'}
+              </button>
+            ))}
+          </div>
+
           <h2 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '6px' }}>
             Welcome back
           </h2>
           <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '28px' }}>
-            Sign in to continue your preparation
+            {isRecruiter ? 'Recruiter Portal — Sign in to your account' : 'Sign in to continue your preparation'}
           </p>
 
           {error && (
@@ -96,15 +126,13 @@ export default function Login() {
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: '600', color: 'var(--text-secondary)', marginBottom: '7px', letterSpacing: '0.05em' }}>
-                EMAIL ADDRESS
+                {isRecruiter ? 'WORK EMAIL' : 'EMAIL ADDRESS'}
               </label>
               <input
                 type="email" required value={form.email}
                 onChange={e => setForm({ ...form, email: e.target.value })}
-                placeholder="you@college.edu"
-                style={inputStyle}
-                onFocus={e => { e.target.style.borderColor = '#059669'; e.target.style.boxShadow = '0 0 0 3px var(--accent-glow)' }}
-                onBlur={e => { e.target.style.borderColor = 'var(--border-hover)'; e.target.style.boxShadow = 'none' }}
+                placeholder={isRecruiter ? 'you@company.com' : 'you@college.edu'}
+                style={inputStyle} onFocus={onFocus} onBlur={onBlur}
               />
             </div>
             <div>
@@ -115,9 +143,7 @@ export default function Login() {
                 type="password" required value={form.password}
                 onChange={e => setForm({ ...form, password: e.target.value })}
                 placeholder="••••••••"
-                style={inputStyle}
-                onFocus={e => { e.target.style.borderColor = '#059669'; e.target.style.boxShadow = '0 0 0 3px var(--accent-glow)' }}
-                onBlur={e => { e.target.style.borderColor = 'var(--border-hover)'; e.target.style.boxShadow = 'none' }}
+                style={inputStyle} onFocus={onFocus} onBlur={onBlur}
               />
             </div>
             <button
@@ -133,7 +159,7 @@ export default function Login() {
                 transition: 'all 0.2s', marginTop: '4px',
               }}
             >
-              {loading ? '⏳ Signing in...' : 'Sign In →'}
+              {loading ? '⏳ Signing in...' : isRecruiter ? 'Sign In as Recruiter →' : 'Sign In →'}
             </button>
           </form>
 

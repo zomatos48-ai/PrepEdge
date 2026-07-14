@@ -10,6 +10,7 @@ import MockTest from './pages/MockTest'
 import MockTestExam from './pages/MockTestExam'
 import Results from './pages/Results'
 import MockTestResult from './pages/MockTestResult'
+import MockTestAnalysis from './pages/MockTestAnalysis'
 import Leaderboard from './pages/Leaderboard'
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="mock-tests/:attemptId/exam" element={<MockTestExam />} />
             <Route path="results/:attemptId" element={<Results />} />
             <Route path="mock-results/:attemptId" element={<MockTestResult />} />
+            <Route path="mock-analysis" element={<MockTestAnalysis />} />
             <Route path="leaderboard" element={<Leaderboard />} />
           </Route>
 

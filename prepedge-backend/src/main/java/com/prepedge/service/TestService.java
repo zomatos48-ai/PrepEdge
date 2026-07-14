@@ -13,8 +13,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Service
@@ -181,9 +184,10 @@ public class TestService {
         List<TestReviewQuestionResponse> questionReviews = taqList.stream()
                 .map(taq -> {
                     Question q = taq.getQuestion();
-                    List<OptionResponse> options = q.getOptions().stream()
+                    List<OptionResponse> options = new ArrayList<>(q.getOptions().stream()
                             .map(o -> new OptionResponse(o.getId(), o.getText()))
-                            .collect(Collectors.toList());
+                            .collect(Collectors.toList()));
+                    Collections.shuffle(options, new Random(q.getId()));
 
                     Long correctOptionId = q.getOptions().stream()
                             .filter(Option::isCorrect)
@@ -254,9 +258,11 @@ public class TestService {
     }
 
     private QuestionResponse toQuestionResponse(Question q) {
-        List<OptionResponse> optionResponses = q.getOptions().stream()
+        // Seeded shuffle: same questionId → same order every time
+        List<OptionResponse> optionResponses = new ArrayList<>(q.getOptions().stream()
                 .map(o -> new OptionResponse(o.getId(), o.getText()))
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
+        Collections.shuffle(optionResponses, new Random(q.getId()));
 
         return new QuestionResponse(
                 q.getId(),

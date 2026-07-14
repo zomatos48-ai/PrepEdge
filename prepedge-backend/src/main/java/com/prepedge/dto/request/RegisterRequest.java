@@ -21,4 +21,10 @@ public class RegisterRequest {
     private String password;
 
     private String college;
+
+    /** Optional — "ROLE_RECRUITER" for recruiters, defaults to ROLE_STUDENT */
+    private String role;
+
+    /** Used when role == ROLE_RECRUITER; stored in the college field */
+    private String companyName;
 }

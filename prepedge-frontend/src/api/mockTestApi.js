@@ -12,3 +12,6 @@ export const submitMockTest = (attemptId, data) =>
 
 export const getMockTestResult = (attemptId) =>
   axiosInstance.get(`/mock-tests/attempts/${attemptId}/result`)
+
+export const getMockTestHistory = () =>
+  axiosInstance.get('/mock-tests/history')

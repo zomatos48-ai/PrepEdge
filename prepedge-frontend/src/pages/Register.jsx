@@ -11,8 +11,36 @@ const COLLEGES = [
   'Amity University', 'Chandigarh University', 'LPU', 'Thapar University', 'Other'
 ]
 
+const checkPasswordStrength = (pass) => {
+  if (!pass) return { score: 0, label: '', color: 'transparent', width: '0%' }
+  let score = 0
+  if (pass.length >= 6) score += 1
+  if (pass.length >= 8) score += 1
+  if (/[0-9]/.test(pass)) score += 1
+  if (/[A-Z]/.test(pass) && /[a-z]/.test(pass)) score += 1
+  if (/[^A-Za-z0-9]/.test(pass)) score += 1
+
+  if (pass.length < 6) {
+    return { score: 0, label: 'Too Short (Min 6 characters)', color: '#ef4444', width: '20%' }
+  }
+  if (score <= 2) {
+    return { score: 1, label: 'Weak', color: '#ef4444', width: '40%' }
+  } else if (score <= 4) {
+    return { score: 2, label: 'Medium', color: '#f59e0b', width: '70%' }
+  } else {
+    return { score: 3, label: 'Strong', color: '#10b981', width: '100%' }
+  }
+}
+
 export default function Register() {
-  const [form, setForm] = useState({ username: '', email: '', password: '', college: '' })
+  const [tab, setTab] = useState('student')  // 'student' | 'recruiter'
+
+  // Student form state
+  const [studentForm, setStudentForm] = useState({ username: '', email: '', password: '', college: '' })
+
+  // Recruiter form state
+  const [recruiterForm, setRecruiterForm] = useState({ fullName: '', workEmail: '', password: '', companyName: '', designation: '' })
+
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const { login } = useAuth()
@@ -23,7 +51,24 @@ export default function Register() {
     setError('')
     setLoading(true)
     try {
-      const res = await registerApi(form)
+      let payload
+      if (tab === 'recruiter') {
+        payload = {
+          username: recruiterForm.fullName,
+          email: recruiterForm.workEmail,
+          password: recruiterForm.password,
+          role: 'ROLE_RECRUITER',
+          companyName: recruiterForm.companyName,
+        }
+      } else {
+        payload = {
+          username: studentForm.username,
+          email: studentForm.email,
+          password: studentForm.password,
+          college: studentForm.college,
+        }
+      }
+      const res = await registerApi(payload)
       login(res.data.token, {
         username: res.data.username,
         email: res.data.email,
@@ -51,7 +96,7 @@ export default function Register() {
   }
 
   const onFocus = e => { e.target.style.borderColor = '#059669'; e.target.style.boxShadow = '0 0 0 3px var(--accent-glow)' }
-  const onBlur = e => { e.target.style.borderColor = 'var(--border-hover)'; e.target.style.boxShadow = 'none' }
+  const onBlur  = e => { e.target.style.borderColor = 'var(--border-hover)'; e.target.style.boxShadow = 'none' }
 
   return (
     <div style={{
@@ -80,7 +125,7 @@ export default function Register() {
             Prep<span style={{ color: '#059669' }}>Edge</span>
           </div>
           <div style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '4px' }}>
-            Start your placement journey today
+            {tab === 'recruiter' ? 'Recruiter Portal — Find top talent' : 'Start your placement journey today'}
           </div>
         </div>
 
@@ -90,11 +135,35 @@ export default function Register() {
           borderRadius: '16px', padding: '32px',
           boxShadow: '0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.06)',
         }}>
+
+          {/* ── Tab Switcher ── */}
+          <div style={{
+            display: 'flex', gap: '0', marginBottom: '28px',
+            background: 'var(--bg-primary)', borderRadius: '10px',
+            padding: '4px', border: '1px solid var(--border)',
+          }}>
+            {['student', 'recruiter'].map(t => (
+              <button
+                key={t}
+                onClick={() => { setTab(t); setError('') }}
+                style={{
+                  flex: 1, padding: '8px', fontSize: '13px', fontWeight: '600',
+                  border: 'none', borderRadius: '7px', cursor: 'pointer',
+                  background: tab === t ? '#059669' : 'transparent',
+                  color: tab === t ? '#fff' : 'var(--text-muted)',
+                  transition: 'all 0.2s',
+                }}
+              >
+                {t === 'student' ? 'Student' : 'Recruiter'}
+              </button>
+            ))}
+          </div>
+
           <h2 style={{ fontSize: '20px', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '6px' }}>
-            Create your account
+            {tab === 'recruiter' ? 'Create Recruiter Account' : 'Create your account'}
           </h2>
           <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '28px' }}>
-            Free forever · No credit card required
+            {tab === 'recruiter' ? 'Access top placement-ready students' : 'Free forever · No credit card required'}
           </p>
 
           {error && (
@@ -109,45 +178,137 @@ export default function Register() {
           )}
 
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div>
-              <label style={labelStyle}>USERNAME</label>
-              <input
-                type="text" required value={form.username}
-                onChange={e => setForm({ ...form, username: e.target.value })}
-                placeholder="john_doe"
-                style={inputStyle} onFocus={onFocus} onBlur={onBlur}
-              />
-            </div>
-            <div>
-              <label style={labelStyle}>EMAIL ADDRESS</label>
-              <input
-                type="email" required value={form.email}
-                onChange={e => setForm({ ...form, email: e.target.value })}
-                placeholder="you@college.edu"
-                style={inputStyle} onFocus={onFocus} onBlur={onBlur}
-              />
-            </div>
-            <div>
-              <label style={labelStyle}>PASSWORD</label>
-              <input
-                type="password" required value={form.password}
-                onChange={e => setForm({ ...form, password: e.target.value })}
-                placeholder="Min 6 characters"
-                style={inputStyle} onFocus={onFocus} onBlur={onBlur}
-              />
-            </div>
-            <div>
-              <label style={labelStyle}>COLLEGE / UNIVERSITY</label>
-              <select
-                value={form.college}
-                onChange={e => setForm({ ...form, college: e.target.value })}
-                style={{ ...inputStyle, cursor: 'pointer' }}
-                onFocus={onFocus} onBlur={onBlur}
-              >
-                <option value="">Select your college</option>
-                {COLLEGES.map(c => <option key={c} value={c}>{c}</option>)}
-              </select>
-            </div>
+
+            {tab === 'student' ? (
+              /* ── Student Fields ── */
+              <>
+                <div>
+                  <label style={labelStyle}>USERNAME</label>
+                  <input
+                    type="text" required value={studentForm.username}
+                    onChange={e => setStudentForm({ ...studentForm, username: e.target.value })}
+                    placeholder="john_doe"
+                    style={inputStyle} onFocus={onFocus} onBlur={onBlur}
+                  />
+                </div>
+                <div>
+                  <label style={labelStyle}>EMAIL ADDRESS</label>
+                  <input
+                    type="email" required value={studentForm.email}
+                    onChange={e => setStudentForm({ ...studentForm, email: e.target.value })}
+                    placeholder="you@college.edu"
+                    style={inputStyle} onFocus={onFocus} onBlur={onBlur}
+                  />
+                </div>
+                <div>
+                  <label style={labelStyle}>PASSWORD</label>
+                  <input
+                    type="password" required value={studentForm.password}
+                    onChange={e => setStudentForm({ ...studentForm, password: e.target.value })}
+                    placeholder="Min 6 characters"
+                    style={inputStyle} onFocus={onFocus} onBlur={onBlur}
+                  />
+                  {studentForm.password && (
+                    <div style={{ marginTop: '8px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                        <span style={{ fontSize: '11px', fontWeight: '600', color: 'var(--text-secondary)' }}>Password Strength:</span>
+                        <span style={{ fontSize: '11px', fontWeight: '700', color: checkPasswordStrength(studentForm.password).color }}>
+                          {checkPasswordStrength(studentForm.password).label}
+                        </span>
+                      </div>
+                      <div style={{ height: '4px', width: '100%', background: 'var(--border)', borderRadius: '2px', overflow: 'hidden' }}>
+                        <div style={{
+                          height: '100%',
+                          width: checkPasswordStrength(studentForm.password).width,
+                          backgroundColor: checkPasswordStrength(studentForm.password).color,
+                          transition: 'width 0.3s ease, background-color 0.3s ease'
+                        }} />
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <label style={labelStyle}>COLLEGE / UNIVERSITY</label>
+                  <select
+                    value={studentForm.college}
+                    onChange={e => setStudentForm({ ...studentForm, college: e.target.value })}
+                    style={{ ...inputStyle, cursor: 'pointer' }}
+                    onFocus={onFocus} onBlur={onBlur}
+                  >
+                    <option value="">Select your college</option>
+                    {COLLEGES.map(c => <option key={c} value={c}>{c}</option>)}
+                  </select>
+                </div>
+              </>
+            ) : (
+              /* ── Recruiter Fields ── */
+              <>
+                <div>
+                  <label style={labelStyle}>FULL NAME</label>
+                  <input
+                    type="text" required value={recruiterForm.fullName}
+                    onChange={e => setRecruiterForm({ ...recruiterForm, fullName: e.target.value })}
+                    placeholder="Jane Smith"
+                    style={inputStyle} onFocus={onFocus} onBlur={onBlur}
+                  />
+                </div>
+                <div>
+                  <label style={labelStyle}>WORK EMAIL</label>
+                  <input
+                    type="email" required value={recruiterForm.workEmail}
+                    onChange={e => setRecruiterForm({ ...recruiterForm, workEmail: e.target.value })}
+                    placeholder="you@company.com"
+                    style={inputStyle} onFocus={onFocus} onBlur={onBlur}
+                  />
+                </div>
+                <div>
+                  <label style={labelStyle}>PASSWORD</label>
+                  <input
+                    type="password" required value={recruiterForm.password}
+                    onChange={e => setRecruiterForm({ ...recruiterForm, password: e.target.value })}
+                    placeholder="Min 6 characters"
+                    style={inputStyle} onFocus={onFocus} onBlur={onBlur}
+                  />
+                  {recruiterForm.password && (
+                    <div style={{ marginTop: '8px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                        <span style={{ fontSize: '11px', fontWeight: '600', color: 'var(--text-secondary)' }}>Password Strength:</span>
+                        <span style={{ fontSize: '11px', fontWeight: '700', color: checkPasswordStrength(recruiterForm.password).color }}>
+                          {checkPasswordStrength(recruiterForm.password).label}
+                        </span>
+                      </div>
+                      <div style={{ height: '4px', width: '100%', background: 'var(--border)', borderRadius: '2px', overflow: 'hidden' }}>
+                        <div style={{
+                          height: '100%',
+                          width: checkPasswordStrength(recruiterForm.password).width,
+                          backgroundColor: checkPasswordStrength(recruiterForm.password).color,
+                          transition: 'width 0.3s ease, background-color 0.3s ease'
+                        }} />
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <label style={labelStyle}>COMPANY NAME</label>
+                  <input
+                    type="text" required value={recruiterForm.companyName}
+                    onChange={e => setRecruiterForm({ ...recruiterForm, companyName: e.target.value })}
+                    placeholder="e.g. Infosys, TCS, Amazon"
+                    style={inputStyle} onFocus={onFocus} onBlur={onBlur}
+                  />
+                </div>
+                <div>
+                  <label style={labelStyle}>DESIGNATION <span style={{ color: 'var(--text-muted)', fontWeight: 400 }}>(optional)</span></label>
+                  <input
+                    type="text" value={recruiterForm.designation}
+                    onChange={e => setRecruiterForm({ ...recruiterForm, designation: e.target.value })}
+                    placeholder="e.g. HR Manager, Tech Lead"
+                    style={inputStyle} onFocus={onFocus} onBlur={onBlur}
+                  />
+                </div>
+              </>
+            )}
+
             <button
               type="submit" disabled={loading}
               style={{
@@ -161,7 +322,9 @@ export default function Register() {
                 transition: 'all 0.2s', marginTop: '6px',
               }}
             >
-              {loading ? '⏳ Creating account...' : 'Create Account →'}
+              {loading
+                ? '⏳ Creating account...'
+                : tab === 'recruiter' ? 'Create Recruiter Account →' : 'Create Account →'}
             </button>
           </form>
 

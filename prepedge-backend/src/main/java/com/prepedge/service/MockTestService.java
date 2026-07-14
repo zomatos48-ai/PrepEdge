@@ -14,8 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Service
@@ -260,9 +263,11 @@ public class MockTestService {
         List<MockTestResultQuestionResponse> questionResults = answerSlots.stream()
                 .map(slot -> {
                     Question q = slot.getQuestion();
-                    List<OptionResponse> options = q.getOptions().stream()
+                    // Seeded shuffle so exam and results always show options in the same order
+                    List<OptionResponse> options = new ArrayList<>(q.getOptions().stream()
                             .map(o -> new OptionResponse(o.getId(), o.getText()))
-                            .collect(Collectors.toList());
+                            .collect(Collectors.toList()));
+                    Collections.shuffle(options, new Random(q.getId()));
 
                     Long correctOptionId = q.getOptions().stream()
                             .filter(Option::isCorrect)
@@ -277,7 +282,9 @@ public class MockTestService {
                                     ? slot.getSelectedOption().getId() : null,
                             correctOptionId,
                             slot.getIsCorrect(),
-                            q.getExplanation());
+                            q.getExplanation(),
+                            q.getTopic().getSubject().getName(),
+                            q.getTopic().getName());
                 })
                 .collect(Collectors.toList());
 
@@ -302,6 +309,31 @@ public class MockTestService {
                 questionResults);
     }
 
+    public List<MockTestHistoryResponse> getMyHistory() {
+        User user = getCurrentUser();
+        List<MockTestAttempt> attempts =
+                mockTestAttemptRepository.findByUserIdOrderByStartedAtDesc(user.getId());
+
+        return attempts.stream().map(a -> {
+            MockTest mt = a.getMockTest();
+            int total = mt.getTotalQuestions();
+            int sc = a.getScore() != null ? a.getScore() : 0;
+            double pct = total == 0 ? 0
+                    : Math.round(sc * 100.0 / total * 10.0) / 10.0;
+            return new MockTestHistoryResponse(
+                    a.getId(),
+                    mt.getTitle(),
+                    mt.getCompany().getName(),
+                    mt.getCompany().getSlug(),
+                    sc,
+                    total,
+                    pct,
+                    a.getStatus().name(),
+                    a.getStartedAt(),
+                    a.getSubmittedAt());
+        }).collect(Collectors.toList());
+    }
+
     private MockTestResponse toMockTestResponse(MockTest m) {
         return new MockTestResponse(
                 m.getId(),
@@ -314,9 +346,11 @@ public class MockTestService {
     }
 
     private QuestionResponse toQuestionResponse(Question q) {
-        List<OptionResponse> options = q.getOptions().stream()
+        // Seeded shuffle: same questionId → same order every time (consistent between exam & results)
+        List<OptionResponse> options = new ArrayList<>(q.getOptions().stream()
                 .map(o -> new OptionResponse(o.getId(), o.getText()))
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
+        Collections.shuffle(options, new Random(q.getId()));
         return new QuestionResponse(
                 q.getId(), q.getText(), q.getDifficulty(),
                 q.getTopic().getName(),

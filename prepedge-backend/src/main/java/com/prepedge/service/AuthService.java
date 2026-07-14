@@ -21,21 +21,35 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
     private final AuthenticationManager authenticationManager;
+    private final EmailService emailService;
 
     public AuthResponse register(RegisterRequest request) {
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
             throw new RuntimeException("Email already registered");
         }
 
+        // Determine role — defaults to ROLE_STUDENT
+        boolean isRecruiter = "ROLE_RECRUITER".equalsIgnoreCase(request.getRole());
+        Role role = isRecruiter ? Role.ROLE_RECRUITER : Role.ROLE_STUDENT;
+
+        // Recruiters store company name in the college field
+        String collegeOrCompany = isRecruiter
+                ? request.getCompanyName()
+                : request.getCollege();
+
         User user = User.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .college(request.getCollege())
-                .role(Role.ROLE_STUDENT)
+                .college(collegeOrCompany)
+                .role(role)
                 .build();
 
         userRepository.save(user);
+
+        // Send welcome email asynchronously — does not block the response
+        emailService.sendWelcomeEmail(user);
+
         String token = jwtUtil.generateToken(user.getEmail(), user.getRole().name());
 
         return new AuthResponse(

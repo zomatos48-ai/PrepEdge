@@ -14,4 +14,6 @@ public class MockTestResultQuestionResponse {
     private Long correctOptionId;
     private Boolean correct;
     private String explanation;
+    private String subjectName;
+    private String topicName;
 }

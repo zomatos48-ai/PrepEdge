@@ -54,4 +54,9 @@ public class MockTestController {
             @PathVariable Long attemptId) {
         return ResponseEntity.ok(mockTestService.getMockTestResult(attemptId));
     }
+
+    @GetMapping("/history")
+    public ResponseEntity<List<MockTestHistoryResponse>> getMyHistory() {
+        return ResponseEntity.ok(mockTestService.getMyHistory());
+    }
 }
