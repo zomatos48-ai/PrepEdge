@@ -5,6 +5,7 @@ import com.prepedge.entity.User;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
@@ -17,6 +18,9 @@ public class EmailService {
 
     private final JavaMailSender mailSender;
 
+    @Value("${spring.mail.username}")
+    private String fromEmail;
+
     @Async
     public void sendWelcomeEmail(User user) {
         try {
@@ -24,7 +28,7 @@ public class EmailService {
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
             helper.setTo(user.getEmail());
-            helper.setFrom("PrepEdge <noreply.prepedge@gmail.com>");
+            helper.setFrom("PrepEdge <" + fromEmail + ">");
             helper.setSubject(buildSubject(user));
             helper.setText(buildHtmlBody(user), true);  // true = isHtml
 
