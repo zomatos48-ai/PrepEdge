@@ -56,9 +56,6 @@ public class EmailService {
         } catch (Exception e) {
             log.warn("Failed to send welcome email to {}: {}", user.getEmail(), e.getMessage());
         }
-    }
-
-    }
 
     private String buildSubject(User user) {
         if (user.getRole() == Role.ROLE_RECRUITER) {
