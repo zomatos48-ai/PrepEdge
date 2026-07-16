@@ -2,42 +2,62 @@ package com.prepedge.service;
 
 import com.prepedge.entity.Role;
 import com.prepedge.entity.User;
-import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.http.*;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
+import java.util.Map;
 
 @Service
-@RequiredArgsConstructor
 @Slf4j
 public class EmailService {
 
-    private final JavaMailSender mailSender;
+    private final RestTemplate restTemplate = new RestTemplate();
 
-    @Value("${spring.mail.username}")
+    @Value("${brevo.api.key:}")
+    private String brevoApiKey;
+
+    @Value("${spring.mail.username:noreply.prepedge@gmail.com}")
     private String fromEmail;
+
+    private static final String BREVO_URL = "https://api.brevo.com/v3/smtp/email";
 
     @Async
     public void sendWelcomeEmail(User user) {
+        if (brevoApiKey == null || brevoApiKey.isBlank()) {
+            log.warn("BREVO_API_KEY not set — skipping welcome email for {}", user.getEmail());
+            return;
+        }
         try {
-            MimeMessage message = mailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            headers.set("api-key", brevoApiKey);
 
-            helper.setTo(user.getEmail());
-            helper.setFrom("PrepEdge <" + fromEmail + ">");
-            helper.setSubject(buildSubject(user));
-            helper.setText(buildHtmlBody(user), true);  // true = isHtml
+            Map<String, Object> body = Map.of(
+                "sender",     Map.of("name", "PrepEdge", "email", fromEmail),
+                "to",         List.of(Map.of("email", user.getEmail(), "name", user.getUsername())),
+                "subject",    buildSubject(user),
+                "htmlContent", buildHtmlBody(user)
+            );
 
-            mailSender.send(message);
-            log.info("Welcome email sent to {}", user.getEmail());
+            HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
+            ResponseEntity<String> response = restTemplate.postForEntity(BREVO_URL, request, String.class);
+
+            if (response.getStatusCode().is2xxSuccessful()) {
+                log.info("Welcome email sent to {} via Brevo API", user.getEmail());
+            } else {
+                log.warn("Brevo API returned {} for {}", response.getStatusCode(), user.getEmail());
+            }
         } catch (Exception e) {
-            // Email failure must never break registration — log and move on
             log.warn("Failed to send welcome email to {}: {}", user.getEmail(), e.getMessage());
         }
+    }
+
     }
 
     private String buildSubject(User user) {
